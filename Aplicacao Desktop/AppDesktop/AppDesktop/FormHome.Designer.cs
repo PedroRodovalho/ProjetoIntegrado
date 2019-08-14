@@ -30,8 +30,8 @@
         {
             this.lbl_status = new System.Windows.Forms.Label();
             this.btn_logar = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
+            this.panel_session = new System.Windows.Forms.Panel();
+            this.panel_session.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_status
@@ -54,27 +54,27 @@
             this.btn_logar.Visible = false;
             this.btn_logar.Click += new System.EventHandler(this.btn_logar_Click);
             // 
-            // panel1
+            // panel_session
             // 
-            this.panel1.Controls.Add(this.lbl_status);
-            this.panel1.Controls.Add(this.btn_logar);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(829, 388);
-            this.panel1.TabIndex = 2;
+            this.panel_session.Controls.Add(this.lbl_status);
+            this.panel_session.Controls.Add(this.btn_logar);
+            this.panel_session.Location = new System.Drawing.Point(299, 174);
+            this.panel_session.Name = "panel_session";
+            this.panel_session.Size = new System.Drawing.Size(829, 388);
+            this.panel_session.TabIndex = 2;
             // 
             // FormHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 729);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel_session);
             this.Name = "FormHome";
             this.Text = "Aplicação desktop";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel_session.ResumeLayout(false);
+            this.panel_session.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -83,7 +83,7 @@
 
         private System.Windows.Forms.Label lbl_status;
         private System.Windows.Forms.Button btn_logar;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel_session;
     }
 }
 

@@ -70,5 +70,17 @@ namespace AppDesktop.Properties {
                 this["senha_banco"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool primeiro_acesso {
+            get {
+                return ((bool)(this["primeiro_acesso"]));
+            }
+            set {
+                this["primeiro_acesso"] = value;
+            }
+        }
     }
 }
