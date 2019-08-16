@@ -19,8 +19,9 @@ namespace AppDesktop
         private FormLogin formLogin = null;
         private void Form1_Load(object sender, EventArgs e)
         {
+        
             Boolean primeiro_acesso = Properties.Settings.Default.primeiro_acesso;
-
+            
             if (primeiro_acesso)
             {
                 this.Visible = false;
@@ -31,9 +32,6 @@ namespace AppDesktop
             {
                 solicitaLogin();
             }
-
-           
-
             
         }
 

@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AppDesktop.DAO
 {
@@ -41,5 +42,32 @@ namespace AppDesktop.DAO
             }
             return null;
         }
+        public void criaLogin(Usuario user)
+        {
+            var connection = new MySqlConnection(config.getConexao());
+            var command = connection.CreateCommand();
+            try
+            {
+                connection.Open();
+
+
+                command.CommandText = "insert into tb_usuario(login,senha) values('"+user.Login +"','"+ user.Senha +
+                    "'";
+                command.ExecuteNonQuery();
+
+             
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Houve um erro ao cadastrar usuário!" + ex.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open) connection.Close();
+
+            }
+            
+        }
+    
     }
 }

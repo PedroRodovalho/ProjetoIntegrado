@@ -25,7 +25,7 @@ namespace AppDesktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("127.0.0.1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ip_banco {
             get {
                 return ((string)(this["ip_banco"]));
@@ -37,7 +37,7 @@ namespace AppDesktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("root")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string usuario_banco {
             get {
                 return ((string)(this["usuario_banco"]));
@@ -49,7 +49,7 @@ namespace AppDesktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("desktop")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string database {
             get {
                 return ((string)(this["database"]));
@@ -80,6 +80,17 @@ namespace AppDesktop.Properties {
             }
             set {
                 this["primeiro_acesso"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public int permission_type {
+            get {
+                return ((int)(this["permission_type"]));
+            }
+            set {
+                this["permission_type"] = value;
             }
         }
     }
