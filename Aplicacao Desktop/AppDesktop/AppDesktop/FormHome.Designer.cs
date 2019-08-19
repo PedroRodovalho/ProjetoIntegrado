@@ -28,62 +28,66 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbl_status = new System.Windows.Forms.Label();
-            this.btn_logar = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHome));
+            this.lbl_login_pendente = new System.Windows.Forms.Label();
             this.panel_session = new System.Windows.Forms.Panel();
+            this.panel_fazer_login = new System.Windows.Forms.Panel();
+            this.lbl_fazer_login = new System.Windows.Forms.Label();
             this.panel_session.SuspendLayout();
+            this.panel_fazer_login.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lbl_status
+            // lbl_login_pendente
             // 
-            this.lbl_status.AutoSize = true;
-            this.lbl_status.Location = new System.Drawing.Point(140, 121);
-            this.lbl_status.Name = "lbl_status";
-            this.lbl_status.Size = new System.Drawing.Size(45, 13);
-            this.lbl_status.TabIndex = 0;
-            this.lbl_status.Text = "lblstatus";
-            // 
-            // btn_logar
-            // 
-            this.btn_logar.Location = new System.Drawing.Point(552, 116);
-            this.btn_logar.Name = "btn_logar";
-            this.btn_logar.Size = new System.Drawing.Size(75, 23);
-            this.btn_logar.TabIndex = 1;
-            this.btn_logar.Text = "Fazer Login";
-            this.btn_logar.UseVisualStyleBackColor = true;
-            this.btn_logar.Visible = false;
-            this.btn_logar.Click += new System.EventHandler(this.btn_logar_Click);
+            resources.ApplyResources(this.lbl_login_pendente, "lbl_login_pendente");
+            this.lbl_login_pendente.Name = "lbl_login_pendente";
             // 
             // panel_session
             // 
-            this.panel_session.Controls.Add(this.lbl_status);
-            this.panel_session.Controls.Add(this.btn_logar);
-            this.panel_session.Location = new System.Drawing.Point(299, 174);
+            resources.ApplyResources(this.panel_session, "panel_session");
+            this.panel_session.Controls.Add(this.lbl_login_pendente);
+            this.panel_session.Controls.Add(this.panel_fazer_login);
             this.panel_session.Name = "panel_session";
-            this.panel_session.Size = new System.Drawing.Size(829, 388);
-            this.panel_session.TabIndex = 2;
+            // 
+            // panel_fazer_login
+            // 
+            resources.ApplyResources(this.panel_fazer_login, "panel_fazer_login");
+            this.panel_fazer_login.BackColor = System.Drawing.Color.Maroon;
+            this.panel_fazer_login.Controls.Add(this.lbl_fazer_login);
+            this.panel_fazer_login.Name = "panel_fazer_login";
+            this.panel_fazer_login.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_fazer_login_Paint);
+            // 
+            // lbl_fazer_login
+            // 
+            resources.ApplyResources(this.lbl_fazer_login, "lbl_fazer_login");
+            this.lbl_fazer_login.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_fazer_login.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbl_fazer_login.Name = "lbl_fazer_login";
+            this.lbl_fazer_login.Click += new System.EventHandler(this.lbl_fazer_login_Click);
+            this.lbl_fazer_login.MouseEnter += new System.EventHandler(this.lbl_fazer_login_MouseEnter);
+            this.lbl_fazer_login.MouseLeave += new System.EventHandler(this.lbl_fazer_login_MouseLeave);
             // 
             // FormHome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 729);
             this.Controls.Add(this.panel_session);
             this.Name = "FormHome";
-            this.Text = "Aplicação desktop";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel_session.ResumeLayout(false);
             this.panel_session.PerformLayout();
+            this.panel_fazer_login.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lbl_status;
-        private System.Windows.Forms.Button btn_logar;
+        private System.Windows.Forms.Label lbl_login_pendente;
         private System.Windows.Forms.Panel panel_session;
+        private System.Windows.Forms.Panel panel_fazer_login;
+        private System.Windows.Forms.Label lbl_fazer_login;
     }
 }
 

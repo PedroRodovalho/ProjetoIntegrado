@@ -828,11 +828,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(140, 75);
+            this.label5.Location = new System.Drawing.Point(172, 85);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(188, 13);
+            this.label5.Size = new System.Drawing.Size(378, 13);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Configuração Concluida com sucesso.";
+            this.label5.Text = "Configuração Concluida com sucesso. O sistema está pronto para ser utilizado.\r\n";
             // 
             // FormPrimeiroAcesso
             // 

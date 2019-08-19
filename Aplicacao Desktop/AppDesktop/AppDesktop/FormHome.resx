@@ -117,4 +117,139 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lbl_login_pendente.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;panel_fazer_login.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Aplicação desktop</value>
+  </data>
+  <data name="lbl_fazer_login.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Impact, 18pt</value>
+  </data>
+  <data name="&gt;&gt;panel_session.Name" xml:space="preserve">
+    <value>panel_session</value>
+  </data>
+  <data name="lbl_fazer_login.Text" xml:space="preserve">
+    <value>Fazer Login</value>
+  </data>
+  <data name="lbl_fazer_login.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbl_fazer_login.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_login_pendente.Name" xml:space="preserve">
+    <value>lbl_login_pendente</value>
+  </data>
+  <data name="&gt;&gt;lbl_fazer_login.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel_session.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lbl_fazer_login.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel_fazer_login.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1350, 729</value>
+  </data>
+  <data name="panel_fazer_login.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lbl_fazer_login.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 57</value>
+  </data>
+  <data name="&gt;&gt;panel_fazer_login.Name" xml:space="preserve">
+    <value>panel_fazer_login</value>
+  </data>
+  <data name="panel_fazer_login.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 69</value>
+  </data>
+  <data name="&gt;&gt;lbl_fazer_login.Name" xml:space="preserve">
+    <value>lbl_fazer_login</value>
+  </data>
+  <data name="panel_session.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 24pt</value>
+  </data>
+  <data name="panel_fazer_login.Location" type="System.Drawing.Point, System.Drawing">
+    <value>327, 164</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormHome</value>
+  </data>
+  <data name="&gt;&gt;panel_session.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_login_pendente.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lbl_login_pendente.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Bahnschrift Condensed, 24pt</value>
+  </data>
+  <data name="&gt;&gt;lbl_fazer_login.Parent" xml:space="preserve">
+    <value>panel_fazer_login</value>
+  </data>
+  <data name="&gt;&gt;panel_fazer_login.Parent" xml:space="preserve">
+    <value>panel_session</value>
+  </data>
+  <data name="lbl_login_pendente.Text" xml:space="preserve">
+    <value>FAÇA LOGIN PARA UTILIZAR O SISTEMA
+</value>
+  </data>
+  <data name="lbl_fazer_login.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 4</value>
+  </data>
+  <data name="lbl_login_pendente.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="panel_session.Size" type="System.Drawing.Size, System.Drawing">
+    <value>829, 388</value>
+  </data>
+  <data name="panel_session.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;panel_session.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbl_login_pendente.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panel_fazer_login.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lbl_login_pendente.Size" type="System.Drawing.Size, System.Drawing">
+    <value>399, 39</value>
+  </data>
+  <data name="lbl_login_pendente.Location" type="System.Drawing.Point, System.Drawing">
+    <value>215, 100</value>
+  </data>
+  <data name="lbl_login_pendente.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lbl_login_pendente.Parent" xml:space="preserve">
+    <value>panel_session</value>
+  </data>
+  <data name="panel_session.Location" type="System.Drawing.Point, System.Drawing">
+    <value>286, 144</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en-US</value>
+  </metadata>
 </root>

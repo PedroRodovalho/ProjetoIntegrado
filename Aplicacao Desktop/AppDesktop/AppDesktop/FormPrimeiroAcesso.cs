@@ -221,7 +221,7 @@ namespace AppDesktop
             Properties.Settings.Default.usuario_banco = txt_user_banco.Text;
             Properties.Settings.Default.senha_banco = txt_senha_banco.Text;
 
-            Properties.Settings.Default.Save();
+            
             panel_etapa2.Visible = false;
             panel_etapa3.Visible = true;
             lbl_etapa.Text = "Passo 3/5";
@@ -242,12 +242,12 @@ namespace AppDesktop
             {
                 //progressBar.Increment(10);
                 btn_next.PerformClick();
-                Properties.Settings.Default.permission_type = 4;
+                Properties.Settings.Default.Permission_Type = 4;
             }
             else if (radio_permissao3.Checked)
             {
                 btn_next.PerformClick();
-                Properties.Settings.Default.permission_type = 3;
+                Properties.Settings.Default.Permission_Type = 3;
 
 
             }
@@ -255,13 +255,14 @@ namespace AppDesktop
             if (radio_permissao2.Checked)
             {
                 group_permission.Enabled = false;
-                Properties.Settings.Default.permission_type = 2;
+                Properties.Settings.Default.Permission_Type = 2;
             }
             else
             {
-                Properties.Settings.Default.permission_type = 1;
+                Properties.Settings.Default.Permission_Type = 1;
             }
-            Properties.Settings.Default.Save();
+            
+           
 
         }
         public void etapa5()
@@ -279,10 +280,11 @@ namespace AppDesktop
         public void finalizaConfig()
         {
 
-            this.Close();
             main.Visible = true;
-            Properties.Settings.Default.primeiro_acesso = false;
-            Properties.Settings.Default.Save();
+            
+            
+
+            this.Close();
         }
 
         private void radio_permissao4_CheckedChanged(object sender, EventArgs e)

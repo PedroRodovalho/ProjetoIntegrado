@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config_start>
+  <ip_banco></ip_banco>
+  <Usuario_banco></Usuario_banco>
+  <Database> </Database>
+  <Senha_banco></Senha_banco>
+  <Permission_Type></Permission_Type>
+  <primeiro_acesso>true</primeiro_acesso>
+</config_start>

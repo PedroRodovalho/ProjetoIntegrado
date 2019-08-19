@@ -13,7 +13,7 @@ namespace AppDesktop.Properties {
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.8.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+    public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
@@ -38,12 +38,12 @@ namespace AppDesktop.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string usuario_banco {
+        public string senha_banco {
             get {
-                return ((string)(this["usuario_banco"]));
+                return ((string)(this["senha_banco"]));
             }
             set {
-                this["usuario_banco"] = value;
+                this["senha_banco"] = value;
             }
         }
         
@@ -62,12 +62,12 @@ namespace AppDesktop.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string senha_banco {
+        public string usuario_banco {
             get {
-                return ((string)(this["senha_banco"]));
+                return ((string)(this["usuario_banco"]));
             }
             set {
-                this["senha_banco"] = value;
+                this["usuario_banco"] = value;
             }
         }
         
@@ -85,12 +85,13 @@ namespace AppDesktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public int permission_type {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Permission_Type {
             get {
-                return ((int)(this["permission_type"]));
+                return ((int)(this["Permission_Type"]));
             }
             set {
-                this["permission_type"] = value;
+                this["Permission_Type"] = value;
             }
         }
     }

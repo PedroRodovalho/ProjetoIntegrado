@@ -20,6 +20,7 @@ namespace AppDesktop.DAO
             string user = Properties.Settings.Default.usuario_banco;
             string senha = Properties.Settings.Default.senha_banco;
 
+            
             conexao = "Server=" + server + ";DataBase=" + database + ";Uid=" + user + ";Password=" + senha;
             
 
