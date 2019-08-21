@@ -152,6 +152,7 @@ namespace AppDesktop
 
         private void lbl_fechar_Click(object sender, EventArgs e)
         {
+            
             this.DialogResult = DialogResult.Abort;
 
         }
@@ -221,12 +222,13 @@ namespace AppDesktop
             Properties.Settings.Default.usuario_banco = txt_user_banco.Text;
             Properties.Settings.Default.senha_banco = txt_senha_banco.Text;
 
-            
+            Properties.Settings.Default.Save();
             panel_etapa2.Visible = false;
             panel_etapa3.Visible = true;
             lbl_etapa.Text = "Passo 3/5";
 
-
+            Tabelas formTabelas = new Tabelas();
+            formTabelas.ShowDialog();
             progressBar.Increment(10);
         }
         public void etapa4()

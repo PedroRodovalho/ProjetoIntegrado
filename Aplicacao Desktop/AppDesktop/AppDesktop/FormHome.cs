@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormAnimation;
 
 namespace AppDesktop
 {
@@ -21,11 +22,11 @@ namespace AppDesktop
         private void Form1_Load(object sender, EventArgs e)
         {
 
-           // Boolean primeiro_acesso = true;
+            //Boolean primeiro_acesso = true;
 
 
             Boolean primeiro_acesso = Properties.Settings.Default.primeiro_acesso;
-           if (primeiro_acesso)
+            if (primeiro_acesso)
             {
                 this.Visible = false;
                 FormPrimeiroAcesso formPrimeiroAcesso = new FormPrimeiroAcesso(this);
@@ -33,7 +34,7 @@ namespace AppDesktop
                 Properties.Settings.Default.primeiro_acesso = false;
                 Properties.Settings.Default.Save();
 
-                if(result == DialogResult.Abort)
+                if (result == DialogResult.Abort)
                 {
                     this.Visible = true;
                 }
@@ -49,7 +50,7 @@ namespace AppDesktop
         public void solicitaLogin()
         {
             int Permission_Type = Properties.Settings.Default.Permission_Type;
-          
+
             if (Permission_Type == 1 || Permission_Type == 2)
             {
 
@@ -59,7 +60,7 @@ namespace AppDesktop
 
                 if (session == DialogResult.OK)
                 {
-                    lbl_login_pendente.Text = "ENTROU";
+                    //lbl_login_pendente.Text = "ENTROU";
                     lbl_fazer_login.Visible = false;
 
                     inicializaSistema();
@@ -80,7 +81,23 @@ namespace AppDesktop
 
         public void inicializaSistema()
         {
+            panel_menu.Visible = true;
+            /// timer1.Enabled = true;
+            // timer1.Start();
+            new Animator2D(new Path2D(new Float2D(-100, 172), icon_caixa.Location.ToFloat2D(), 600))
+            .Play(icon_caixa, Animator2D.KnownProperties.Location);
+ 
+            new Animator2D(new Path2D(new Float2D(-100, 172), icon_caixa.Location.ToFloat2D(), 600))
+            .Play(icon_caixa, Animator2D.KnownProperties.Location);
+
             
+
+            new Animator2D(new Path2D(new Float2D(-100, 172), icon_cliente.Location.ToFloat2D(), 800))
+            .Play(icon_cliente, Animator2D.KnownProperties.Location);
+            new Animator2D(new Path2D(new Float2D(-100, 172), icon_financeiro.Location.ToFloat2D(), 1000))
+            .Play(icon_financeiro, Animator2D.KnownProperties.Location);
+            new Animator2D(new Path2D(new Float2D(-100, 172), icon_preferencias.Location.ToFloat2D(), 1200))
+            .Play(icon_preferencias, Animator2D.KnownProperties.Location);
         }
 
         private void btn_logar_Click(object sender, EventArgs e)
@@ -128,6 +145,20 @@ namespace AppDesktop
         private void lbl_fazer_login_Click(object sender, EventArgs e)
         {
             solicitaLogin();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+           if(timer1.Interval == 599)
+            {
+                timer1.Stop();
+                timer2.Start();
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }
