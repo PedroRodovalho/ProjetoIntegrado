@@ -34,24 +34,18 @@
             this.panel_session = new System.Windows.Forms.Panel();
             this.panel_fazer_login = new System.Windows.Forms.Panel();
             this.lbl_fazer_login = new System.Windows.Forms.Label();
-            this.panel_menu = new System.Windows.Forms.Panel();
-            this.icon_preferencias = new System.Windows.Forms.PictureBox();
-            this.icon_financeiro = new System.Windows.Forms.PictureBox();
-            this.icon_cliente = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbl_cliente = new System.Windows.Forms.Label();
-            this.lbl_caixa = new System.Windows.Forms.Label();
-            this.icon_caixa = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel_session.SuspendLayout();
             this.panel_fazer_login.SuspendLayout();
-            this.panel_menu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_preferencias)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_financeiro)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_cliente)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_caixa)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_login_pendente
@@ -84,63 +78,6 @@
             this.lbl_fazer_login.MouseEnter += new System.EventHandler(this.lbl_fazer_login_MouseEnter);
             this.lbl_fazer_login.MouseLeave += new System.EventHandler(this.lbl_fazer_login_MouseLeave);
             // 
-            // panel_menu
-            // 
-            this.panel_menu.Controls.Add(this.icon_preferencias);
-            this.panel_menu.Controls.Add(this.icon_financeiro);
-            this.panel_menu.Controls.Add(this.icon_cliente);
-            this.panel_menu.Controls.Add(this.label2);
-            this.panel_menu.Controls.Add(this.label1);
-            this.panel_menu.Controls.Add(this.lbl_cliente);
-            this.panel_menu.Controls.Add(this.lbl_caixa);
-            this.panel_menu.Controls.Add(this.icon_caixa);
-            resources.ApplyResources(this.panel_menu, "panel_menu");
-            this.panel_menu.Name = "panel_menu";
-            // 
-            // icon_preferencias
-            // 
-            resources.ApplyResources(this.icon_preferencias, "icon_preferencias");
-            this.icon_preferencias.Name = "icon_preferencias";
-            this.icon_preferencias.TabStop = false;
-            // 
-            // icon_financeiro
-            // 
-            resources.ApplyResources(this.icon_financeiro, "icon_financeiro");
-            this.icon_financeiro.Name = "icon_financeiro";
-            this.icon_financeiro.TabStop = false;
-            // 
-            // icon_cliente
-            // 
-            resources.ApplyResources(this.icon_cliente, "icon_cliente");
-            this.icon_cliente.Name = "icon_cliente";
-            this.icon_cliente.TabStop = false;
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            // 
-            // lbl_cliente
-            // 
-            resources.ApplyResources(this.lbl_cliente, "lbl_cliente");
-            this.lbl_cliente.Name = "lbl_cliente";
-            // 
-            // lbl_caixa
-            // 
-            resources.ApplyResources(this.lbl_caixa, "lbl_caixa");
-            this.lbl_caixa.Name = "lbl_caixa";
-            // 
-            // icon_caixa
-            // 
-            resources.ApplyResources(this.icon_caixa, "icon_caixa");
-            this.icon_caixa.Name = "icon_caixa";
-            this.icon_caixa.TabStop = false;
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
@@ -152,26 +89,58 @@
             this.timer2.Enabled = true;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // menuStrip1
+            // 
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
+            this.menuStrip1.Name = "menuStrip1";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.panel2);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Teal;
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.label1);
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Name = "panel2";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Name = "label1";
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            // 
             // FormHome
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.panel_menu);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel_session);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormHome";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel_session.ResumeLayout(false);
             this.panel_session.PerformLayout();
             this.panel_fazer_login.ResumeLayout(false);
-            this.panel_menu.ResumeLayout(false);
-            this.panel_menu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_preferencias)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_financeiro)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_cliente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_caixa)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -181,17 +150,13 @@
         private System.Windows.Forms.Panel panel_session;
         private System.Windows.Forms.Panel panel_fazer_login;
         private System.Windows.Forms.Label lbl_fazer_login;
-        private System.Windows.Forms.Panel panel_menu;
-        private System.Windows.Forms.PictureBox icon_caixa;
-        private System.Windows.Forms.PictureBox icon_preferencias;
-        private System.Windows.Forms.PictureBox icon_financeiro;
-        private System.Windows.Forms.PictureBox icon_cliente;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbl_cliente;
-        private System.Windows.Forms.Label lbl_caixa;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
