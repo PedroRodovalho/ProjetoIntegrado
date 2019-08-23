@@ -42,18 +42,20 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.linkLabel1.Location = new System.Drawing.Point(151, 120);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(108, 13);
             this.linkLabel1.TabIndex = 0;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Esqueci minha senha";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // btn_entrar
             // 
             this.btn_entrar.Location = new System.Drawing.Point(142, 151);
             this.btn_entrar.Name = "btn_entrar";
-            this.btn_entrar.Size = new System.Drawing.Size(75, 23);
+            this.btn_entrar.Size = new System.Drawing.Size(75, 28);
             this.btn_entrar.TabIndex = 5;
             this.btn_entrar.Text = "Entrar";
             this.btn_entrar.UseVisualStyleBackColor = true;
@@ -62,6 +64,7 @@
             // lbl_usuario
             // 
             this.lbl_usuario.AutoSize = true;
+            this.lbl_usuario.ForeColor = System.Drawing.Color.White;
             this.lbl_usuario.Location = new System.Drawing.Point(64, 74);
             this.lbl_usuario.Name = "lbl_usuario";
             this.lbl_usuario.Size = new System.Drawing.Size(43, 13);
@@ -70,21 +73,26 @@
             // 
             // txt_usuario
             // 
+            this.txt_usuario.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txt_usuario.Location = new System.Drawing.Point(116, 71);
             this.txt_usuario.Name = "txt_usuario";
             this.txt_usuario.Size = new System.Drawing.Size(143, 20);
             this.txt_usuario.TabIndex = 3;
+            this.txt_usuario.TextChanged += new System.EventHandler(this.txt_usuario_TextChanged);
             // 
             // txt_senha
             // 
+            this.txt_senha.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txt_senha.Location = new System.Drawing.Point(116, 97);
             this.txt_senha.Name = "txt_senha";
             this.txt_senha.Size = new System.Drawing.Size(143, 20);
             this.txt_senha.TabIndex = 4;
+            this.txt_senha.UseSystemPasswordChar = true;
             // 
             // lbl_senha
             // 
             this.lbl_senha.AutoSize = true;
+            this.lbl_senha.ForeColor = System.Drawing.Color.White;
             this.lbl_senha.Location = new System.Drawing.Point(69, 100);
             this.lbl_senha.Name = "lbl_senha";
             this.lbl_senha.Size = new System.Drawing.Size(38, 13);
@@ -93,6 +101,7 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.BackColor = System.Drawing.Color.Gray;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 216);
@@ -103,6 +112,7 @@
             // 
             // toolStripStatusLabel1
             // 
+            this.toolStripStatusLabel1.BackColor = System.Drawing.Color.Transparent;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
@@ -112,6 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(354, 238);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.txt_senha);

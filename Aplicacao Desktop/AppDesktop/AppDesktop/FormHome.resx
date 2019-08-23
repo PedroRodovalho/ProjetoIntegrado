@@ -177,6 +177,9 @@
   <data name="panel_session.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
+  <data name="panel_session.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;panel_session.Name" xml:space="preserve">
     <value>panel_session</value>
   </data>
@@ -187,7 +190,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel_session.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;lbl_fazer_login.Name" xml:space="preserve">
     <value>lbl_fazer_login</value>
@@ -255,126 +258,6 @@
   <data name="&gt;&gt;lbl_fazer_login.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;icon_preferencias.Name" xml:space="preserve">
-    <value>icon_preferencias</value>
-  </data>
-  <data name="&gt;&gt;icon_preferencias.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;icon_preferencias.Parent" xml:space="preserve">
-    <value>panel_menu</value>
-  </data>
-  <data name="&gt;&gt;icon_preferencias.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;icon_financeiro.Name" xml:space="preserve">
-    <value>icon_financeiro</value>
-  </data>
-  <data name="&gt;&gt;icon_financeiro.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;icon_financeiro.Parent" xml:space="preserve">
-    <value>panel_menu</value>
-  </data>
-  <data name="&gt;&gt;icon_financeiro.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;icon_cliente.Name" xml:space="preserve">
-    <value>icon_cliente</value>
-  </data>
-  <data name="&gt;&gt;icon_cliente.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;icon_cliente.Parent" xml:space="preserve">
-    <value>panel_menu</value>
-  </data>
-  <data name="&gt;&gt;icon_cliente.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>panel_menu</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>panel_menu</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;lbl_cliente.Name" xml:space="preserve">
-    <value>lbl_cliente</value>
-  </data>
-  <data name="&gt;&gt;lbl_cliente.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_cliente.Parent" xml:space="preserve">
-    <value>panel_menu</value>
-  </data>
-  <data name="&gt;&gt;lbl_cliente.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;lbl_caixa.Name" xml:space="preserve">
-    <value>lbl_caixa</value>
-  </data>
-  <data name="&gt;&gt;lbl_caixa.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_caixa.Parent" xml:space="preserve">
-    <value>panel_menu</value>
-  </data>
-  <data name="&gt;&gt;lbl_caixa.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;icon_caixa.Name" xml:space="preserve">
-    <value>icon_caixa</value>
-  </data>
-  <data name="&gt;&gt;icon_caixa.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;icon_caixa.Parent" xml:space="preserve">
-    <value>panel_menu</value>
-  </data>
-  <data name="&gt;&gt;icon_caixa.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="panel_menu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 114</value>
-  </data>
-  <data name="panel_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1103, 473</value>
-  </data>
-  <data name="panel_menu.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="panel_menu.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;panel_menu.Name" xml:space="preserve">
-    <value>panel_menu</value>
-  </data>
-  <data name="&gt;&gt;panel_menu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel_menu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panel_menu.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="icon_preferencias.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -403,7 +286,7 @@
     <value>NoControl</value>
   </data>
   <data name="icon_preferencias.Location" type="System.Drawing.Point, System.Drawing">
-    <value>774, 172</value>
+    <value>318, 13</value>
   </data>
   <data name="icon_preferencias.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 64</value>
@@ -458,7 +341,7 @@
     <value>NoControl</value>
   </data>
   <data name="icon_financeiro.Location" type="System.Drawing.Point, System.Drawing">
-    <value>674, 172</value>
+    <value>221, 13</value>
   </data>
   <data name="icon_financeiro.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 64</value>
@@ -481,71 +364,6 @@
   <data name="&gt;&gt;icon_financeiro.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="icon_cliente.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        ZY45XAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="icon_cliente.Location" type="System.Drawing.Point, System.Drawing">
-    <value>574, 172</value>
-  </data>
-  <data name="icon_cliente.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 64</value>
-  </data>
-  <data name="icon_cliente.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>AutoSize</value>
-  </data>
-  <data name="icon_cliente.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;icon_cliente.Name" xml:space="preserve">
-    <value>icon_cliente</value>
-  </data>
-  <data name="&gt;&gt;icon_cliente.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;icon_cliente.Parent" xml:space="preserve">
-    <value>panel_menu</value>
-  </data>
-  <data name="&gt;&gt;icon_cliente.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -553,7 +371,7 @@
     <value>NoControl</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>763, 239</value>
+    <value>316, 80</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 13</value>
@@ -575,93 +393,6 @@
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>673, 239</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 13</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Financeiro</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>panel_menu</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="lbl_cliente.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbl_cliente.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbl_cliente.Location" type="System.Drawing.Point, System.Drawing">
-    <value>582, 239</value>
-  </data>
-  <data name="lbl_cliente.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 13</value>
-  </data>
-  <data name="lbl_cliente.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="lbl_cliente.Text" xml:space="preserve">
-    <value>Clientes</value>
-  </data>
-  <data name="&gt;&gt;lbl_cliente.Name" xml:space="preserve">
-    <value>lbl_cliente</value>
-  </data>
-  <data name="&gt;&gt;lbl_cliente.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_cliente.Parent" xml:space="preserve">
-    <value>panel_menu</value>
-  </data>
-  <data name="&gt;&gt;lbl_cliente.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="lbl_caixa.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbl_caixa.Location" type="System.Drawing.Point, System.Drawing">
-    <value>489, 239</value>
-  </data>
-  <data name="lbl_caixa.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 13</value>
-  </data>
-  <data name="lbl_caixa.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="lbl_caixa.Text" xml:space="preserve">
-    <value>Caixa</value>
-  </data>
-  <data name="&gt;&gt;lbl_caixa.Name" xml:space="preserve">
-    <value>lbl_caixa</value>
-  </data>
-  <data name="&gt;&gt;lbl_caixa.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_caixa.Parent" xml:space="preserve">
-    <value>panel_menu</value>
-  </data>
-  <data name="&gt;&gt;lbl_caixa.ZOrder" xml:space="preserve">
-    <value>6</value>
   </data>
   <data name="icon_caixa.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -893,7 +624,7 @@
     <value>NoControl</value>
   </data>
   <data name="icon_caixa.Location" type="System.Drawing.Point, System.Drawing">
-    <value>474, 172</value>
+    <value>21, 13</value>
   </data>
   <data name="icon_caixa.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 65</value>
@@ -914,14 +645,268 @@
     <value>panel_menu</value>
   </data>
   <data name="&gt;&gt;icon_caixa.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>229, 80</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 13</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Financeiro</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>panel_menu</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="timer2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>104, 17</value>
-  </metadata>
+  <data name="icon_cliente.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        ZY45XAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="icon_cliente.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 13</value>
+  </data>
+  <data name="icon_cliente.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 64</value>
+  </data>
+  <data name="icon_cliente.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>AutoSize</value>
+  </data>
+  <data name="icon_cliente.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;icon_cliente.Name" xml:space="preserve">
+    <value>icon_cliente</value>
+  </data>
+  <data name="&gt;&gt;icon_cliente.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;icon_cliente.Parent" xml:space="preserve">
+    <value>panel_menu</value>
+  </data>
+  <data name="&gt;&gt;icon_cliente.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lbl_cliente.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_cliente.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbl_cliente.Location" type="System.Drawing.Point, System.Drawing">
+    <value>131, 80</value>
+  </data>
+  <data name="lbl_cliente.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 13</value>
+  </data>
+  <data name="lbl_cliente.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lbl_cliente.Text" xml:space="preserve">
+    <value>Clientes</value>
+  </data>
+  <data name="&gt;&gt;lbl_cliente.Name" xml:space="preserve">
+    <value>lbl_cliente</value>
+  </data>
+  <data name="&gt;&gt;lbl_cliente.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_cliente.Parent" xml:space="preserve">
+    <value>panel_menu</value>
+  </data>
+  <data name="&gt;&gt;lbl_cliente.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lbl_caixa.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_caixa.Location" type="System.Drawing.Point, System.Drawing">
+    <value>36, 80</value>
+  </data>
+  <data name="lbl_caixa.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 13</value>
+  </data>
+  <data name="lbl_caixa.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lbl_caixa.Text" xml:space="preserve">
+    <value>Caixa</value>
+  </data>
+  <data name="&gt;&gt;lbl_caixa.Name" xml:space="preserve">
+    <value>lbl_caixa</value>
+  </data>
+  <data name="&gt;&gt;lbl_caixa.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_caixa.Parent" xml:space="preserve">
+    <value>panel_menu</value>
+  </data>
+  <data name="&gt;&gt;lbl_caixa.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="panel_menu.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="panel_menu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 32</value>
+  </data>
+  <data name="panel_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1326, 100</value>
+  </data>
+  <data name="panel_menu.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="panel_menu.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;panel_menu.Name" xml:space="preserve">
+    <value>panel_menu</value>
+  </data>
+  <data name="&gt;&gt;panel_menu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel_menu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel_menu.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panel_home.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="tab.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="tab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 126</value>
+  </data>
+  <data name="tab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1320, 567</value>
+  </data>
+  <data name="tab.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tab.Name" xml:space="preserve">
+    <value>tab</value>
+  </data>
+  <data name="&gt;&gt;tab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tab.Parent" xml:space="preserve">
+    <value>panel_home</value>
+  </data>
+  <data name="&gt;&gt;tab.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel_home.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="panel_home.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1326, 696</value>
+  </data>
+  <data name="panel_home.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="panel_home.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;panel_home.Name" xml:space="preserve">
+    <value>panel_home</value>
+  </data>
+  <data name="&gt;&gt;panel_home.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel_home.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel_home.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label_menu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>65, 12</value>
+  </data>
+  <data name="label_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="label_menu.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label_menu.Text" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="label_menu.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="label_menu.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;label_menu.Name" xml:space="preserve">
+    <value>label_menu</value>
+  </data>
+  <data name="&gt;&gt;label_menu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label_menu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label_menu.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -933,18 +918,6 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Aplicação desktop</value>
-  </data>
-  <data name="&gt;&gt;timer1.Name" xml:space="preserve">
-    <value>timer1</value>
-  </data>
-  <data name="&gt;&gt;timer1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;timer2.Name" xml:space="preserve">
-    <value>timer2</value>
-  </data>
-  <data name="&gt;&gt;timer2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormHome</value>

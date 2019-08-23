@@ -56,6 +56,24 @@
     <Compile Include="DAO\Config.cs" />
     <Compile Include="DAO\CriaTabelas.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="FormCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCaixa.Designer.cs">
+      <DependentUpon>FormCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCliente.Designer.cs">
+      <DependentUpon>FormCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFinanceiro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFinanceiro.Designer.cs">
+      <DependentUpon>FormFinanceiro.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +92,12 @@
     <Compile Include="FormPrimeiroAcesso.Designer.cs">
       <DependentUpon>FormPrimeiroAcesso.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRecuperaSenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecuperaSenha.Designer.cs">
+      <DependentUpon>FormRecuperaSenha.cs</DependentUpon>
+    </Compile>
     <Compile Include="IniFile.cs" />
     <Compile Include="Messages.cs" />
     <Compile Include="Program.cs" />
@@ -90,7 +114,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="teste.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="teste.Designer.cs">
+      <DependentUpon>teste.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usuario.cs" />
+    <EmbeddedResource Include="FormCaixa.resx">
+      <DependentUpon>FormCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCliente.resx">
+      <DependentUpon>FormCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFinanceiro.resx">
+      <DependentUpon>FormFinanceiro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormHome.en-US.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrimeiroAcesso.resx">
       <DependentUpon>FormPrimeiroAcesso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRecuperaSenha.resx">
+      <DependentUpon>FormRecuperaSenha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tabelas.resx">
       <DependentUpon>Tabelas.cs</DependentUpon>
@@ -115,6 +157,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="teste.resx">
+      <DependentUpon>teste.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -62,11 +62,15 @@ namespace AppDesktop
                 {
                     //lbl_login_pendente.Text = "ENTROU";
                     lbl_fazer_login.Visible = false;
-
+                    if (panel_session.Visible)
+                    {
+                        panel_session.Visible = false;
+                    }
                     inicializaSistema();
                 }
                 else
                 {
+                    panel_session.Visible = true;
                     lbl_login_pendente.Visible = true;
                     panel_fazer_login.Visible = true;
                     lbl_fazer_login.Visible = true;
@@ -86,18 +90,20 @@ namespace AppDesktop
             // timer1.Start();
             new Animator2D(new Path2D(new Float2D(-100, 172), icon_caixa.Location.ToFloat2D(), 600))
             .Play(icon_caixa, Animator2D.KnownProperties.Location);
- 
-            new Animator2D(new Path2D(new Float2D(-100, 172), icon_caixa.Location.ToFloat2D(), 600))
-            .Play(icon_caixa, Animator2D.KnownProperties.Location);
-
-            
-
             new Animator2D(new Path2D(new Float2D(-100, 172), icon_cliente.Location.ToFloat2D(), 800))
             .Play(icon_cliente, Animator2D.KnownProperties.Location);
             new Animator2D(new Path2D(new Float2D(-100, 172), icon_financeiro.Location.ToFloat2D(), 1000))
             .Play(icon_financeiro, Animator2D.KnownProperties.Location);
             new Animator2D(new Path2D(new Float2D(-100, 172), icon_preferencias.Location.ToFloat2D(), 1200))
             .Play(icon_preferencias, Animator2D.KnownProperties.Location);
+
+
+            panel_menu.Visible = true;
+            panel_home.Visible = true;
+            label_menu.Visible = true;
+
+
+
         }
 
         private void btn_logar_Click(object sender, EventArgs e)
@@ -147,18 +153,81 @@ namespace AppDesktop
             solicitaLogin();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-           if(timer1.Interval == 599)
-            {
-                timer1.Stop();
-                timer2.Start();
-            }
-        }
+    
 
-        private void timer2_Tick(object sender, EventArgs e)
-        {
 
+
+
+    private void icon_caixa_MouseEnter(object sender, EventArgs e)
+    {
+        icon_caixa.Size = new Size(icon_caixa.Size.Width + 10, icon_caixa.Size.Height + 10);
+        icon_caixa.Location = new Point(icon_caixa.Location.X - 5, icon_caixa.Location.Y - 5);
+    }
+
+
+    private void icon_caixa_MouseLeave(object sender, EventArgs e)
+    {
+        icon_caixa.Size = new Size(icon_caixa.Size.Width - 10, icon_caixa.Size.Height - 10);
+        icon_caixa.Location = new Point(icon_caixa.Location.X + 5, icon_caixa.Location.Y + 5);
+    }
+
+    private void panel_session_Paint(object sender, PaintEventArgs e)
+    {
+        using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle,
+                                                          Color.Gray,
+                                                          Color.Black,
+                                                          90F))
+        {
+            e.Graphics.FillRectangle(brush, this.ClientRectangle);
         }
     }
+
+
+    FormCaixa formCaixa = null;
+    FormFinanceiro formFinanceiro = null;
+    FormCliente formCliente = null;
+
+        TabPage tab_caixa = new TabPage();
+        TabPage tab_cliente = new TabPage();
+        TabPage tab_financeiro = new TabPage();
+        private void icon_caixa_Click(object sender, EventArgs e)
+    {
+      
+        tab.TabPages.Add(tab_caixa);
+       
+        tab_caixa.Text = "Caixa";
+        formCaixa = new FormCaixa();
+        formCaixa.TopLevel = false;
+        formCaixa.Visible = true;
+        tab_caixa.Controls.Add(formCaixa);
+        tab.SelectedTab = tab_caixa;
+    }
+
+    private void icon_cliente_Click(object sender, EventArgs e)
+    {
+       
+        tab.TabPages.Add(tab_cliente);
+        tab_cliente.Text = "Clientes";
+        formCliente = new FormCliente();
+        formCliente.TopLevel = false;
+        formCliente.Visible = true;
+        tab_cliente.Controls.Add(formCliente);
+        tab.SelectedTab = tab_cliente;
+    }
+
+    private void icon_financeiro_Click(object sender, EventArgs e)
+    {
+        
+        tab.TabPages.Add(tab_financeiro);
+        tab_financeiro.Text = "Financeiro";
+
+        formFinanceiro = new FormFinanceiro();
+        formFinanceiro.TopLevel = false;
+        formFinanceiro.Visible = true;
+        tab_financeiro.Controls.Add(formFinanceiro);
+
+        tab.SelectedTab = tab_financeiro;
+
+    }
+}
 }

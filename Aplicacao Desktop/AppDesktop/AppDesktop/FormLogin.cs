@@ -23,6 +23,8 @@ namespace AppDesktop
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
+      
+
             Config config_banco = new Config();
             string con = config_banco.getConexao();
             
@@ -76,6 +78,18 @@ namespace AppDesktop
         }
 
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormRecuperaSenha formRecuperar_senha = new FormRecuperaSenha();
+            formRecuperar_senha.ShowDialog();
+
+        }
+
+        private void txt_usuario_TextChanged(object sender, EventArgs e)
         {
 
         }
