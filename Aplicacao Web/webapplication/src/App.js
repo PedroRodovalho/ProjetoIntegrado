@@ -1,25 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+//import './node_modules/elemental/less/elemental.less';
+//import { Button, Form, FormInput,field,Checkbox } from 'elemental' 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <form align="Center">
+      <field label="Email address" htmlFor="basic-form-input-email">
+        <input autoFocus type="email" placeholder="Enter email" name="basic-form-input-email" />
+      </field>
+      <br></br>
+      <field label="Password" htmlFor="basic-form-input-password">
+        <input type="password" placeholder="Password" name="basic-form-input-password" />
+      </field>
+      <field>
+        <checkbox label="Check it" />
+      </field>
+      <br></br>
+      <button submit>Submit</button>
+    </form>
   );
 }
 
