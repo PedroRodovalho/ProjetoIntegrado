@@ -56,6 +56,12 @@
     <Compile Include="DAO\Config.cs" />
     <Compile Include="DAO\CriaTabelas.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="FormAba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAba.Designer.cs">
+      <DependentUpon>FormAba.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,12 @@
     </Compile>
     <Compile Include="FormCliente.Designer.cs">
       <DependentUpon>FormCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEstoque.Designer.cs">
+      <DependentUpon>FormEstoque.cs</DependentUpon>
     </Compile>
     <Compile Include="FormFinanceiro.cs">
       <SubType>Form</SubType>
@@ -121,11 +133,17 @@
       <DependentUpon>teste.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs" />
+    <EmbeddedResource Include="FormAba.resx">
+      <DependentUpon>FormAba.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCaixa.resx">
       <DependentUpon>FormCaixa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCliente.resx">
       <DependentUpon>FormCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEstoque.resx">
+      <DependentUpon>FormEstoque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormFinanceiro.resx">
       <DependentUpon>FormFinanceiro.cs</DependentUpon>

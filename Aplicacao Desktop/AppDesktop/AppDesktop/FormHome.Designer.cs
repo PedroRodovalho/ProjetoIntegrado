@@ -45,6 +45,8 @@
             this.panel_home = new System.Windows.Forms.Panel();
             this.tab = new System.Windows.Forms.TabControl();
             this.label_menu = new System.Windows.Forms.Label();
+            this.icon_estoque = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel_session.SuspendLayout();
             this.panel_fazer_login.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon_preferencias)).BeginInit();
@@ -53,6 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.icon_cliente)).BeginInit();
             this.panel_menu.SuspendLayout();
             this.panel_home.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icon_estoque)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_login_pendente
@@ -154,8 +157,10 @@
             this.panel_menu.Controls.Add(this.icon_financeiro);
             this.panel_menu.Controls.Add(this.lbl_caixa);
             this.panel_menu.Controls.Add(this.label2);
+            this.panel_menu.Controls.Add(this.label3);
             this.panel_menu.Controls.Add(this.lbl_cliente);
             this.panel_menu.Controls.Add(this.icon_caixa);
+            this.panel_menu.Controls.Add(this.icon_estoque);
             this.panel_menu.Controls.Add(this.icon_cliente);
             this.panel_menu.Controls.Add(this.label1);
             this.panel_menu.Name = "panel_menu";
@@ -165,18 +170,33 @@
             resources.ApplyResources(this.panel_home, "panel_home");
             this.panel_home.Controls.Add(this.tab);
             this.panel_home.Name = "panel_home";
+            this.panel_home.SizeChanged += new System.EventHandler(this.panel_home_SizeChanged);
             // 
             // tab
             // 
             resources.ApplyResources(this.tab, "tab");
             this.tab.Name = "tab";
             this.tab.SelectedIndex = 0;
+            this.tab.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tab_DrawItem);
             // 
             // label_menu
             // 
             this.label_menu.BackColor = System.Drawing.SystemColors.GrayText;
             resources.ApplyResources(this.label_menu, "label_menu");
             this.label_menu.Name = "label_menu";
+            // 
+            // icon_estoque
+            // 
+            this.icon_estoque.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.icon_estoque, "icon_estoque");
+            this.icon_estoque.Name = "icon_estoque";
+            this.icon_estoque.TabStop = false;
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Name = "label3";
             // 
             // FormHome
             // 
@@ -200,6 +220,7 @@
             this.panel_menu.ResumeLayout(false);
             this.panel_menu.PerformLayout();
             this.panel_home.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.icon_estoque)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -222,6 +243,8 @@
         private System.Windows.Forms.Panel panel_home;
         private System.Windows.Forms.Label label_menu;
         private System.Windows.Forms.TabControl tab;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox icon_estoque;
     }
 }
 
