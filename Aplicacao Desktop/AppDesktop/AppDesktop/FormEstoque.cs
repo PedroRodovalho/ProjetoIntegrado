@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppDesktop.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +18,32 @@ namespace AppDesktop
             InitializeComponent();
         }
 
+        EstoqueDAO estoqueDAO = new EstoqueDAO();
         private void FormEstoque_Load(object sender, EventArgs e)
+        {
+            List<Estoque> produtos = estoqueDAO.lista_estoque();
+
+            dataGrid_estoque.DataSource = produtos;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void produtoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCadastra_produto formCadastra_produto = new FormCadastra_produto();
+            formCadastra_produto.ShowDialog();
+        }
+
+        private void fornecedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCadastra_fornecedor formCadastra_Fornecedor = new FormCadastra_fornecedor();
+            formCadastra_Fornecedor.ShowDialog();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

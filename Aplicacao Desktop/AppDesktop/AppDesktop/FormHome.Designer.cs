@@ -42,11 +42,11 @@
             this.lbl_cliente = new System.Windows.Forms.Label();
             this.lbl_caixa = new System.Windows.Forms.Label();
             this.panel_menu = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.icon_estoque = new System.Windows.Forms.PictureBox();
             this.panel_home = new System.Windows.Forms.Panel();
             this.tab = new System.Windows.Forms.TabControl();
             this.label_menu = new System.Windows.Forms.Label();
-            this.icon_estoque = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel_session.SuspendLayout();
             this.panel_fazer_login.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon_preferencias)).BeginInit();
@@ -54,8 +54,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.icon_caixa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon_cliente)).BeginInit();
             this.panel_menu.SuspendLayout();
-            this.panel_home.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon_estoque)).BeginInit();
+            this.panel_home.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_login_pendente
@@ -165,6 +165,20 @@
             this.panel_menu.Controls.Add(this.label1);
             this.panel_menu.Name = "panel_menu";
             // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Name = "label3";
+            // 
+            // icon_estoque
+            // 
+            this.icon_estoque.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.icon_estoque, "icon_estoque");
+            this.icon_estoque.Name = "icon_estoque";
+            this.icon_estoque.TabStop = false;
+            this.icon_estoque.Click += new System.EventHandler(this.icon_estoque_Click);
+            // 
             // panel_home
             // 
             resources.ApplyResources(this.panel_home, "panel_home");
@@ -184,19 +198,6 @@
             this.label_menu.BackColor = System.Drawing.SystemColors.GrayText;
             resources.ApplyResources(this.label_menu, "label_menu");
             this.label_menu.Name = "label_menu";
-            // 
-            // icon_estoque
-            // 
-            this.icon_estoque.Cursor = System.Windows.Forms.Cursors.Hand;
-            resources.ApplyResources(this.icon_estoque, "icon_estoque");
-            this.icon_estoque.Name = "icon_estoque";
-            this.icon_estoque.TabStop = false;
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Name = "label3";
             // 
             // FormHome
             // 
@@ -219,8 +220,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.icon_cliente)).EndInit();
             this.panel_menu.ResumeLayout(false);
             this.panel_menu.PerformLayout();
-            this.panel_home.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.icon_estoque)).EndInit();
+            this.panel_home.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

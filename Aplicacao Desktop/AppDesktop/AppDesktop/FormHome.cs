@@ -185,28 +185,37 @@ namespace AppDesktop
         FormCaixa formCaixa = null;
         FormFinanceiro formFinanceiro = null;
         FormCliente formCliente = null;
+        FormEstoque formEstoque = null;
 
         TabPage tab_caixa = new TabPage();
         TabPage tab_cliente = new TabPage();
         TabPage tab_financeiro = new TabPage();
+        TabPage tab_estoque = new TabPage();
         private void icon_caixa_Click(object sender, EventArgs e)
         {
 
+            if (!tab.TabPages.Contains(tab_caixa))
+            {
+                tab_caixa.Size = new Size(tab_caixa.Size.Width, 1400);
+                tab_caixa.Text = "Caixa";
 
-            tab_caixa.Size = new Size(tab_caixa.Size.Width, 1400);
-            tab_caixa.Text = "Caixa";
-
-            tab.TabPages.Add(tab_caixa);
-            formCaixa = new FormCaixa();
-            formCaixa.TopLevel = false;
-            formCaixa.Visible = true;
-            tab_caixa.Controls.Add(formCaixa);
-            // this.Controls.Add(formCaixa);
-            tab.SelectedTab = tab_caixa;
+                tab.TabPages.Add(tab_caixa);
+                formCaixa = new FormCaixa();
+                formCaixa.TopLevel = false;
+                formCaixa.Visible = true;
+                tab_caixa.Controls.Add(formCaixa);
+                // this.Controls.Add(formCaixa);
+                tab.SelectedTab = tab_caixa;
+            }
+            else
+            {
+                tab.SelectedTab = tab_caixa;
+            }
         }
 
         private void icon_cliente_Click(object sender, EventArgs e)
         {
+
             FormAba form = new FormAba();
             form.Visible = true;
             tab.TabPages.Add(tab_cliente);
@@ -221,16 +230,22 @@ namespace AppDesktop
 
         private void icon_financeiro_Click(object sender, EventArgs e)
         {
+            if (!tab.TabPages.Contains(tab_financeiro))
+            {
+                tab.TabPages.Add(tab_financeiro);
+                tab_financeiro.Text = "Financeiro";
 
-            tab.TabPages.Add(tab_financeiro);
-            tab_financeiro.Text = "Financeiro";
+                formFinanceiro = new FormFinanceiro();
+                formFinanceiro.TopLevel = false;
+                formFinanceiro.Visible = true;
+                tab_financeiro.Controls.Add(formFinanceiro);
 
-            formFinanceiro = new FormFinanceiro();
-            formFinanceiro.TopLevel = false;
-            formFinanceiro.Visible = true;
-            tab_financeiro.Controls.Add(formFinanceiro);
-
-            tab.SelectedTab = tab_financeiro;
+                tab.SelectedTab = tab_financeiro;
+            }
+            else
+            {
+                tab.SelectedTab = tab_financeiro;
+            }
 
         }
 
@@ -244,10 +259,32 @@ namespace AppDesktop
 
         private void tab_DrawItem(object sender, DrawItemEventArgs e)
         {
-          /*  var tabPage = this.tab.TabPages[e.Index]; var tabRect = this.tab.GetTabRect(e.Index); tabRect.Inflate(-2, -2); if (e.Index == this.tab.TabCount - 1) { var addImage = Properties.Resources.Teste; e.Graphics.DrawImage(addImage, tabRect.Left + (tabRect.Width - addImage.Width) / 2, tabRect.Top + (tabRect.Height - addImage.Height) / 2); }
+            /*  var tabPage = this.tab.TabPages[e.Index]; var tabRect = this.tab.GetTabRect(e.Index); tabRect.Inflate(-2, -2); if (e.Index == this.tab.TabCount - 1) { var addImage = Properties.Resources.Teste; e.Graphics.DrawImage(addImage, tabRect.Left + (tabRect.Width - addImage.Width) / 2, tabRect.Top + (tabRect.Height - addImage.Height) / 2); }
+              else
+              {
+                  var closeImage = Properties.Resources.DeleteButton_Image; e.Graphics.DrawImage(closeImage, (tabRect.Right - closeImage.Width), tabRect.Top + (tabRect.Height - closeImage.Height) / 2); TextRenderer.DrawText(e.Graphics, tabPage.Text, tabPage.Font, tabRect, tabPage.ForeColor, TextFormatFlags.Left);
+              }*/
+        }
+
+        private void icon_estoque_Click(object sender, EventArgs e)
+        {
+            if (!tab.TabPages.Contains(tab_estoque))
+            {
+                tab.TabPages.Add(tab_estoque);
+                tab_estoque.Text = "Estoque";
+
+                formEstoque = new FormEstoque();
+                formEstoque.TopLevel = false;
+                formEstoque.Visible = true;
+                tab_estoque.Controls.Add(formEstoque);
+
+                tab.SelectedTab = tab_estoque;
+            }
             else
             {
-                var closeImage = Properties.Resources.DeleteButton_Image; e.Graphics.DrawImage(closeImage, (tabRect.Right - closeImage.Width), tabRect.Top + (tabRect.Height - closeImage.Height) / 2); TextRenderer.DrawText(e.Graphics, tabPage.Text, tabPage.Font, tabRect, tabPage.ForeColor, TextFormatFlags.Left);
-            }*/
+                tab.SelectedTab = tab_estoque;
+            }
         }
     }
+}
+

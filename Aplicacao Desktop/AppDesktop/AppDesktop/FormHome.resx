@@ -153,6 +153,48 @@
   <data name="&gt;&gt;lbl_login_pendente.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="lbl_fazer_login.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Impact, 18pt</value>
+  </data>
+  <data name="lbl_fazer_login.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 4</value>
+  </data>
+  <data name="lbl_fazer_login.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 57</value>
+  </data>
+  <data name="lbl_fazer_login.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbl_fazer_login.Text" xml:space="preserve">
+    <value>Fazer Login</value>
+  </data>
+  <data name="lbl_fazer_login.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lbl_fazer_login.Name" xml:space="preserve">
+    <value>lbl_fazer_login</value>
+  </data>
+  <data name="&gt;&gt;lbl_fazer_login.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_fazer_login.Parent" xml:space="preserve">
+    <value>panel_fazer_login</value>
+  </data>
+  <data name="&gt;&gt;lbl_fazer_login.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel_fazer_login.Location" type="System.Drawing.Point, System.Drawing">
+    <value>327, 164</value>
+  </data>
+  <data name="panel_fazer_login.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 69</value>
+  </data>
+  <data name="panel_fazer_login.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="panel_fazer_login.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;panel_fazer_login.Name" xml:space="preserve">
     <value>panel_fazer_login</value>
   </data>
@@ -191,72 +233,6 @@
   </data>
   <data name="&gt;&gt;panel_session.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="&gt;&gt;lbl_fazer_login.Name" xml:space="preserve">
-    <value>lbl_fazer_login</value>
-  </data>
-  <data name="&gt;&gt;lbl_fazer_login.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_fazer_login.Parent" xml:space="preserve">
-    <value>panel_fazer_login</value>
-  </data>
-  <data name="&gt;&gt;lbl_fazer_login.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="panel_fazer_login.Location" type="System.Drawing.Point, System.Drawing">
-    <value>327, 164</value>
-  </data>
-  <data name="panel_fazer_login.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 69</value>
-  </data>
-  <data name="panel_fazer_login.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="panel_fazer_login.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;panel_fazer_login.Name" xml:space="preserve">
-    <value>panel_fazer_login</value>
-  </data>
-  <data name="&gt;&gt;panel_fazer_login.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel_fazer_login.Parent" xml:space="preserve">
-    <value>panel_session</value>
-  </data>
-  <data name="&gt;&gt;panel_fazer_login.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lbl_fazer_login.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Impact, 18pt</value>
-  </data>
-  <data name="lbl_fazer_login.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 4</value>
-  </data>
-  <data name="lbl_fazer_login.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 57</value>
-  </data>
-  <data name="lbl_fazer_login.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="lbl_fazer_login.Text" xml:space="preserve">
-    <value>Fazer Login</value>
-  </data>
-  <data name="lbl_fazer_login.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;lbl_fazer_login.Name" xml:space="preserve">
-    <value>lbl_fazer_login</value>
-  </data>
-  <data name="&gt;&gt;lbl_fazer_login.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_fazer_login.Parent" xml:space="preserve">
-    <value>panel_fazer_login</value>
-  </data>
-  <data name="&gt;&gt;lbl_fazer_login.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="icon_preferencias.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -802,6 +778,24 @@
   <data name="panel_menu.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>230, 80</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Estoque</value>
+  </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
   </data>
@@ -813,6 +807,62 @@
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="icon_estoque.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="icon_estoque.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="icon_estoque.Location" type="System.Drawing.Point, System.Drawing">
+    <value>219, 14</value>
+  </data>
+  <data name="icon_estoque.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 64</value>
+  </data>
+  <data name="icon_estoque.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>AutoSize</value>
+  </data>
+  <data name="icon_estoque.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;icon_estoque.Name" xml:space="preserve">
     <value>icon_estoque</value>
@@ -930,104 +980,6 @@
   </data>
   <data name="&gt;&gt;label_menu.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="icon_estoque.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="icon_estoque.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="icon_estoque.Location" type="System.Drawing.Point, System.Drawing">
-    <value>219, 14</value>
-  </data>
-  <data name="icon_estoque.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 64</value>
-  </data>
-  <data name="icon_estoque.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>AutoSize</value>
-  </data>
-  <data name="icon_estoque.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;icon_estoque.Name" xml:space="preserve">
-    <value>icon_estoque</value>
-  </data>
-  <data name="&gt;&gt;icon_estoque.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;icon_estoque.Parent" xml:space="preserve">
-    <value>panel_menu</value>
-  </data>
-  <data name="&gt;&gt;icon_estoque.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>230, 80</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 13</value>
-  </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Estoque</value>
-  </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
-  </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>panel_menu</value>
-  </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>4</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

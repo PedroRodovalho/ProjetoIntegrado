@@ -39,6 +39,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,14 +54,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conversor.cs" />
+    <Compile Include="DAO\Categoria.cs" />
     <Compile Include="DAO\Config.cs" />
     <Compile Include="DAO\CriaTabelas.cs" />
+    <Compile Include="DAO\Estoque.cs" />
+    <Compile Include="DAO\EstoqueDAO.cs" />
+    <Compile Include="DAO\Fornecedor.cs" />
+    <Compile Include="DAO\FornecedorDAO.cs" />
+    <Compile Include="DAO\MysqlConnection.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="FormAba.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormAba.Designer.cs">
       <DependentUpon>FormAba.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBusca_produto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBusca_produto.Designer.cs">
+      <DependentUpon>FormBusca_produto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCadastra_fornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCadastra_fornecedor.Designer.cs">
+      <DependentUpon>FormCadastra_fornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCadastra_produto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCadastra_produto.Designer.cs">
+      <DependentUpon>FormCadastra_produto.cs</DependentUpon>
     </Compile>
     <Compile Include="FormCaixa.cs">
       <SubType>Form</SubType>
@@ -135,6 +161,15 @@
     <Compile Include="Usuario.cs" />
     <EmbeddedResource Include="FormAba.resx">
       <DependentUpon>FormAba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBusca_produto.resx">
+      <DependentUpon>FormBusca_produto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCadastra_fornecedor.resx">
+      <DependentUpon>FormCadastra_fornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCadastra_produto.resx">
+      <DependentUpon>FormCadastra_produto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCaixa.resx">
       <DependentUpon>FormCaixa.cs</DependentUpon>
