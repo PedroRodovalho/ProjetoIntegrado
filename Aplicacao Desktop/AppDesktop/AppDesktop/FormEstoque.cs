@@ -33,19 +33,36 @@ namespace AppDesktop
 
         private void produtoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormCadastra_produto formCadastra_produto = new FormCadastra_produto();
+            FormCadastra_produto formCadastra_produto = new FormCadastra_produto(this);
             formCadastra_produto.ShowDialog();
         }
 
         private void fornecedorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormCadastra_fornecedor formCadastra_Fornecedor = new FormCadastra_fornecedor();
-            formCadastra_Fornecedor.ShowDialog();
+            DialogResult dialog = formCadastra_Fornecedor.ShowDialog();
+            if (dialog == DialogResult.OK)
+            {
+                atualizaDataGrid();
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void produtoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FormBusca_produto formBusca_Produto = new FormBusca_produto();
+            formBusca_Produto.ShowDialog();
+        }
+
+        public void atualizaDataGrid()
+        {
+            dataGrid_estoque.DataSource = "";
+            List<Estoque> produtos = estoqueDAO.lista_estoque();
+            dataGrid_estoque.DataSource = produtos;
         }
     }
 }

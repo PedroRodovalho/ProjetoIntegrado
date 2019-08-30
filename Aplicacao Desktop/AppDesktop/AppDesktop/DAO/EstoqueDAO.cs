@@ -25,7 +25,7 @@ namespace AppDesktop.DAO
 
                 command.CommandText = "Insert into tb_estoque(cod,produto,quantidade,custo,preco,data_entrada,fornecedor,peso,categoria,marca,descricao) values('" +
                     estoque.Cod + "','" + estoque.Produto + "','" + estoque.Quantidade + "','" + conversor.toDoubleDB(estoque.Custo.ToString()) + "','"+ conversor.toDoubleDB(estoque.Preco.ToString()) +"','" +estoque.Data +"','" +
-                    estoque.Fornecedor + "','"+ conversor.toDoubleDB(estoque.Peso.ToString()) + "','" + estoque.Categoria + "','"+ estoque.Marca + "','" + estoque.Descricao+"'";
+                    estoque.Fornecedor + "','"+ conversor.toDoubleDB(estoque.Peso.ToString()) + "','" + estoque.Categoria + "','"+ estoque.Marca + "','" + estoque.Descricao+"')";
                 command.ExecuteNonQuery();
 
             }
@@ -74,6 +74,46 @@ namespace AppDesktop.DAO
             {
                 if (connection.State == ConnectionState.Open) connection.Close();
             }
+            return null;
+        }
+
+        public Estoque buscaProdutoByCod(int cod)
+        {
+            var connection = new MySqlConnection(config.getConexao());
+            var command = connection.CreateCommand();
+            try
+            {
+                connection.Open();
+                command.CommandText = "select * from tb_estoque where cod='"+cod+"'";
+                var result = command.ExecuteReader();
+                Estoque estoque = new Estoque();
+                while (result.Read())
+                {
+                    
+                    estoque.Id = result.GetInt32("id");
+                    estoque.Cod = result.GetInt32("cod");
+                    estoque.Produto = result.GetString("produto");
+                    estoque.Quantidade = result.GetInt32("quantidade");
+                    estoque.Custo = result.GetDouble("custo");
+                    estoque.Preco = result.GetDouble("preco");
+                    estoque.Peso = result.GetDouble("peso");
+                    estoque.Categoria = result.GetString("categoria");
+                    estoque.Fornecedor = result.GetInt32("fornecedor");
+                    estoque.Marca = result.GetString("marca");
+                    estoque.Descricao = result.GetString("descricao");
+                    
+                }
+                return estoque;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open) connection.Close();
+            }
+
             return null;
         }
 

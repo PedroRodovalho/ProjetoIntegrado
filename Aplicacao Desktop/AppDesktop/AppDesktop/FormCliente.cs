@@ -16,5 +16,11 @@ namespace AppDesktop
         {
             InitializeComponent();
         }
+
+        private void toolStripButton_add_Click(object sender, EventArgs e)
+        {
+            FormCadastra_cliente formCadastra_Cliente = new FormCadastra_cliente();
+            formCadastra_Cliente.ShowDialog();
+        }
     }
 }

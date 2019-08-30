@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WinFormAnimation;
+//using WinFormAnimation;
 
 namespace AppDesktop
 {
@@ -89,7 +89,7 @@ namespace AppDesktop
             panel_menu.Visible = true;
             /// timer1.Enabled = true;
             // timer1.Start();
-            new Animator2D(new Path2D(new Float2D(-100, 172), icon_caixa.Location.ToFloat2D(), 600))
+           /* new Animator2D(new Path2D(new Float2D(-100, 172), icon_caixa.Location.ToFloat2D(), 600))
             .Play(icon_caixa, Animator2D.KnownProperties.Location);
             new Animator2D(new Path2D(new Float2D(-100, 172), icon_cliente.Location.ToFloat2D(), 800))
             .Play(icon_cliente, Animator2D.KnownProperties.Location);
@@ -97,7 +97,7 @@ namespace AppDesktop
             .Play(icon_financeiro, Animator2D.KnownProperties.Location);
             new Animator2D(new Path2D(new Float2D(-100, 172), icon_preferencias.Location.ToFloat2D(), 1200))
             .Play(icon_preferencias, Animator2D.KnownProperties.Location);
-
+            */
 
             panel_menu.Visible = true;
             panel_home.Visible = true;

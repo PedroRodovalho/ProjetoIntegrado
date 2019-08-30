@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.components = new System.ComponentModel.Container();
+            this.dataGrid_itens = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -40,19 +41,19 @@
             this.radio_debito = new System.Windows.Forms.RadioButton();
             this.radio_dinheiro = new System.Windows.Forms.RadioButton();
             this.group_pagamento = new System.Windows.Forms.GroupBox();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_produto = new System.Windows.Forms.TextBox();
+            this.txt_codigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -64,24 +65,30 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lbl_vendedor = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lbl_relogio = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_itens)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.group_pagamento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGrid_itens
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGrid_itens.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(447, 128);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(861, 373);
-            this.dataGridView1.TabIndex = 1;
+            this.dataGrid_itens.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGrid_itens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid_itens.Location = new System.Drawing.Point(447, 128);
+            this.dataGrid_itens.Name = "dataGrid_itens";
+            this.dataGrid_itens.Size = new System.Drawing.Size(861, 373);
+            this.dataGrid_itens.TabIndex = 1;
             // 
             // panel1
             // 
@@ -103,7 +110,9 @@
             // 
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Location = new System.Drawing.Point(15, 206);
             this.groupBox1.Name = "groupBox1";
@@ -116,7 +125,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(355, 55);
+            this.label13.Location = new System.Drawing.Point(358, 62);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(28, 13);
             this.label13.TabIndex = 3;
@@ -126,7 +135,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(370, 33);
+            this.label12.Location = new System.Drawing.Point(373, 43);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(13, 13);
             this.label12.TabIndex = 3;
@@ -136,17 +145,17 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(15, 77);
+            this.label11.Location = new System.Drawing.Point(18, 25);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(38, 13);
+            this.label11.Size = new System.Drawing.Size(72, 13);
             this.label11.TabIndex = 3;
-            this.label11.Text = "Nome:";
+            this.label11.Text = "Total de Itens";
             this.label11.Click += new System.EventHandler(this.label1_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 55);
+            this.label6.Location = new System.Drawing.Point(18, 62);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 13);
             this.label6.TabIndex = 3;
@@ -198,11 +207,11 @@
             // 
             // group_pagamento
             // 
+            this.group_pagamento.Controls.Add(this.maskedTextBox2);
+            this.group_pagamento.Controls.Add(this.maskedTextBox1);
             this.group_pagamento.Controls.Add(this.button7);
             this.group_pagamento.Controls.Add(this.label10);
             this.group_pagamento.Controls.Add(this.textBox4);
-            this.group_pagamento.Controls.Add(this.textBox5);
-            this.group_pagamento.Controls.Add(this.textBox3);
             this.group_pagamento.Controls.Add(this.label8);
             this.group_pagamento.Controls.Add(this.label7);
             this.group_pagamento.Controls.Add(this.label1);
@@ -213,6 +222,22 @@
             this.group_pagamento.TabIndex = 4;
             this.group_pagamento.TabStop = false;
             this.group_pagamento.Text = "Informações do Cliente";
+            // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.Location = new System.Drawing.Point(57, 73);
+            this.maskedTextBox2.Mask = "(99) 9 0000-0000";
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.Size = new System.Drawing.Size(155, 20);
+            this.maskedTextBox2.TabIndex = 9;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(57, 47);
+            this.maskedTextBox1.Mask = "000.000.000-00";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(155, 20);
+            this.maskedTextBox1.TabIndex = 8;
             // 
             // button7
             // 
@@ -239,20 +264,6 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(321, 20);
             this.textBox4.TabIndex = 4;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(56, 73);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(156, 20);
-            this.textBox5.TabIndex = 4;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(56, 47);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(156, 20);
-            this.textBox3.TabIndex = 4;
             // 
             // label8
             // 
@@ -314,36 +325,38 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "0,00";
             // 
-            // textBox1
+            // txt_produto
             // 
-            this.textBox1.Location = new System.Drawing.Point(92, 106);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(336, 20);
-            this.textBox1.TabIndex = 4;
+            this.txt_produto.Location = new System.Drawing.Point(310, 102);
+            this.txt_produto.Name = "txt_produto";
+            this.txt_produto.Size = new System.Drawing.Size(336, 20);
+            this.txt_produto.TabIndex = 4;
             // 
-            // textBox2
+            // txt_codigo
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txt_codigo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(526, 106);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(115, 20);
-            this.textBox2.TabIndex = 4;
+            this.txt_codigo.Location = new System.Drawing.Point(105, 102);
+            this.txt_codigo.Name = "txt_codigo";
+            this.txt_codigo.Size = new System.Drawing.Size(115, 20);
+            this.txt_codigo.TabIndex = 4;
+            this.txt_codigo.TextChanged += new System.EventHandler(this.txt_codigo_TextChanged);
+            this.txt_codigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_codigo_KeyDown);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(466, 109);
+            this.label2.Location = new System.Drawing.Point(59, 105);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Referência";
+            this.label2.Text = "Código";
             this.label2.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(434, 106);
+            this.button1.Location = new System.Drawing.Point(652, 102);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(26, 20);
             this.button1.TabIndex = 5;
@@ -353,7 +366,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(647, 106);
+            this.button2.Location = new System.Drawing.Point(226, 102);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(26, 20);
             this.button2.TabIndex = 5;
@@ -430,12 +443,58 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(47, 110);
+            this.label9.Location = new System.Drawing.Point(265, 106);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(44, 13);
             this.label9.TabIndex = 3;
             this.label9.Text = "Produto";
             this.label9.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(18, 43);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(61, 13);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Valor Total:";
+            this.label14.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(373, 25);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(13, 13);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "0";
+            this.label15.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lbl_relogio);
+            this.groupBox2.Location = new System.Drawing.Point(77, 2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(506, 94);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            // 
+            // lbl_relogio
+            // 
+            this.lbl_relogio.AutoSize = true;
+            this.lbl_relogio.Font = new System.Drawing.Font("Haettenschweiler", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_relogio.ForeColor = System.Drawing.Color.Transparent;
+            this.lbl_relogio.Location = new System.Drawing.Point(69, 25);
+            this.lbl_relogio.Name = "lbl_relogio";
+            this.lbl_relogio.Size = new System.Drawing.Size(357, 50);
+            this.lbl_relogio.TabIndex = 0;
+            this.lbl_relogio.Text = "dd/MM/aaaa HH:mm:ss\r\n";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FormCaixa
             // 
@@ -443,6 +502,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1320, 585);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button3);
@@ -451,19 +511,19 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_codigo);
+            this.Controls.Add(this.txt_produto);
             this.Controls.Add(this.lbl_vendedor);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGrid_itens);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCaixa";
             this.Text = "FormCaixa";
             this.Load += new System.EventHandler(this.FormCaixa_Load);
             this.SizeChanged += new System.EventHandler(this.FormCaixa_SizeChanged);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_itens)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -471,6 +531,8 @@
             this.group_pagamento.ResumeLayout(false);
             this.group_pagamento.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -478,11 +540,11 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGrid_itens;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_produto;
+        private System.Windows.Forms.TextBox txt_codigo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -501,8 +563,6 @@
         private System.Windows.Forms.RadioButton radio_dinheiro;
         private System.Windows.Forms.ComboBox combo_parcelas;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button7;
@@ -514,5 +574,12 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lbl_relogio;
+        private System.Windows.Forms.Timer timer1;
     }
 }
