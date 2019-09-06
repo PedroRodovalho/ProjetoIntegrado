@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCliente));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton_add = new System.Windows.Forms.ToolStripButton();
             this.dataGrid_cliente = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.toolStripButton_add = new System.Windows.Forms.ToolStripButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_cliente)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -52,6 +52,16 @@
             this.toolStrip1.Size = new System.Drawing.Size(1320, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton_add
+            // 
+            this.toolStripButton_add.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton_add.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_add.Image")));
+            this.toolStripButton_add.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_add.Name = "toolStripButton_add";
+            this.toolStripButton_add.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton_add.Text = "toolStripButton1";
+            this.toolStripButton_add.Click += new System.EventHandler(this.toolStripButton_add_Click);
             // 
             // dataGrid_cliente
             // 
@@ -74,12 +84,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar Cliente";
             // 
-            // textBox1
+            // label2
             // 
-            this.textBox1.Location = new System.Drawing.Point(85, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 20);
-            this.textBox1.TabIndex = 0;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(243, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Nome";
             // 
             // label1
             // 
@@ -97,24 +109,12 @@
             this.textBox2.Size = new System.Drawing.Size(338, 20);
             this.textBox2.TabIndex = 0;
             // 
-            // label2
+            // textBox1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(243, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Nome";
-            // 
-            // toolStripButton_add
-            // 
-            this.toolStripButton_add.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton_add.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_add.Image")));
-            this.toolStripButton_add.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_add.Name = "toolStripButton_add";
-            this.toolStripButton_add.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton_add.Text = "toolStripButton1";
-            this.toolStripButton_add.Click += new System.EventHandler(this.toolStripButton_add_Click);
+            this.textBox1.Location = new System.Drawing.Point(85, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(152, 20);
+            this.textBox1.TabIndex = 0;
             // 
             // FormCliente
             // 
@@ -128,6 +128,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCliente";
             this.Text = "FormCliente";
+            this.Load += new System.EventHandler(this.FormCliente_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_cliente)).EndInit();

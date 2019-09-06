@@ -164,6 +164,7 @@
             this.panel_menu.Controls.Add(this.icon_cliente);
             this.panel_menu.Controls.Add(this.label1);
             this.panel_menu.Name = "panel_menu";
+            this.panel_menu.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_menu_Paint);
             // 
             // label3
             // 

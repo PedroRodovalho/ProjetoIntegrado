@@ -285,6 +285,11 @@ namespace AppDesktop
                 tab.SelectedTab = tab_estoque;
             }
         }
+
+        private void panel_menu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 

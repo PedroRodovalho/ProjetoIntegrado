@@ -17,7 +17,7 @@ namespace AppDesktop
         {
             InitializeComponent();
         }
-
+        Conversor conversor = new Conversor();
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -31,7 +31,7 @@ namespace AppDesktop
         public void limparCampos()
         {
             txt_nome.Text = "";
-            txt_cpf_cnpj.Text = "";
+            txt_cpf.Text = "";
             txt_telefone.Text = "";
             txt_data_nascimento.Text = "";
             txt_rua.Text = "";
@@ -66,7 +66,18 @@ namespace AppDesktop
 
             cliente.Data_nascimento = txt_data_nascimento.Text;
 
-            clienteDAO.insere_cliente(cliente);
+            int id = clienteDAO.insere_cliente(cliente);
+            Endereco endereco = new Endereco();
+            endereco.Id_cliente = id;
+            endereco.Rua = txt_rua.Text;
+            endereco.Numero = conversor.toInt(txt_numero.Text);
+            endereco.Bairro = txt_bairro.Text;
+            endereco.Cep = txt_cep.Text;
+            endereco.Cidade = txt_cidade.Text;
+            endereco.Uf = combo_uf.Text;
+
+            clienteDAO.cadastra_endereco(endereco);
+            
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -88,6 +99,12 @@ namespace AppDesktop
                 txt_cpf.Visible = false;
                 txt_cnpj.Visible = true;
             }
+        }
+
+        private void btn_tirar_foto_Click(object sender, EventArgs e)
+        {
+            FormTiraFoto formTiraFoto = new FormTiraFoto(this);
+            formTiraFoto.ShowDialog();
         }
     }
 }

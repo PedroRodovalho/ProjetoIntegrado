@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_tirar_foto = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_nome = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_data_nascimento = new System.Windows.Forms.MaskedTextBox();
+            this.txt_telefone = new System.Windows.Forms.MaskedTextBox();
+            this.txt_cpf = new System.Windows.Forms.MaskedTextBox();
+            this.txt_cnpj = new System.Windows.Forms.MaskedTextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.btn_limpar = new System.Windows.Forms.Button();
             this.btn_cadastrar = new System.Windows.Forms.Button();
@@ -56,24 +60,21 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txt_cnpj = new System.Windows.Forms.MaskedTextBox();
-            this.txt_cpf = new System.Windows.Forms.MaskedTextBox();
-            this.txt_data_nascimento = new System.Windows.Forms.MaskedTextBox();
-            this.txt_telefone = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btn_tirar_foto
             // 
-            this.button1.Location = new System.Drawing.Point(761, 167);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Tirar Foto";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_tirar_foto.Location = new System.Drawing.Point(761, 167);
+            this.btn_tirar_foto.Name = "btn_tirar_foto";
+            this.btn_tirar_foto.Size = new System.Drawing.Size(75, 23);
+            this.btn_tirar_foto.TabIndex = 0;
+            this.btn_tirar_foto.Text = "Tirar Foto";
+            this.btn_tirar_foto.UseVisualStyleBackColor = true;
+            this.btn_tirar_foto.Click += new System.EventHandler(this.btn_tirar_foto_Click);
             // 
             // label1
             // 
@@ -104,7 +105,7 @@
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.pictureBox2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btn_tirar_foto);
             this.groupBox1.Controls.Add(this.lbl_pessoa);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label11);
@@ -117,6 +118,40 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastrar Cliente";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // txt_data_nascimento
+            // 
+            this.txt_data_nascimento.Location = new System.Drawing.Point(142, 101);
+            this.txt_data_nascimento.Mask = "00/00/0000";
+            this.txt_data_nascimento.Name = "txt_data_nascimento";
+            this.txt_data_nascimento.Size = new System.Drawing.Size(68, 20);
+            this.txt_data_nascimento.TabIndex = 11;
+            this.txt_data_nascimento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_data_nascimento.ValidatingType = typeof(System.DateTime);
+            // 
+            // txt_telefone
+            // 
+            this.txt_telefone.Location = new System.Drawing.Point(496, 51);
+            this.txt_telefone.Mask = "(00) 9 0000-0000";
+            this.txt_telefone.Name = "txt_telefone";
+            this.txt_telefone.Size = new System.Drawing.Size(121, 20);
+            this.txt_telefone.TabIndex = 11;
+            // 
+            // txt_cpf
+            // 
+            this.txt_cpf.Location = new System.Drawing.Point(300, 51);
+            this.txt_cpf.Mask = "000.000.000-00";
+            this.txt_cpf.Name = "txt_cpf";
+            this.txt_cpf.Size = new System.Drawing.Size(133, 20);
+            this.txt_cpf.TabIndex = 11;
+            // 
+            // txt_cnpj
+            // 
+            this.txt_cnpj.Location = new System.Drawing.Point(300, 51);
+            this.txt_cnpj.Mask = "00.000.000.0000-00";
+            this.txt_cnpj.Name = "txt_cnpj";
+            this.txt_cnpj.Size = new System.Drawing.Size(133, 20);
+            this.txt_cnpj.TabIndex = 11;
             // 
             // button4
             // 
@@ -304,6 +339,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox2.Location = new System.Drawing.Point(692, 19);
             this.pictureBox2.Name = "pictureBox2";
@@ -346,40 +382,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Telefone";
             // 
-            // txt_cnpj
-            // 
-            this.txt_cnpj.Location = new System.Drawing.Point(300, 51);
-            this.txt_cnpj.Mask = "00.000.000.0000-00";
-            this.txt_cnpj.Name = "txt_cnpj";
-            this.txt_cnpj.Size = new System.Drawing.Size(133, 20);
-            this.txt_cnpj.TabIndex = 11;
-            // 
-            // txt_cpf
-            // 
-            this.txt_cpf.Location = new System.Drawing.Point(300, 51);
-            this.txt_cpf.Mask = "000.000.000-00";
-            this.txt_cpf.Name = "txt_cpf";
-            this.txt_cpf.Size = new System.Drawing.Size(133, 20);
-            this.txt_cpf.TabIndex = 11;
-            // 
-            // txt_data_nascimento
-            // 
-            this.txt_data_nascimento.Location = new System.Drawing.Point(142, 101);
-            this.txt_data_nascimento.Mask = "00/00/0000";
-            this.txt_data_nascimento.Name = "txt_data_nascimento";
-            this.txt_data_nascimento.Size = new System.Drawing.Size(68, 20);
-            this.txt_data_nascimento.TabIndex = 11;
-            this.txt_data_nascimento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_data_nascimento.ValidatingType = typeof(System.DateTime);
-            // 
-            // txt_telefone
-            // 
-            this.txt_telefone.Location = new System.Drawing.Point(496, 51);
-            this.txt_telefone.Mask = "(00) 9 0000-0000";
-            this.txt_telefone.Name = "txt_telefone";
-            this.txt_telefone.Size = new System.Drawing.Size(121, 20);
-            this.txt_telefone.TabIndex = 11;
-            // 
             // FormCadastra_cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -402,12 +404,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_tirar_foto;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_nome;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lbl_pessoa;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -434,5 +435,6 @@
         private System.Windows.Forms.MaskedTextBox txt_cnpj;
         private System.Windows.Forms.MaskedTextBox txt_data_nascimento;
         private System.Windows.Forms.MaskedTextBox txt_telefone;
+        public System.Windows.Forms.PictureBox pictureBox2;
     }
 }

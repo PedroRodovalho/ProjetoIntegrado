@@ -13,26 +13,39 @@ namespace AppDesktop.DAO
     {
         Config config = new Config();
 
-        public void insere_cliente(Cliente cliente)
+        public int insere_cliente(Cliente cliente)
         {
             var connection = new MySqlConnection(config.getConexao());
             var command = connection.CreateCommand();
+            int id = 0;
             try
             {
                 connection.Open();
-                command.CommandText = "insert into tb_cliente(nome,telefone_tipo_cliente,cpf,data_nascimento,data_cadastro) values('" +
+                command.CommandText = "insert into tb_cliente(nome,telefone,tipo_cliente,cpf,data_nascimento,data_cadastro) values('" +
                     cliente.Nome +"','" + cliente.Telefone + "','" + cliente.Tipo_cliente + "','" + cliente.Cpf + "','" + cliente.Data_nascimento
                     + "','" +cliente.Data_cadastro + "')";
                 command.ExecuteNonQuery();
 
-            }catch(Exception ex)
+                connection.Close();
+                command.CommandText = "select MAX(id) from tb_cliente";
+                var result = command.ExecuteReader();
+                if (result.Read())
+                {
+                    id = result.GetInt32("id");
+                }
+                return id;
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
             finally{
                 if (connection.State == ConnectionState.Open) connection.Close();
             }
-        }
+            return id;
+
+       }
 
         public List<Cliente> lista_cliente()
         {
@@ -104,5 +117,60 @@ namespace AppDesktop.DAO
 
             return null;
         }
+
+        public int getLastId()
+        {
+            var connection = new MySqlConnection(config.getConexao());
+            var command = connection.CreateCommand();
+            int id = 0;
+            try
+
+            {
+                connection.Open();
+                command.CommandText = "SELECT MAX(id) from tb_cliente";
+                var result = command.ExecuteReader();
+                while (result.Read())
+                {
+                    id = result.GetInt32("MAX(id)");
+                }
+
+
+                return id;
+            
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open) connection.Close();
+            }
+            return id;
+        }
+
+        //Endereços
+
+        public void cadastra_endereco(Endereco endereco)
+        {
+            var connection = new MySqlConnection(config.getConexao());
+            var command = connection.CreateCommand();
+            try
+            {
+                connection.Open();
+                command.CommandText = "insert into tb_endereco(id_cliente,rua,numero,bairro,cep,cidade,uf) values('" + endereco.Id_cliente
+                    + "','" + endereco.Rua + "','" + endereco.Numero + "','" + endereco.Bairro + "','" + endereco.Cep + "','" + endereco.Cidade + "','" +
+                    endereco.Uf + "')";
+                command.ExecuteNonQuery();
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open) connection.Close();
+            }
+
+        }
+
     }
 }

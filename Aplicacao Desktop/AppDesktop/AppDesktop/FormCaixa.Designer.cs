@@ -34,18 +34,20 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.combo_parcelas = new System.Windows.Forms.ComboBox();
             this.radio_credito = new System.Windows.Forms.RadioButton();
             this.radio_debito = new System.Windows.Forms.RadioButton();
             this.radio_dinheiro = new System.Windows.Forms.RadioButton();
             this.group_pagamento = new System.Windows.Forms.GroupBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.txt_tel = new System.Windows.Forms.MaskedTextBox();
+            this.txt_cpf = new System.Windows.Forms.MaskedTextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txt_nome_cliente = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -65,8 +67,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lbl_vendedor = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lbl_relogio = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -142,6 +142,16 @@
             this.label12.Text = "0";
             this.label12.Click += new System.EventHandler(this.label1_Click);
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(373, 25);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(13, 13);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "0";
+            this.label15.Click += new System.EventHandler(this.label1_Click);
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -151,6 +161,16 @@
             this.label11.TabIndex = 3;
             this.label11.Text = "Total de Itens";
             this.label11.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(18, 43);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(61, 13);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Valor Total:";
+            this.label14.Click += new System.EventHandler(this.label1_Click);
             // 
             // label6
             // 
@@ -207,11 +227,11 @@
             // 
             // group_pagamento
             // 
-            this.group_pagamento.Controls.Add(this.maskedTextBox2);
-            this.group_pagamento.Controls.Add(this.maskedTextBox1);
+            this.group_pagamento.Controls.Add(this.txt_tel);
+            this.group_pagamento.Controls.Add(this.txt_cpf);
             this.group_pagamento.Controls.Add(this.button7);
             this.group_pagamento.Controls.Add(this.label10);
-            this.group_pagamento.Controls.Add(this.textBox4);
+            this.group_pagamento.Controls.Add(this.txt_nome_cliente);
             this.group_pagamento.Controls.Add(this.label8);
             this.group_pagamento.Controls.Add(this.label7);
             this.group_pagamento.Controls.Add(this.label1);
@@ -223,21 +243,21 @@
             this.group_pagamento.TabStop = false;
             this.group_pagamento.Text = "Informações do Cliente";
             // 
-            // maskedTextBox2
+            // txt_tel
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(57, 73);
-            this.maskedTextBox2.Mask = "(99) 9 0000-0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(155, 20);
-            this.maskedTextBox2.TabIndex = 9;
+            this.txt_tel.Location = new System.Drawing.Point(57, 73);
+            this.txt_tel.Mask = "(99) 9 0000-0000";
+            this.txt_tel.Name = "txt_tel";
+            this.txt_tel.Size = new System.Drawing.Size(155, 20);
+            this.txt_tel.TabIndex = 9;
             // 
-            // maskedTextBox1
+            // txt_cpf
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(57, 47);
-            this.maskedTextBox1.Mask = "000.000.000-00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(155, 20);
-            this.maskedTextBox1.TabIndex = 8;
+            this.txt_cpf.Location = new System.Drawing.Point(57, 47);
+            this.txt_cpf.Mask = "000.000.000-00";
+            this.txt_cpf.Name = "txt_cpf";
+            this.txt_cpf.Size = new System.Drawing.Size(155, 20);
+            this.txt_cpf.TabIndex = 8;
             // 
             // button7
             // 
@@ -258,12 +278,12 @@
             this.label10.Text = "Sem imagem";
             this.label10.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textBox4
+            // txt_nome_cliente
             // 
-            this.textBox4.Location = new System.Drawing.Point(56, 21);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(321, 20);
-            this.textBox4.TabIndex = 4;
+            this.txt_nome_cliente.Location = new System.Drawing.Point(56, 21);
+            this.txt_nome_cliente.Name = "txt_nome_cliente";
+            this.txt_nome_cliente.Size = new System.Drawing.Size(321, 20);
+            this.txt_nome_cliente.TabIndex = 4;
             // 
             // label8
             // 
@@ -450,26 +470,6 @@
             this.label9.Text = "Produto";
             this.label9.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(18, 43);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(61, 13);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "Valor Total:";
-            this.label14.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(373, 25);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(13, 13);
-            this.label15.TabIndex = 3;
-            this.label15.Text = "0";
-            this.label15.Click += new System.EventHandler(this.label1_Click);
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lbl_relogio);
@@ -562,7 +562,7 @@
         private System.Windows.Forms.RadioButton radio_debito;
         private System.Windows.Forms.RadioButton radio_dinheiro;
         private System.Windows.Forms.ComboBox combo_parcelas;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txt_nome_cliente;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button7;
@@ -574,8 +574,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox txt_tel;
+        private System.Windows.Forms.MaskedTextBox txt_cpf;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox2;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppDesktop.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,15 @@ namespace AppDesktop
         {
             FormCadastra_cliente formCadastra_Cliente = new FormCadastra_cliente();
             formCadastra_Cliente.ShowDialog();
+        }
+
+        ClienteDAO clienteDAO = new ClienteDAO();
+
+        private void FormCliente_Load(object sender, EventArgs e)
+        {
+            List<Cliente> clientes = new List<Cliente>();
+            clientes = clienteDAO.lista_cliente();
+            dataGrid_cliente.DataSource = clientes;
         }
     }
 }
