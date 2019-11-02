@@ -47,6 +47,7 @@
             this.panel_home = new System.Windows.Forms.Panel();
             this.tab = new System.Windows.Forms.TabControl();
             this.label_menu = new System.Windows.Forms.Label();
+            this.btn_regra = new System.Windows.Forms.Button();
             this.panel_session.SuspendLayout();
             this.panel_fazer_login.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon_preferencias)).BeginInit();
@@ -153,6 +154,7 @@
             resources.ApplyResources(this.panel_menu, "panel_menu");
             this.panel_menu.BackColor = System.Drawing.SystemColors.GrayText;
             this.panel_menu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_menu.Controls.Add(this.btn_regra);
             this.panel_menu.Controls.Add(this.icon_preferencias);
             this.panel_menu.Controls.Add(this.icon_financeiro);
             this.panel_menu.Controls.Add(this.lbl_caixa);
@@ -199,6 +201,13 @@
             this.label_menu.BackColor = System.Drawing.SystemColors.GrayText;
             resources.ApplyResources(this.label_menu, "label_menu");
             this.label_menu.Name = "label_menu";
+            // 
+            // btn_regra
+            // 
+            resources.ApplyResources(this.btn_regra, "btn_regra");
+            this.btn_regra.Name = "btn_regra";
+            this.btn_regra.UseVisualStyleBackColor = true;
+            this.btn_regra.Click += new System.EventHandler(this.btn_regra_Click);
             // 
             // FormHome
             // 
@@ -247,6 +256,7 @@
         private System.Windows.Forms.TabControl tab;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox icon_estoque;
+        private System.Windows.Forms.Button btn_regra;
     }
 }
 

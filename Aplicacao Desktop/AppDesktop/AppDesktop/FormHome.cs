@@ -89,15 +89,15 @@ namespace AppDesktop
             panel_menu.Visible = true;
             /// timer1.Enabled = true;
             // timer1.Start();
-           /* new Animator2D(new Path2D(new Float2D(-100, 172), icon_caixa.Location.ToFloat2D(), 600))
-            .Play(icon_caixa, Animator2D.KnownProperties.Location);
-            new Animator2D(new Path2D(new Float2D(-100, 172), icon_cliente.Location.ToFloat2D(), 800))
-            .Play(icon_cliente, Animator2D.KnownProperties.Location);
-            new Animator2D(new Path2D(new Float2D(-100, 172), icon_financeiro.Location.ToFloat2D(), 1000))
-            .Play(icon_financeiro, Animator2D.KnownProperties.Location);
-            new Animator2D(new Path2D(new Float2D(-100, 172), icon_preferencias.Location.ToFloat2D(), 1200))
-            .Play(icon_preferencias, Animator2D.KnownProperties.Location);
-            */
+            /* new Animator2D(new Path2D(new Float2D(-100, 172), icon_caixa.Location.ToFloat2D(), 600))
+             .Play(icon_caixa, Animator2D.KnownProperties.Location);
+             new Animator2D(new Path2D(new Float2D(-100, 172), icon_cliente.Location.ToFloat2D(), 800))
+             .Play(icon_cliente, Animator2D.KnownProperties.Location);
+             new Animator2D(new Path2D(new Float2D(-100, 172), icon_financeiro.Location.ToFloat2D(), 1000))
+             .Play(icon_financeiro, Animator2D.KnownProperties.Location);
+             new Animator2D(new Path2D(new Float2D(-100, 172), icon_preferencias.Location.ToFloat2D(), 1200))
+             .Play(icon_preferencias, Animator2D.KnownProperties.Location);
+             */
 
             panel_menu.Visible = true;
             panel_home.Visible = true;
@@ -186,11 +186,15 @@ namespace AppDesktop
         FormFinanceiro formFinanceiro = null;
         FormCliente formCliente = null;
         FormEstoque formEstoque = null;
+        FormRegrasNegocio formRegrasNegocio = null;
+
+
 
         TabPage tab_caixa = new TabPage();
         TabPage tab_cliente = new TabPage();
         TabPage tab_financeiro = new TabPage();
         TabPage tab_estoque = new TabPage();
+        TabPage tab_regra_negocio = new TabPage();
         private void icon_caixa_Click(object sender, EventArgs e)
         {
 
@@ -216,16 +220,20 @@ namespace AppDesktop
         private void icon_cliente_Click(object sender, EventArgs e)
         {
 
-            FormAba form = new FormAba();
-            form.Visible = true;
-            tab.TabPages.Add(tab_cliente);
-            tab_cliente.Text = "Clientes";
-            formCliente = new FormCliente();
-            formCliente.TopLevel = false;
-            formCliente.Visible = true;
-            tab_cliente.Controls.Add(formCliente);
+            if (!tab.TabPages.Contains(tab_cliente)){
 
-            tab.SelectedTab = tab_cliente;
+
+                
+                
+                tab.TabPages.Add(tab_cliente);
+                tab_cliente.Text = "Clientes";
+                formCliente = new FormCliente();
+                formCliente.TopLevel = false;
+                formCliente.Visible = true;
+                tab_cliente.Controls.Add(formCliente);
+
+                tab.SelectedTab = tab_cliente;
+            }
         }
 
         private void icon_financeiro_Click(object sender, EventArgs e)
@@ -289,6 +297,27 @@ namespace AppDesktop
         private void panel_menu_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btn_regra_Click(object sender, EventArgs e)
+        {
+            if (!tab.TabPages.Contains(tab_regra_negocio))
+            {
+                tab_regra_negocio.Size = new Size(tab_caixa.Size.Width, 1400);
+                tab_regra_negocio.Text = "Regras de Negocio";
+
+                tab.TabPages.Add(tab_regra_negocio);
+                formRegrasNegocio = new FormRegrasNegocio();
+                formRegrasNegocio.TopLevel = false;
+                formRegrasNegocio.Visible = true;
+                tab_regra_negocio.Controls.Add(formRegrasNegocio);
+                // this.Controls.Add(formCaixa);
+                tab.SelectedTab = tab_regra_negocio;
+            }
+            else
+            {
+                tab.SelectedTab = tab_regra_negocio;
+            }
         }
     }
 }

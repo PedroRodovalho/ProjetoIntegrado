@@ -58,6 +58,7 @@ namespace AppDesktop.DAO
                     estoque.Custo = result.GetDouble("custo");
                     estoque.Preco = result.GetDouble("preco");
                     estoque.Peso = result.GetDouble("peso");
+                    estoque.Data = result.GetMySqlDateTime("data_entrada").ToString(); 
                     estoque.Categoria = result.GetString("categoria");
                     estoque.Fornecedor = result.GetInt32("fornecedor");
                     estoque.Marca = result.GetString("marca");

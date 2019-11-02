@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +18,7 @@ namespace AppDesktop
 
         }
 
-        public int toInt(string texto)
+        public int ToInt32(string texto)
         {
             int inteiro_convertido = 0;
 
@@ -63,6 +66,16 @@ namespace AppDesktop
 
 
             return null;
+        }
+
+        public byte[] imageToByte(Image image)
+        {
+            var stream = new MemoryStream();
+            image.Save(stream, ImageFormat.Jpeg);
+            stream.Seek(0, SeekOrigin.Begin);
+            byte[] imageArray = new byte[stream.Length];
+            stream.Read(imageArray, 0, System.Convert.ToInt32(stream.Length));
+            return imageArray;
         }
     }
 }

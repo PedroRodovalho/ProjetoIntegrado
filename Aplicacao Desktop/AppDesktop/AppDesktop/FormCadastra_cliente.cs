@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,19 +66,21 @@ namespace AppDesktop
             }
 
             cliente.Data_nascimento = txt_data_nascimento.Text;
+            cliente.Foto = conversor.imageToByte(pictureBox2.Image);
+
 
             int id = clienteDAO.insere_cliente(cliente);
             Endereco endereco = new Endereco();
             endereco.Id_cliente = id;
             endereco.Rua = txt_rua.Text;
-            endereco.Numero = conversor.toInt(txt_numero.Text);
+            endereco.Numero = conversor.ToInt32(txt_numero.Text);
             endereco.Bairro = txt_bairro.Text;
             endereco.Cep = txt_cep.Text;
             endereco.Cidade = txt_cidade.Text;
             endereco.Uf = combo_uf.Text;
 
             clienteDAO.cadastra_endereco(endereco);
-            
+
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)

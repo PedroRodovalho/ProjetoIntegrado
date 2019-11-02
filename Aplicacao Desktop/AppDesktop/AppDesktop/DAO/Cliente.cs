@@ -14,7 +14,7 @@ namespace AppDesktop.DAO
         private string tipo_cliente;
         private string cpf;
         private string data_nascimento;
-        private string data_cadastro;
+        private byte[] foto;
 
         public int Id { get => id; set => id = value; }
         public string Nome { get => nome; set => nome = value; }
@@ -22,6 +22,7 @@ namespace AppDesktop.DAO
         public string Tipo_cliente { get => tipo_cliente; set => tipo_cliente = value; }
         public string Cpf { get => cpf; set => cpf = value; }
         public string Data_nascimento { get => data_nascimento; set => data_nascimento = value; }
-        public string Data_cadastro { get => data_cadastro; set => data_cadastro = value; }
+        public string Data_cadastro { get; set; }
+        public byte[] Foto { get => foto; set => foto = value; }
     }
 }

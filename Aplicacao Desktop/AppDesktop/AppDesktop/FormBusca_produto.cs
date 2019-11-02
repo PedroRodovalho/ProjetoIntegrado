@@ -29,7 +29,7 @@ namespace AppDesktop
         {
             if (e.KeyCode == Keys.Enter)
             {
-                Estoque estoque = estoqueDAO.buscaProdutoByCod(conversor.toInt(txt_codigo.Text));
+                Estoque estoque = estoqueDAO.buscaProdutoByCod(conversor.ToInt32(txt_codigo.Text));
                 apresentaDados(estoque);
             }
         }

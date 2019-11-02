@@ -27,9 +27,9 @@ namespace AppDesktop
             try
             {
                 Estoque estoque = new Estoque();
-                estoque.Cod = conversor.toInt(txt_codigo.Text);
+                estoque.Cod = conversor.ToInt32(txt_codigo.Text);
                 estoque.Produto = txt_produto.Text;
-                estoque.Quantidade = conversor.toInt(txt_quantidade.Text);
+                estoque.Quantidade = conversor.ToInt32(txt_quantidade.Text);
                 estoque.Custo = conversor.toDouble(txt_custo.Text);
                 estoque.Preco = conversor.toDouble(txt_preco.Text);
                 estoque.Peso = conversor.toDouble(txt_peso.Text);

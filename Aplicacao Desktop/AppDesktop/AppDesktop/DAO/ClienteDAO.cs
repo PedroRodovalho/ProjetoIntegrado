@@ -21,12 +21,13 @@ namespace AppDesktop.DAO
             try
             {
                 connection.Open();
-                command.CommandText = "insert into tb_cliente(nome,telefone,tipo_cliente,cpf,data_nascimento,data_cadastro) values('" +
+                command.CommandText = "insert into tb_cliente(nome,telefone,tipo_cliente,cpf,data_nascimento,data_cadastro,foto) values('" +
                     cliente.Nome +"','" + cliente.Telefone + "','" + cliente.Tipo_cliente + "','" + cliente.Cpf + "','" + cliente.Data_nascimento
-                    + "','" +cliente.Data_cadastro + "')";
+                    + "','" +cliente.Data_cadastro + "','"+cliente.Foto+"')";
                 command.ExecuteNonQuery();
 
                 connection.Close();
+                connection.Open();
                 command.CommandText = "select MAX(id) from tb_cliente";
                 var result = command.ExecuteReader();
                 if (result.Read())
@@ -68,7 +69,7 @@ namespace AppDesktop.DAO
                     cliente.Cpf = result.GetString("cpf");
                     cliente.Data_nascimento = result.GetString("data_nascimento");
                     cliente.Data_cadastro = result.GetString("data_cadastro");
-
+                   
                     clientes.Add(cliente);
                 }
                 return clientes;
@@ -115,9 +116,48 @@ namespace AppDesktop.DAO
                 if (connection.State == ConnectionState.Open) connection.Close();
             }
 
+
             return null;
         }
+        public List<Cliente> busca_cliente_nome(string nome)
+        {
+            var connection = new MySqlConnection(config.getConexao());
+            var command = connection.CreateCommand();
+            try
+            {
+                connection.Open();
+                command.CommandText = "select * from tb_cliente where nome like'" + nome + "%'";
+                var result = command.ExecuteReader();
+                List<Cliente> clientes = new List<Cliente>();
+                while (result.Read())
+                {
 
+                    Cliente cliente = new Cliente();
+                    cliente.Id = result.GetInt32("id");
+                    cliente.Nome = result.GetString("nome");
+                    cliente.Telefone = result.GetString("telefone");
+                    cliente.Tipo_cliente = result.GetString("tipo_cliente");
+                    cliente.Cpf = result.GetString("cpf");
+                    cliente.Data_nascimento = result.GetString("data_nascimento");
+                    
+                    cliente.Data_cadastro = result.GetString("data_cadastro");
+                    clientes.Add(cliente);
+
+                }
+                return clientes;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open) connection.Close();
+            }
+            return null;
+
+        
+        }
         public int getLastId()
         {
             var connection = new MySqlConnection(config.getConexao());
