@@ -139,6 +139,17 @@ namespace AppDesktop
            // RegraDeNegocioController controller = new RegraDeNegocioController();
 
         }
+
+        private void tab_Vendas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tab_Vendas_Enter(object sender, EventArgs e)
+        {
+            List<RegrasNegocio> lista_regras_venda = regrasDAO.ListaRegras();
+            dataGrid_regras_venda.DataSource = lista_regras_venda;
+        }
     }
 
 }

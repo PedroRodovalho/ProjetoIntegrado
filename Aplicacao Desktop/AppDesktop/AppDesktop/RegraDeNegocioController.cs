@@ -12,13 +12,16 @@ namespace AppDesktop
     class RegraDeNegocioController
     {
         RegrasNegocioDAO regrasDAO = new RegrasNegocioDAO();
-        Venda venda,venda_aplicada;
+        Venda venda, venda_aplicada;
+        Pagamento pagamento;
         List<Item_Caixa> itens;
-        
-        public RegraDeNegocioController(Venda venda, List<Item_Caixa> itens){
+
+        public RegraDeNegocioController(Venda venda, List<Item_Caixa> itens, Pagamento pagamento)
+        {
 
             this.venda = venda;
             this.itens = itens;
+            this.pagamento = pagamento;
 
         }
 
@@ -30,92 +33,114 @@ namespace AppDesktop
 
         public Venda AplicaRegras()
         {
-            int id = regrasDAO.buscaRegraAtiva();
-            MessageBox.Show(id.ToString() + "venda: " + venda.Valor_total);
-            List<Regra> regrasExistentes = regrasDAO.buscaRegrasExistentes(id);
-            MessageBox.Show(regrasExistentes.Count.ToString());
-            venda_aplicada = venda;
+
+            if (venda.Regra_aplicada != 0) return null;
             
-            for (int i = 0; i < regrasExistentes.Count; i++)
+            string forma_pagamento = pagamento.Forma_pagamento;
+     
+            RegrasNegocio regra_negocio = regrasDAO.buscaRegraAtiva(forma_pagamento);
+
+            string tipo_venda = regra_negocio.Tipo_venda;
+            if (regra_negocio != null && (tipo_venda.Equals(pagamento.Forma_pagamento) || tipo_venda.Equals("TODAS")))
             {
                 
-                Regra regra = regrasExistentes[i];
-                if(regrasExistentes[i].Atribuicao.Equals("VALOR TOTAL")){
+                if ((forma_pagamento.Equals("CREDITO") || tipo_venda.Equals("TODAS")) && !(pagamento.Quantidade_parcelas >= regra_negocio.Parcela_min && pagamento.Quantidade_parcelas <= regra_negocio.Parcela_max))
+                {
+                    return null;
+                }
+                
+                List<Regra> regrasExistentes = regrasDAO.buscaRegrasExistentes(regra_negocio.Id);
+              
+                venda_aplicada = venda;
+                
+                for (int i = 0; i < regrasExistentes.Count; i++)
+                {
 
-                    venda_aplicada  = AplicaValorTotal(regra);
-                    if (venda_aplicada == null || venda_aplicada.Equals(null) || venda_aplicada.Equals("null"))
+                    Regra regra = regrasExistentes[i];
+                    if (regrasExistentes[i].Atribuicao.Equals("VALOR TOTAL"))
                     {
-                        regrasExistentes.RemoveAt(i);
-                    }
-                    else { 
 
-                        return venda_aplicada;
+                        venda_aplicada = AplicaValorTotal(regra);
+                       
+                        if (venda_aplicada == null )
+                        {
+                            regrasExistentes.RemoveAt(i);
+                        }
+                        else
+                        {
+
+                            return venda_aplicada;
+                        }
+
                     }
+
+
+
+                }
+                for (int i = 0; i < regrasExistentes.Count; i++)
+                {
                     
-                }
-
-               
-
-            }
-            for (int i = 0; i < regrasExistentes.Count; i++){
-                MessageBox.Show("Entrou 2 fori");
-               Regra regra = regrasExistentes[i];
-                if(regrasExistentes[i].Atribuicao.Equals("VALOR DO PRODUTO")){
-
-                    venda_aplicada  = AplicaRegraQuantidade(regra);
-                   // AplicaRegraQuantidade(regra);
-                    if (venda_aplicada == null || venda_aplicada.Equals(null) || venda_aplicada.Equals("null"))
+                    Regra regra = regrasExistentes[i];
+                    if (regrasExistentes[i].Atribuicao.Equals("QUANTIDADE"))
                     {
-                        regrasExistentes.RemoveAt(i);
-                    }
-                    else { 
 
-                        return venda_aplicada;
+                        venda_aplicada = AplicaRegraQuantidade(regra);
+                       
+                        if (venda_aplicada == null)
+                        {
+                            regrasExistentes.RemoveAt(i);
+                        }
+                        else
+                        {
+
+                            return venda_aplicada;
+                        }
+
                     }
-                   
                 }
+                /**
+                if (regrasExistentes[i].Atribuicao.Equals("VALOR DO PRODUTO"))
+                {
+                    MessageBox.Show("VALOR PRODUTO");
+                    venda_aplicada = AplicaRegraValorDoProduto(regra);
+                    if (venda_aplicada != null || !venda_aplicada.Equals(null) || venda_aplicada.Equals("null")) return venda_aplicada;
+                }
+                */
             }
-            /**
-            if (regrasExistentes[i].Atribuicao.Equals("VALOR DO PRODUTO"))
-            {
-                MessageBox.Show("VALOR PRODUTO");
-                venda_aplicada = AplicaRegraValorDoProduto(regra);
-                if (venda_aplicada != null || !venda_aplicada.Equals(null) || venda_aplicada.Equals("null")) return venda_aplicada;
-            }
-            */
             return null;
         }
-
         private Venda AplicaValorTotal(Regra regra)
         {
             string condicao = regra.Condicao;
-            MessageBox.Show("condicao: " + condicao);
-            if (condicao.Equals("MAIOR OU IGUAL")){
-                MessageBox.Show("Maior ou igual");
+           
+            if (condicao.Equals("MAIOR OU IGUAL"))
+            {
+                
                 if (venda.Valor_total >= regra.Parametro)
                 {
-                    MessageBox.Show("Maior ou igual");
+                   
 
                     venda_aplicada.Valor_final = venda.Valor_total - (venda.Valor_total * (regra.Desconto / 100));
-                    MessageBox.Show("VENDA APLICADA " + venda_aplicada.Valor_final.ToString()+"\n Desconto: "+ regra.Desconto);
+                    
                     venda_aplicada.Desconto = regra.Desconto;
                     venda_aplicada.Regra_aplicada = regra.Id;
                     return venda_aplicada;
                 }
-                
-            }
-            else if (condicao.Equals("MENOR OU IGUAL")) {
 
-                MessageBox.Show("Maior ou igual");
+            }
+            else if (condicao.Equals("MENOR OU IGUAL"))
+            {
+
+             
 
                 if (venda.Valor_total <= regra.Parametro)
                 {
 
-                    MessageBox.Show("Maior ou igual");
+                    
                     venda_aplicada.Valor_final = venda.Valor_total - (venda.Valor_total * (regra.Desconto / 100));
                     venda_aplicada.Desconto = regra.Desconto;
                     venda_aplicada.Regra_aplicada = regra.Id;
-                    
+
                     return venda_aplicada;
                 }
             }
@@ -126,6 +151,7 @@ namespace AppDesktop
         {
             venda_aplicada = new Venda();
             string condicao = regra.Condicao;
+            
             if (condicao.Equals("MAIOR OU IGUAL"))
             {
                 if (venda.Quantidade_itens >= regra.Parametro)
@@ -136,7 +162,7 @@ namespace AppDesktop
                     return venda_aplicada;
                 }
             }
-            else if (condicao.Equals("Menor ou Igual"))
+            else if (condicao.Equals("MENOR OU IGUAL"))
             {
                 if (venda.Valor_final <= regra.Parametro)
                 {
@@ -147,20 +173,27 @@ namespace AppDesktop
                     return venda_aplicada;
                 }
 
-                
-            
+
+
             }
             System.Console.Write("APLICANDO REGRA DE QUANTIDADE");
-            
-            return venda_aplicada;
+
+            return null;
 
         }
 
         private Venda AplicaRegraValorDoProduto(Regra regra)
         {
+
+            for (int i = 0; i < itens.Count; i++)
+            {
+
+            }
             System.Console.Write("APLICANDO REGRA DE QUANTIDADE");
-            return venda_aplicada;
+            return null;
         }
+
+
 
     }
 }

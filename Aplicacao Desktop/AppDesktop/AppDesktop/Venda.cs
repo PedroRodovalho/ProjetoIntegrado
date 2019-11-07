@@ -3,7 +3,7 @@
     public class Venda
     {
         private int id;
-     
+        
         private string data;
         private double valor_total;
         private double valor_final;

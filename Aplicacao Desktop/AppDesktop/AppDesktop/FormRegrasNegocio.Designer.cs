@@ -35,11 +35,8 @@
             this.txt_descricao = new System.Windows.Forms.TextBox();
             this.combo_tipo_venda = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.radio_desconto = new System.Windows.Forms.RadioButton();
             this.label22 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.radio_acrescimo = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
             this.btn_criar_regra = new System.Windows.Forms.Button();
             this.group_desconto = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -76,12 +73,19 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGrid_regras_venda = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.combo_fparcelas = new System.Windows.Forms.ComboBox();
             this.combo_iparcelas = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.radio_acrescimo = new System.Windows.Forms.RadioButton();
+            this.radio_desconto = new System.Windows.Forms.RadioButton();
             this.tab_regras_negocio.SuspendLayout();
             this.tab_Vendas.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -89,7 +93,7 @@
             this.group_acrescimo.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_regras_venda)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,10 +121,15 @@
             // tab_Vendas
             // 
             this.tab_Vendas.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tab_Vendas.Controls.Add(this.button6);
+            this.tab_Vendas.Controls.Add(this.button5);
+            this.tab_Vendas.Controls.Add(this.button4);
+            this.tab_Vendas.Controls.Add(this.button3);
+            this.tab_Vendas.Controls.Add(this.button2);
             this.tab_Vendas.Controls.Add(this.groupBox7);
             this.tab_Vendas.Controls.Add(this.groupBox6);
             this.tab_Vendas.Controls.Add(this.groupBox5);
-            this.tab_Vendas.Controls.Add(this.dataGridView1);
+            this.tab_Vendas.Controls.Add(this.dataGrid_regras_venda);
             this.tab_Vendas.Controls.Add(this.groupBox3);
             this.tab_Vendas.Location = new System.Drawing.Point(4, 22);
             this.tab_Vendas.Name = "tab_Vendas";
@@ -128,6 +137,8 @@
             this.tab_Vendas.Size = new System.Drawing.Size(1272, 496);
             this.tab_Vendas.TabIndex = 1;
             this.tab_Vendas.Text = "Vendas";
+            this.tab_Vendas.Click += new System.EventHandler(this.tab_Vendas_Click);
+            this.tab_Vendas.Enter += new System.EventHandler(this.tab_Vendas_Enter);
             // 
             // groupBox7
             // 
@@ -138,7 +149,6 @@
             this.groupBox7.Controls.Add(this.label22);
             this.groupBox7.Controls.Add(this.label4);
             this.groupBox7.Controls.Add(this.radio_acrescimo);
-            this.groupBox7.Controls.Add(this.button1);
             this.groupBox7.Controls.Add(this.btn_criar_regra);
             this.groupBox7.Controls.Add(this.group_desconto);
             this.groupBox7.Controls.Add(this.group_acrescimo);
@@ -160,10 +170,10 @@
             // 
             this.combo_tipo_venda.FormattingEnabled = true;
             this.combo_tipo_venda.Items.AddRange(new object[] {
-            "No dinheiro",
-            "No debito",
-            "Parceladas",
-            "Todas"});
+            "DINHEIRO",
+            "DEBITO",
+            "CREDITO",
+            "TODAS"});
             this.combo_tipo_venda.Location = new System.Drawing.Point(662, 20);
             this.combo_tipo_venda.Name = "combo_tipo_venda";
             this.combo_tipo_venda.Size = new System.Drawing.Size(121, 21);
@@ -177,18 +187,6 @@
             this.label1.Size = new System.Drawing.Size(98, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Valido para vendas";
-            // 
-            // radio_desconto
-            // 
-            this.radio_desconto.AutoSize = true;
-            this.radio_desconto.Location = new System.Drawing.Point(470, 21);
-            this.radio_desconto.Name = "radio_desconto";
-            this.radio_desconto.Size = new System.Drawing.Size(71, 17);
-            this.radio_desconto.TabIndex = 6;
-            this.radio_desconto.TabStop = true;
-            this.radio_desconto.Text = "Desconto";
-            this.radio_desconto.UseVisualStyleBackColor = true;
-            this.radio_desconto.CheckedChanged += new System.EventHandler(this.radio_desconto_CheckedChanged);
             // 
             // label22
             // 
@@ -208,33 +206,11 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Regras para:";
             // 
-            // radio_acrescimo
-            // 
-            this.radio_acrescimo.AutoSize = true;
-            this.radio_acrescimo.Location = new System.Drawing.Point(379, 21);
-            this.radio_acrescimo.Name = "radio_acrescimo";
-            this.radio_acrescimo.Size = new System.Drawing.Size(74, 17);
-            this.radio_acrescimo.TabIndex = 6;
-            this.radio_acrescimo.TabStop = true;
-            this.radio_acrescimo.Text = "Acrescimo";
-            this.radio_acrescimo.UseVisualStyleBackColor = true;
-            this.radio_acrescimo.CheckedChanged += new System.EventHandler(this.radio_acrescimo_CheckedChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(642, 166);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "teste";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // btn_criar_regra
             // 
-            this.btn_criar_regra.Location = new System.Drawing.Point(723, 166);
+            this.btn_criar_regra.Location = new System.Drawing.Point(561, 166);
             this.btn_criar_regra.Name = "btn_criar_regra";
-            this.btn_criar_regra.Size = new System.Drawing.Size(75, 23);
+            this.btn_criar_regra.Size = new System.Drawing.Size(237, 23);
             this.btn_criar_regra.TabIndex = 5;
             this.btn_criar_regra.Text = "Criar regra";
             this.btn_criar_regra.UseVisualStyleBackColor = true;
@@ -396,11 +372,8 @@
             // 
             this.combo_total_venda.FormattingEnabled = true;
             this.combo_total_venda.Items.AddRange(new object[] {
-            "Maior",
-            "Maior ou igual",
-            "Menor",
-            "Menor ou igual",
-            "O mesmo"});
+            "MAIOR OU IGUAL",
+            "MENOR OU IGUAL"});
             this.combo_total_venda.Location = new System.Drawing.Point(154, 40);
             this.combo_total_venda.Name = "combo_total_venda";
             this.combo_total_venda.Size = new System.Drawing.Size(81, 21);
@@ -601,13 +574,13 @@
             this.radioButton4.Text = "Ativas";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGrid_regras_venda
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 250);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1042, 240);
-            this.dataGridView1.TabIndex = 7;
+            this.dataGrid_regras_venda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid_regras_venda.Location = new System.Drawing.Point(22, 250);
+            this.dataGrid_regras_venda.Name = "dataGrid_regras_venda";
+            this.dataGrid_regras_venda.Size = new System.Drawing.Size(1042, 240);
+            this.dataGrid_regras_venda.TabIndex = 7;
             // 
             // groupBox3
             // 
@@ -682,6 +655,75 @@
             this.label23.TabIndex = 1;
             this.label23.Text = "De";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1070, 250);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Visualizar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(1070, 279);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "Editar";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(1070, 308);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 10;
+            this.button4.Text = "Excluir";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(1070, 337);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 10;
+            this.button5.Text = "Ativar/Desativar";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(1070, 366);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 10;
+            this.button6.Text = "Copiar";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // radio_acrescimo
+            // 
+            this.radio_acrescimo.AutoSize = true;
+            this.radio_acrescimo.Location = new System.Drawing.Point(379, 21);
+            this.radio_acrescimo.Name = "radio_acrescimo";
+            this.radio_acrescimo.Size = new System.Drawing.Size(74, 17);
+            this.radio_acrescimo.TabIndex = 6;
+            this.radio_acrescimo.TabStop = true;
+            this.radio_acrescimo.Text = "Acrescimo";
+            this.radio_acrescimo.UseVisualStyleBackColor = true;
+            this.radio_acrescimo.CheckedChanged += new System.EventHandler(this.radio_acrescimo_CheckedChanged);
+            // 
+            // radio_desconto
+            // 
+            this.radio_desconto.AutoSize = true;
+            this.radio_desconto.Location = new System.Drawing.Point(470, 21);
+            this.radio_desconto.Name = "radio_desconto";
+            this.radio_desconto.Size = new System.Drawing.Size(71, 17);
+            this.radio_desconto.TabIndex = 6;
+            this.radio_desconto.TabStop = true;
+            this.radio_desconto.Text = "Desconto";
+            this.radio_desconto.UseVisualStyleBackColor = true;
+            this.radio_desconto.CheckedChanged += new System.EventHandler(this.radio_desconto_CheckedChanged);
+            // 
             // FormRegrasNegocio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -705,7 +747,7 @@
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_regras_venda)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -732,10 +774,8 @@
         private System.Windows.Forms.ComboBox combo_quantidade_produto;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.TextBox txt_descricao;
-        private System.Windows.Forms.RadioButton radio_desconto;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RadioButton radio_acrescimo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txt_desconto_produto;
@@ -760,13 +800,19 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGrid_regras_venda;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_desconto_quantidade;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_desconto_total;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RadioButton radio_desconto;
+        private System.Windows.Forms.RadioButton radio_acrescimo;
     }
 }

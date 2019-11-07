@@ -13,48 +13,51 @@ namespace AppDesktop
     class VendaDAO : ITransaction
     {
 
-	MySqlTransaction transaction;
-    Conversor conversor = new Conversor();
-    Config conexao = new Config();
+        MySqlTransaction transaction;
+        MySqlConnection conn;
+        Conversor conversor = new Conversor();
+        Config conexao = new Config();
+
         //INSERCAO DE NOVA VENDA
-        public int InsereVenda(Venda venda)
+        public MySqlTransaction InsereVenda(Venda venda)
         {
 
-            MySqlConnection conn = Conecta();
+            conn = Conecta();
             this.transaction = CriaTransacao(conn);
             MySqlCommand command = conn.CreateCommand();
             command.Transaction = transaction;
-            
+
 
             try
             {
-                command.CommandText = "insert into tb_venda(data_venda,valor_total,valor_final,quantidade_itens,regra_aplicada) values(@id_pagamento,@data,@valor_total," +
+                command.CommandText = "insert into tb_venda(data_venda,valor_total,valor_final,quantidade_itens,regra_aplicada) values(@data,@valor_total," +
                     "@valor_final,@quantidade_itens,@regra_aplicada)";
 
-               /*
-                CREATE TABLE tb_venda(id int not null auto_increment,
-                    data varchar(50) not null,
-                    valor_total double not null,
-                    valor_final double not null,
-                    quantidade_itens int not null,
-                    regra_aplicada int not null,
-                    primary key(id)));
-                 
-                 */
+                /*
+                 CREATE TABLE tb_venda(id int not null auto_increment,
+                     data varchar(50) not null,
+                     valor_total double not null,
+                     valor_final double not null,
+                     quantidade_itens int not null,
+                     regra_aplicada int not null,
+                     primary key(id)));
+
+                  */
+                
                 command.Parameters.AddWithValue("@data", venda.Data);
                 command.Parameters.AddWithValue("@valor_total", conversor.toDoubleDB(venda.Valor_total.ToString()));
                 command.Parameters.AddWithValue("@valor_final", conversor.toDoubleDB(venda.Valor_final.ToString()));
                 command.Parameters.AddWithValue("@quantidade_itens", venda.Quantidade_itens);
                 command.Parameters.AddWithValue("@regra_aplicada", venda.Regra_aplicada);
-                
-                
-    
+
+
+
                 command.ExecuteNonQuery();
 
-                int last_id = conversor.ToInt32(command.LastInsertedId.ToString());
-                return last_id;
+                //int last_id = conversor.ToInt32(command.LastInsertedId.ToString());
+                return transaction;
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
                 MessageBox.Show("Não foi possivel registrar lancamento, desfazendo alterações" + ex.Message, "Erro");
                 try
@@ -69,24 +72,110 @@ namespace AppDesktop
 
             }
 
-            return 0;
+            return null;
         }
 
-        public void InsereItensVenda(List<Item_Caixa> itens)
+        public void atualizaVFVenda(Venda venda)
         {
 
+            conn = Conecta();
+            
+            MySqlCommand command = conn.CreateCommand();
+            
+
+
+            try
+            {
+                command.CommandText = "update tb_venda set valor_final = '" + conversor.toDoubleDB(venda.Valor_final.ToString()) + "', regra_aplicada =" + venda.Regra_aplicada + " where id=" + venda.Id;
+                command.ExecuteNonQuery();
+
+
+                
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ERRO AO ATULIZAR " + ex.Message);
+
+            }
+
+         
         }
+
+        public int GetLastIdVenda()
+        {
+            conn = Conecta();
+            MySqlCommand command = conn.CreateCommand();
+
+            try
+            {
+                command.CommandText = "SELECT MAX(id) from tb_venda";
+                var result = command.ExecuteReader();
+                if (result.Read()) return result.GetInt32("MAX(id)");
+
+            }
+            catch (Exception ex)
+            {
+                System.Console.Write("Erro: " + ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) Desconecta();
+            }
+            return 0;
+
+        }
+
+        //public void InsereItensVenda(List<Item_Caixa> itens)
+        //{
+        //    conn = Conecta();
+        //    MySqlCommand command = conn.CreateCommand();
+
+        //    try
+        //    {
+        //        command.CommandText = "insert into tb_itens_venda(id_venda, valor,forma_pagamento,quantidade_parcelas)" +
+        //            " values(@id_venda,@valor,@forma_pagamento,@quantidade_parcelas)";
+
+        //        command.Parameters.AddWithValue("@id_venda", pagamento.Id_venda);
+        //        command.Parameters.AddWithValue("@valor", conversor.toDoubleDB(pagamento.Valor.ToString()));
+        //        command.Parameters.AddWithValue("@forma_pagamento", pagamento.Forma_pagamento);
+        //        command.Parameters.AddWithValue("@quantidade_parcelas", pagamento.Quantidade_parcelas);
+
+        //        command.ExecuteNonQuery();
+
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Não foi possivel registrar lancamento, desfazendo alterações" + ex.Message, "Erro");
+        //        try
+        //        {
+        //            transaction.Rollback();
+        //        }
+        //        catch (MySqlException mEx)
+        //        {
+        //            MessageBox.Show("Erro ao realizar Rollback " + mEx.Message);
+
+        //        }
+
+        //    }
+        //    finally
+        //    {
+        //        if (conn.State == ConnectionState.Open) Desconecta();
+        //    }
+        //}
+    
 
         public void InserePagamento(Pagamento pagamento)
         {
-            MySqlConnection conn = Conecta();
+            conn = Conecta();
             MySqlCommand command = conn.CreateCommand();
-            
+
             try
             {
-                command.CommandText = "insert into tb_pagamento(id_venda, valor,forma_pagamento,quantidade_parcelas)" +
+                command.CommandText = "insert into tb_pagamento(id_venda,valor,forma_pagamento,quantidade_parcelas)" +
                     " values(@id_venda,@valor,@forma_pagamento,@quantidade_parcelas)";
-                
+
                 command.Parameters.AddWithValue("@id_venda", pagamento.Id_venda);
                 command.Parameters.AddWithValue("@valor", conversor.toDoubleDB(pagamento.Valor.ToString()));
                 command.Parameters.AddWithValue("@forma_pagamento", pagamento.Forma_pagamento);
@@ -94,30 +183,61 @@ namespace AppDesktop
 
                 command.ExecuteNonQuery();
 
-               
-                
+
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Não foi possivel registrar lancamento, desfazendo alterações" + ex.Message, "Erro");
+            
+
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) Desconecta();
+            }
+        }
+        public void InserePagamento(List<Pagamento> pagamentos)
+        {
+            conn = Conecta();
+            MySqlCommand command = conn.CreateCommand();
+            for (int i = 0; i < pagamentos.Count; i++)
+            {
+                Pagamento pagamento = pagamentos[i];
                 try
                 {
-                    transaction.Rollback();
-                }
-                catch (MySqlException mEx)
-                {
-                    MessageBox.Show("Erro ao realizar Rollback " + mEx.Message);
+                    command.CommandText = "insert into tb_pagamento(id_venda, valor,forma_pagamento,quantidade_parcelas)" +
+                        " values(@id_venda,@valor,@forma_pagamento,@quantidade_parcelas)";
+
+                    command.Parameters.AddWithValue("@id_venda", pagamento.Id_venda);
+                    command.Parameters.AddWithValue("@valor", conversor.toDoubleDB(pagamento.Valor.ToString()));
+                    command.Parameters.AddWithValue("@forma_pagamento", pagamento.Forma_pagamento);
+                    command.Parameters.AddWithValue("@quantidade_parcelas", pagamento.Quantidade_parcelas);
+
+                    command.ExecuteNonQuery();
+
+
 
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Não foi possivel registrar lancamento, desfazendo alterações" + ex.Message, "Erro");
+                    
+
+                }
+                finally
+                {
+                    if (conn.State == ConnectionState.Open) Desconecta();
+                }
+
 
             }
         }
-
         //CONSULTAS//
 
         public List<Venda> ListarVendas()
         {
-            MySqlConnection conn = Conecta();
+            conn = Conecta();
             MySqlCommand command = conn.CreateCommand();
             List<Venda> vendas = new List<Venda>();
             try
@@ -129,14 +249,19 @@ namespace AppDesktop
 
 
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) Desconecta();
             }
 
             return vendas;
 
-    }
+        }
         private MySqlConnection Conecta()
         {
             string connString = conexao.getConexao();
@@ -159,36 +284,49 @@ namespace AppDesktop
             return transaction;
         }
 
-        private void CommitTransaction(MySqlTransaction transaction, MySqlConnection conn)
+        public void CommitTransaction(MySqlTransaction transaction)
         {
             try
             {
                 transaction.Commit();
+                MessageBox.Show("VENDA REALIZADA COM SUCESSO.");
 
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
                 MessageBox.Show("Houve um erro ao commitar:" + ex.Message);
             }
-            conn.Close();
+            finally
+            {
+                transaction.Connection.Close();
+            }
+
         }
 
-        public void insereHistoricoCliente(int id_venda)
+        public void InsereHistoricoCliente(int id_venda,int id_cliente)
         {
-            MySqlConnection conn = Conecta();
+            conn = Conecta();
             MySqlCommand command = conn.CreateCommand();
 
             try
             {
-                command.CommandText = "insert into tb_historico_venda_cliente(id_venda) values(@id_venda)";
+                command.CommandText = "insert into tb_historico_cliente(id_venda,id_cliente) values(@id_venda,@id_cliente)";
                 command.Parameters.AddWithValue("@id_venda", id_venda);
+                command.Parameters.AddWithValue("@id_cliente", id_cliente);
+                command.ExecuteNonQuery();
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Venda não registrada ao historico do cliente");
+                MessageBox.Show("Venda não registrada ao historico do cliente" + ex.Message);
             }
 
 
+        }
+
+        public void Desconecta()
+        {
+            //conn.Close();
         }
 
         MySqlConnection ITransaction.Conecta()

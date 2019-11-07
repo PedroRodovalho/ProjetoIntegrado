@@ -25,10 +25,10 @@ namespace AppDesktop
             //Boolean primeiro_acesso = true;
 
             tab.Padding = new Point(12, 4);
-
             Boolean primeiro_acesso = Properties.Settings.Default.primeiro_acesso;
             if (primeiro_acesso)
             {
+               
                 this.Visible = false;
                 FormPrimeiroAcesso formPrimeiroAcesso = new FormPrimeiroAcesso(this);
                 DialogResult result = formPrimeiroAcesso.ShowDialog();
@@ -86,6 +86,7 @@ namespace AppDesktop
 
         public void inicializaSistema()
         {
+            
             panel_menu.Visible = true;
             /// timer1.Enabled = true;
             // timer1.Start();
@@ -101,10 +102,31 @@ namespace AppDesktop
 
             panel_menu.Visible = true;
             panel_home.Visible = true;
-            label_menu.Visible = true;
+            
 
         }
-
+        protected void PaintTransparentBackground(Graphics graphics, Rectangle clipRect)
+        {
+            graphics.Clear(Color.Transparent);
+            if ((this.Parent != null))
+            {
+                clipRect.Offset(this.Location);
+                PaintEventArgs e = new PaintEventArgs(graphics, clipRect);
+                GraphicsState state = graphics.Save();
+                graphics.SmoothingMode = SmoothingMode.HighSpeed;
+                try
+                {
+                    graphics.TranslateTransform((float)-this.Location.X, (float)-this.Location.Y);
+                    this.InvokePaintBackground(this.Parent, e);
+                    this.InvokePaint(this.Parent, e);
+                }
+                finally
+                {
+                    graphics.Restore(state);
+                    clipRect.Offset(-this.Location.X, -this.Location.Y);
+                }
+            }
+        }
         private void btn_logar_Click(object sender, EventArgs e)
         {
             solicitaLogin();
@@ -159,15 +181,24 @@ namespace AppDesktop
 
         private void icon_caixa_MouseEnter(object sender, EventArgs e)
         {
-            icon_caixa.Size = new Size(icon_caixa.Size.Width + 10, icon_caixa.Size.Height + 10);
-            icon_caixa.Location = new Point(icon_caixa.Location.X - 5, icon_caixa.Location.Y - 5);
+            lbl_nome_icone.Visible = true;
+            lbl_nome_icone.Text = "CAIXA";
+            icon_caixa.Size = new Size(icon_caixa.Size.Width + 15, icon_caixa.Size.Height + 15);
+            icon_caixa.Location = new Point(icon_caixa.Location.X - 8, icon_caixa.Location.Y - 8);
+            icon_estoque.Location = new Point(icon_estoque.Location.X + 10, icon_estoque.Location.Y);
+            icon_cliente.Location = new Point(icon_cliente.Location.X - 10, icon_cliente.Location.Y);
+            icon_financeiro.Location = new Point(icon_financeiro.Location.X - 10, icon_financeiro.Location.Y);
         }
 
 
         private void icon_caixa_MouseLeave(object sender, EventArgs e)
         {
-            icon_caixa.Size = new Size(icon_caixa.Size.Width - 10, icon_caixa.Size.Height - 10);
-            icon_caixa.Location = new Point(icon_caixa.Location.X + 5, icon_caixa.Location.Y + 5);
+            lbl_nome_icone.Visible = false;
+            icon_caixa.Size = new Size(icon_caixa.Size.Width - 15, icon_caixa.Size.Height - 15);
+            icon_caixa.Location = new Point(icon_caixa.Location.X + 8, icon_caixa.Location.Y + 8);
+            icon_estoque.Location = new Point(icon_estoque.Location.X - 10, icon_estoque.Location.Y);
+            icon_cliente.Location = new Point(icon_cliente.Location.X + 10, icon_cliente.Location.Y);
+            icon_financeiro.Location = new Point(icon_financeiro.Location.X + 10, icon_financeiro.Location.Y);
         }
 
         private void panel_session_Paint(object sender, PaintEventArgs e)
@@ -195,8 +226,91 @@ namespace AppDesktop
         TabPage tab_financeiro = new TabPage();
         TabPage tab_estoque = new TabPage();
         TabPage tab_regra_negocio = new TabPage();
+
+        string[,] abas = {
+            {"disponivel", "22", "120","0"}, //22; 124
+            {"disponivel", "232", "124","0"}, //232; 124
+            {"disponivel", "442", "124","0"},
+            {"disponivel", "652", "124","0"},
+            {"disponivel", "862", "124","0"},
+            {"disponivel", "1072", "124","0"}};
+
+
+
+        public void MapeaiaAba(string nome)
+        {
+            int pos = 0;
+            for (int i = 0; i < abas.Length; i++)
+            {
+                if (abas[i, 0].Equals("disponivel"))
+                {
+                    abas[i, 0] = nome;
+
+                    AbreAba(nome, i, abas[i, 1], abas[i, 2]);
+                    pos = i;
+                    break;
+                }
+            }
+            for (int i = 0; i < abas.Length; i++)
+            {
+
+            }
+
+
+        }
+
+        Conversor conversor = new Conversor();
+
+        FormAba formAbaCaixa, formAbaFinanceiro, formAbaEstoque, formAbaCliente;
+        public void AbreAba(string nome, int posicao, string X, string Y)
+        {
+            Point point = new Point(conversor.ToInt32(X), conversor.ToInt32(Y));
+            if (nome.Equals("CAIXA"))
+            {
+                formAbaCaixa = new FormAba(this, nome, point, posicao);
+                formAbaCaixa.TopLevel = false;
+                formAbaCaixa.Visible = true;
+                this.Controls.Add(formAbaCaixa);
+                formCaixa = new FormCaixa();
+                formCaixa.TopLevel = false;
+                formCaixa.Visible = true;
+                panel_home.Controls.Add(formCaixa);
+
+                //abas[posicao, 3] = Application.OpenForms.OfType<FormAba>().;
+                MessageBox.Show(abas[posicao, 0] + " " + abas[posicao, 3]);
+            }
+
+
+        }
+        public void FechaAba(string nome)
+        {
+            int posicao = 0;
+            for (int i = 0; i < abas.Length; i++)
+            {
+                if (abas[i, 0].Equals(nome))
+                {
+                    abas[i, 0] = "disponivel";
+                    //posicao = i;
+                    int elemento = conversor.ToInt32(abas[i, 3]);
+                    MessageBox.Show(abas[i, 0] + " " + abas[i, 3]);
+
+
+                    break;
+                }
+            }
+
+            if (nome.Equals("CAIXA"))
+            {
+                formAbaCaixa.Close();
+                formCaixa.Close();
+            }
+        }
+
         private void icon_caixa_Click(object sender, EventArgs e)
         {
+
+            //MapeaiaAba("CAIXA");
+
 
             if (!tab.TabPages.Contains(tab_caixa))
             {
@@ -215,16 +329,19 @@ namespace AppDesktop
             {
                 tab.SelectedTab = tab_caixa;
             }
+
         }
 
         private void icon_cliente_Click(object sender, EventArgs e)
         {
 
-            if (!tab.TabPages.Contains(tab_cliente)){
+            if (!tab.TabPages.Contains(tab_cliente))
+            {
 
 
-                
-                
+
+
+
                 tab.TabPages.Add(tab_cliente);
                 tab_cliente.Text = "Clientes";
                 formCliente = new FormCliente();
@@ -267,11 +384,10 @@ namespace AppDesktop
 
         private void tab_DrawItem(object sender, DrawItemEventArgs e)
         {
-            /*  var tabPage = this.tab.TabPages[e.Index]; var tabRect = this.tab.GetTabRect(e.Index); tabRect.Inflate(-2, -2); if (e.Index == this.tab.TabCount - 1) { var addImage = Properties.Resources.Teste; e.Graphics.DrawImage(addImage, tabRect.Left + (tabRect.Width - addImage.Width) / 2, tabRect.Top + (tabRect.Height - addImage.Height) / 2); }
-              else
-              {
-                  var closeImage = Properties.Resources.DeleteButton_Image; e.Graphics.DrawImage(closeImage, (tabRect.Right - closeImage.Width), tabRect.Top + (tabRect.Height - closeImage.Height) / 2); TextRenderer.DrawText(e.Graphics, tabPage.Text, tabPage.Font, tabRect, tabPage.ForeColor, TextFormatFlags.Left);
-              }*/
+            
+
+
+            
         }
 
         private void icon_estoque_Click(object sender, EventArgs e)
@@ -319,6 +435,57 @@ namespace AppDesktop
                 tab.SelectedTab = tab_regra_negocio;
             }
         }
+
+        private void icon_financeiro_MouseEnter(object sender, EventArgs e)
+        {
+            lbl_nome_icone.Text = "FINANCEIRO";
+            lbl_nome_icone.Visible = true;
+        }
+
+        private void icon_financeiro_MouseLeave(object sender, EventArgs e)
+        {
+            lbl_nome_icone.Visible = false;
+        }
+
+        private void icon_cliente_MouseEnter(object sender, EventArgs e)
+        {
+            lbl_nome_icone.Text = "CLIENTE";
+            lbl_nome_icone.Visible = true;
+        }
+
+        private void icon_cliente_MouseLeave(object sender, EventArgs e)
+        {
+            lbl_nome_icone.Visible = false;
+        }
+
+        private void icon_estoque_MouseEnter(object sender, EventArgs e)
+        {
+            lbl_nome_icone.Text = "ESTOQUE";
+            lbl_nome_icone.Visible = true;
+        }
+
+        private void elementHost1_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
+        {
+
+        }
+
+        private void icon_estoque_MouseLeave(object sender, EventArgs e)
+        {
+            lbl_nome_icone.Visible = false;
+        }
+
+        private void icon_preferencias_MouseEnter(object sender, EventArgs e)
+        {
+            lbl_nome_icone.Text = "PREFERÊNCIAS";
+            lbl_nome_icone.Visible = true;
+        }
+
+        private void icon_preferencias_MouseLeave(object sender, EventArgs e)
+        {
+            lbl_nome_icone.Visible = false;
+        }
     }
+
+
 }
 

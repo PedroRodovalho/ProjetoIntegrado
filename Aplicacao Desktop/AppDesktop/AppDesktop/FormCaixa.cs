@@ -1,4 +1,5 @@
 ﻿using AppDesktop.DAO;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,8 @@ namespace AppDesktop
         Conversor conversor = new Conversor();
         EstoqueDAO estoqueDAO = new EstoqueDAO();
         ClienteDAO clienteDAO = new ClienteDAO();
+        VendaDAO vendaDAO = new VendaDAO();
+
         Boolean venda_preparada = false;
         int itens_count = 0;
         double valor_total = 0;
@@ -37,25 +40,6 @@ namespace AppDesktop
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_cadastrar_cliente_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         int enter_count = 0;
 
@@ -149,7 +133,6 @@ namespace AppDesktop
         private void txt_codigo_TextChanged(object sender, EventArgs e)
         {
             enter_count = 0;
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -210,9 +193,12 @@ namespace AppDesktop
                         lbl_mensagens.Text = "NENHUN OUTRO CLIENTE ENCONTRADO!";
                     }
                 }
-
-
             }
+        }
+
+        internal void AtualizaVenda(Venda venda)
+        {
+            this.venda = venda;
         }
 
         private void txt_cpf_KeyDown(object sender, KeyEventArgs e)
@@ -263,49 +249,99 @@ namespace AppDesktop
 
         }
 
-        private void radio_credito_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radio_credito.Checked)
-            {
-                combo_parcelas.Visible = true;
-            }
-        }
+  
 
         private void btnFinalizarVenda_click(object sender, EventArgs e)
         {
-            if (venda_preparada) Finalizar();
-            else PreparaFinalizacao();
+            if (itens_count == 0)
+            {
+                lbl_mensagens.Text = "NÃO HÁ ITENS PARA CRIAR UMA VENDA";
+            }
+            else
+            {
+
+
+                if (venda_preparada) Finalizar();
+                else PreparaFinalizacao();
+            }
+
+        }
+
+
+        public void Finalizar()
+        {
+            // vendaDAO.InsereItensVenda(CarregaGridNaLista());
+           
+            vendaDAO.CommitTransaction(transaction);
+            vendaDAO.atualizaVFVenda(venda);
+            if(clientes != null)
+            {
+                vendaDAO.InsereHistoricoCliente(venda.Id, clientes[count_cliente - 1].Id);
+            }
+            LimparCampos();
+            
+            
             
         }
 
-
-        private void Finalizar()
+        public void LimparCampos()
         {
-            throw new NotImplementedException();
+            count_cliente = 0;
+            dataGrid_itens.DataSource = "";
+            lbl_desconto.Text = "0.00";
+            lbl_valor_final.Text = "0.00";
+            lbl_valor_total.Text = "0.00";
+            lbl_desconto_liquido.Text = "0.00";
+            txt_codigo.Text = "";
+            txt_produto.Text = "";
+            txt_nome_cliente.Text = "";
+            txt_cpf.Text = "";
+            txt_nome_cliente.Text = "";
+            txt_quantidade.Text = "";
+            venda_preparada = false;
+            
+            
         }
-
+        MySqlTransaction transaction;
+        Venda venda = new Venda();
         private void PreparaFinalizacao()
         {
             List<Item_Caixa> itens_caixa = CarregaGridNaLista();
-            Venda venda = new Venda();
+            venda.Data = DateTime.Today.ToShortDateString();
             venda.Valor_total = conversor.toDouble(lbl_valor_total.Text);
             venda.Quantidade_itens = conversor.ToInt32(lbl_total_itens.Text);
 
-            MessageBox.Show(itens_caixa.Count.ToString());
-            RegraDeNegocioController controller = new RegraDeNegocioController(venda, itens_caixa);
-            Venda venda_aplicada = controller.AplicaRegras();
+            VendaDAO vendaDAO = new VendaDAO();
+            transaction = vendaDAO.InsereVenda(venda);
+            venda.Id = vendaDAO.GetLastIdVenda() + 1;
+            
+            FormRecebePagamento formPagamento;
 
-            lbl_valor_final.Text = venda_aplicada.Valor_final.ToString();
-            lbl_desconto.Text = " "+venda_aplicada.Desconto.ToString()+"%";
-            MessageBox.Show("REGRA APLICADA: "+  venda_aplicada.Regra_aplicada.ToString());
+            formPagamento = new FormRecebePagamento(venda, this);
+            DialogResult dialogo = formPagamento.ShowDialog();
+
+            if (dialogo == DialogResult.Cancel)
+            {
+                lbl_mensagens.Text = "PAGAMENTO RECUSADO - TENTE NOVAMENTE";
+                lbl_mensagens.ForeColor = Color.Red;
+            }
+            else{
+
+                lbl_mensagens.Text = "PAGAMENTO ACEITO - AGUARDANDO FINALIZACAÇÃO!";
+                lbl_mensagens.ForeColor = Color.Green;
+                lbl_valor_final.Text = venda.Valor_final.ToString("0.00");
+                
+            }
+            formPagamento.Close();    
             venda_preparada = true;
 
         }
 
+        
         private List<Item_Caixa> CarregaGridNaLista()
         {
-            Item_Caixa ic;
             List<Item_Caixa> itens = new List<Item_Caixa>();
+            Item_Caixa ic;
             for (int i = 0; i < dataGrid_itens.RowCount - 1; i++)
             {
                 ic = new Item_Caixa();

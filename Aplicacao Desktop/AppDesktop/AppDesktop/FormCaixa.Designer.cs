@@ -32,16 +32,14 @@
             this.dataGrid_itens = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl_desconto_liquido = new System.Windows.Forms.Label();
             this.lbl_desconto = new System.Windows.Forms.Label();
             this.lbl_valor_total = new System.Windows.Forms.Label();
             this.lbl_total_itens = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.combo_parcelas = new System.Windows.Forms.ComboBox();
-            this.radio_credito = new System.Windows.Forms.RadioButton();
-            this.radio_debito = new System.Windows.Forms.RadioButton();
-            this.radio_dinheiro = new System.Windows.Forms.RadioButton();
             this.group_pagamento = new System.Windows.Forms.GroupBox();
             this.txt_tel = new System.Windows.Forms.MaskedTextBox();
             this.txt_cpf = new System.Windows.Forms.MaskedTextBox();
@@ -99,10 +97,6 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.combo_parcelas);
-            this.panel1.Controls.Add(this.radio_credito);
-            this.panel1.Controls.Add(this.radio_debito);
-            this.panel1.Controls.Add(this.radio_dinheiro);
             this.panel1.Controls.Add(this.group_pagamento);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.lbl_valor_final);
@@ -113,11 +107,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbl_desconto_liquido);
             this.groupBox1.Controls.Add(this.lbl_desconto);
             this.groupBox1.Controls.Add(this.lbl_valor_total);
             this.groupBox1.Controls.Add(this.lbl_total_itens);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Location = new System.Drawing.Point(15, 206);
             this.groupBox1.Name = "groupBox1";
@@ -125,7 +121,15 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações da Compra";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // lbl_desconto_liquido
+            // 
+            this.lbl_desconto_liquido.AutoSize = true;
+            this.lbl_desconto_liquido.Location = new System.Drawing.Point(344, 84);
+            this.lbl_desconto_liquido.Name = "lbl_desconto_liquido";
+            this.lbl_desconto_liquido.Size = new System.Drawing.Size(28, 13);
+            this.lbl_desconto_liquido.TabIndex = 3;
+            this.lbl_desconto_liquido.Text = "0,00";
             // 
             // lbl_desconto
             // 
@@ -135,7 +139,6 @@
             this.lbl_desconto.Size = new System.Drawing.Size(28, 13);
             this.lbl_desconto.TabIndex = 3;
             this.lbl_desconto.Text = "0,00";
-            this.lbl_desconto.Click += new System.EventHandler(this.label1_Click);
             // 
             // lbl_valor_total
             // 
@@ -146,7 +149,6 @@
             this.lbl_valor_total.TabIndex = 3;
             this.lbl_valor_total.Text = "0";
             this.lbl_valor_total.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.lbl_valor_total.Click += new System.EventHandler(this.label1_Click);
             // 
             // lbl_total_itens
             // 
@@ -165,7 +167,6 @@
             this.label11.Size = new System.Drawing.Size(72, 13);
             this.label11.TabIndex = 3;
             this.label11.Text = "Total de Itens";
-            this.label11.Click += new System.EventHandler(this.label1_Click);
             // 
             // label14
             // 
@@ -175,7 +176,15 @@
             this.label14.Size = new System.Drawing.Size(61, 13);
             this.label14.TabIndex = 3;
             this.label14.Text = "Valor Total:";
-            this.label14.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(18, 84);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(93, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Desconto Liquido:";
             // 
             // label6
             // 
@@ -185,51 +194,6 @@
             this.label6.Size = new System.Drawing.Size(56, 13);
             this.label6.TabIndex = 3;
             this.label6.Text = "Desconto:";
-            this.label6.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // combo_parcelas
-            // 
-            this.combo_parcelas.FormattingEnabled = true;
-            this.combo_parcelas.Location = new System.Drawing.Point(264, 182);
-            this.combo_parcelas.Name = "combo_parcelas";
-            this.combo_parcelas.Size = new System.Drawing.Size(49, 21);
-            this.combo_parcelas.TabIndex = 6;
-            this.combo_parcelas.Visible = false;
-            // 
-            // radio_credito
-            // 
-            this.radio_credito.AutoSize = true;
-            this.radio_credito.Location = new System.Drawing.Point(185, 183);
-            this.radio_credito.Name = "radio_credito";
-            this.radio_credito.Size = new System.Drawing.Size(58, 17);
-            this.radio_credito.TabIndex = 5;
-            this.radio_credito.Text = "Crédito";
-            this.radio_credito.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radio_credito.UseVisualStyleBackColor = true;
-            this.radio_credito.CheckedChanged += new System.EventHandler(this.radio_credito_CheckedChanged);
-            // 
-            // radio_debito
-            // 
-            this.radio_debito.AutoSize = true;
-            this.radio_debito.Location = new System.Drawing.Point(105, 183);
-            this.radio_debito.Name = "radio_debito";
-            this.radio_debito.Size = new System.Drawing.Size(56, 17);
-            this.radio_debito.TabIndex = 5;
-            this.radio_debito.TabStop = true;
-            this.radio_debito.Text = "Debito";
-            this.radio_debito.UseVisualStyleBackColor = true;
-            // 
-            // radio_dinheiro
-            // 
-            this.radio_dinheiro.AutoSize = true;
-            this.radio_dinheiro.Checked = true;
-            this.radio_dinheiro.Location = new System.Drawing.Point(24, 183);
-            this.radio_dinheiro.Name = "radio_dinheiro";
-            this.radio_dinheiro.Size = new System.Drawing.Size(64, 17);
-            this.radio_dinheiro.TabIndex = 5;
-            this.radio_dinheiro.TabStop = true;
-            this.radio_dinheiro.Text = "Dinheiro";
-            this.radio_dinheiro.UseVisualStyleBackColor = true;
             // 
             // group_pagamento
             // 
@@ -284,7 +248,6 @@
             this.label10.Size = new System.Drawing.Size(67, 13);
             this.label10.TabIndex = 3;
             this.label10.Text = "Sem imagem";
-            this.label10.Click += new System.EventHandler(this.label1_Click);
             // 
             // txt_nome_cliente
             // 
@@ -303,7 +266,6 @@
             this.label8.Size = new System.Drawing.Size(22, 13);
             this.label8.TabIndex = 3;
             this.label8.Text = "Tel";
-            this.label8.Click += new System.EventHandler(this.label1_Click);
             // 
             // label7
             // 
@@ -313,7 +275,6 @@
             this.label7.Size = new System.Drawing.Size(27, 13);
             this.label7.TabIndex = 3;
             this.label7.Text = "CPF";
-            this.label7.Click += new System.EventHandler(this.label1_Click);
             // 
             // label1
             // 
@@ -323,7 +284,6 @@
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Nome";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 
@@ -382,7 +342,6 @@
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Código";
-            this.label2.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
@@ -392,7 +351,6 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lbl_mensagens
             // 
@@ -449,7 +407,6 @@
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Vendedor:";
-            this.label3.Click += new System.EventHandler(this.label1_Click);
             // 
             // lbl_vendedor
             // 
@@ -459,7 +416,6 @@
             this.lbl_vendedor.Size = new System.Drawing.Size(53, 13);
             this.lbl_vendedor.TabIndex = 3;
             this.lbl_vendedor.Text = "Vendedor";
-            this.lbl_vendedor.Click += new System.EventHandler(this.label1_Click);
             // 
             // label9
             // 
@@ -469,7 +425,6 @@
             this.label9.Size = new System.Drawing.Size(44, 13);
             this.label9.TabIndex = 3;
             this.label9.Text = "Produto";
-            this.label9.Click += new System.EventHandler(this.label1_Click);
             // 
             // groupBox2
             // 
@@ -516,7 +471,6 @@
             this.label16.Size = new System.Drawing.Size(62, 13);
             this.label16.TabIndex = 3;
             this.label16.Text = "Quantidade";
-            this.label16.Click += new System.EventHandler(this.label1_Click);
             // 
             // txt_quantidade
             // 
@@ -537,7 +491,6 @@
             this.button7.TabIndex = 5;
             this.button7.Text = "OK";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -547,7 +500,6 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "button1";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormCaixa
             // 
@@ -595,8 +547,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGrid_itens;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_produto;
@@ -613,10 +563,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbl_valor_final;
         private System.Windows.Forms.GroupBox group_pagamento;
-        private System.Windows.Forms.RadioButton radio_credito;
-        private System.Windows.Forms.RadioButton radio_debito;
-        private System.Windows.Forms.RadioButton radio_dinheiro;
-        private System.Windows.Forms.ComboBox combo_parcelas;
         private System.Windows.Forms.TextBox txt_nome_cliente;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -641,5 +587,8 @@
         private System.Windows.Forms.TextBox txt_quantidade;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbl_desconto_liquido;
+        public System.Windows.Forms.DataGridView dataGrid_itens;
     }
 }

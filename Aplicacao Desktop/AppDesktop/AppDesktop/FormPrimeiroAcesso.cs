@@ -191,7 +191,7 @@ namespace AppDesktop
             user_adm.Login = txt_admin_user.Text;
             user_adm.Senha = txt_admin_pass.Text;
 
-            userDAO.criaLogin(user_adm);
+            userDAO.CriaLogin(user_adm);
 
 
         }
@@ -203,7 +203,7 @@ namespace AppDesktop
             new_user.Login = txt_user_user.Text;
             new_user.Senha = txt_user_pass.Text;
 
-            userDAO.criaLogin(new_user);
+            userDAO.CriaLogin(new_user);
         }
         public void etapa2()
         {

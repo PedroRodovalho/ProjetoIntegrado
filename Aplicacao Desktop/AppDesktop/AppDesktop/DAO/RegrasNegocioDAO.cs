@@ -136,6 +136,39 @@ namespace AppDesktop
             }
         }
 
+        internal List<RegrasNegocio> ListaRegras()
+        {
+            MySqlConnection connection = Conecta();
+            MySqlCommand command = connection.CreateCommand();
+            List<RegrasNegocio> regras = new List<RegrasNegocio>();
+            try
+            {
+                command.CommandText = "select * from tb_regra_negocio";
+                var result = command.ExecuteReader();
+                while (result.Read())
+                {
+                    RegrasNegocio regra = new RegrasNegocio();
+                    regra.Id = result.GetInt32("id");
+                    regra.Nome = result.GetString("nome");
+                    regra.Tipo = result.GetString("tipo");
+                    regra.Tipo_venda = result.GetString("tipo_venda");
+                    regra.Parcela_max = result.GetInt32("parcela_max");
+                    regra.Parcela_min = result.GetInt32("parcela_min");
+                    regra.Ativa = result.GetString("ativa");
+
+                    regras.Add(regra);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao consultar regras " + ex.Message);
+            }
+            finally { if (connection.State == ConnectionState.Open) connection.Close(); }
+
+            return regras;
+        }
+
         public List<Regra> buscaRegrasExistentes(int id)
         {
             MySqlConnection connection = Conecta();
@@ -172,28 +205,30 @@ namespace AppDesktop
             return regras;
         }
 
-        internal RegraDeNegocioPrioridade carregaPrioridade()
-        {
-            throw new NotImplementedException();
-        }
-
-        public int buscaRegraAtiva()
+        public RegrasNegocio buscaRegraAtiva(string forma_pagamento)
         {
             MySqlConnection connection = Conecta();
             MySqlCommand command = connection.CreateCommand();
-            
+
+            RegrasNegocio regra = new RegrasNegocio() ;
             try
             {
-                command.CommandText = "select * from tb_regra_negocio where ativa='Y'";
+                command.CommandText = "select * from tb_regra_negocio where ativa='Y' and tipo_venda ='"+forma_pagamento+"'";
                 var result = command.ExecuteReader();
-                
                 if (result.Read())
                 {
-                    return result.GetInt32("id");
+                    regra.Id = result.GetInt32("id");
+                    regra.Nome = result.GetString("nome");
+                    regra.Parcela_max = result.GetInt32("parcela_max");
+                    regra.Parcela_min = result.GetInt32("parcela_min");
+                    regra.Tipo = result.GetString("tipo");
+                    regra.Tipo_venda = result.GetString("tipo_venda");
                     
-                    
+
+
                 }
 
+                return regra;
                 
             }
             catch (Exception ex)
@@ -205,7 +240,7 @@ namespace AppDesktop
                 if (connection.State == ConnectionState.Open) connection.Close();
             }
 
-            return 0;
+            return regra;
         }
     
 

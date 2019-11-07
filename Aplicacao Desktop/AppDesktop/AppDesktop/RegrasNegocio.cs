@@ -16,7 +16,7 @@ namespace AppDesktop
         private string tipo;
         private int parcela_min;
         private int parcela_max;
-        private bool ativa;
+        private string ativa;
 
 
         public int Id { get => id; set => id = value; }
@@ -25,6 +25,6 @@ namespace AppDesktop
         public int Parcela_min { get => parcela_min; set => parcela_min = value; }
         public int Parcela_max { get => parcela_max; set => parcela_max = value; }
         public string Tipo_venda { get => tipo_venda; set => tipo_venda = value; }
-        public bool Ativa { get => ativa; set => ativa = value; }
+        public string Ativa { get => ativa; set => ativa = value; }
     }
 }

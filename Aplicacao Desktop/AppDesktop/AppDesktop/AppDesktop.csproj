@@ -42,12 +42,18 @@
     <Reference Include="AForge.Video.DirectShow">
       <HintPath>..\..\..\..\..\..\AForge.NET Framework-2.2.5-(libs only)\Release\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
+    <Reference Include="JacksonSoft.CustomTabControl">
+      <HintPath>..\..\..\..\..\..\..\AppData\Local\Temp\Rar$DRa0.720\JacksonSoft.CustomTabControl.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 8.0.13\Assemblies\v4.5.2\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,6 +63,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AplicaRegraQuantidade.cs" />
@@ -77,6 +86,7 @@
     <Compile Include="DAO\FornecedorDAO.cs" />
     <Compile Include="DAO\MysqlConnection.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="EnviarEmail.cs" />
     <Compile Include="FormAba.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +177,18 @@
     <Compile Include="FormPrimeiroAcesso.Designer.cs">
       <DependentUpon>FormPrimeiroAcesso.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPrimeiroAcessoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrimeiroAcessoUsuario.Designer.cs">
+      <DependentUpon>FormPrimeiroAcessoUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRecebePagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecebePagamento.Designer.cs">
+      <DependentUpon>FormRecebePagamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRecuperaSenha.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,12 +237,6 @@
     </Compile>
     <Compile Include="Tabelas.Designer.cs">
       <DependentUpon>Tabelas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="teste.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="teste.Designer.cs">
-      <DependentUpon>teste.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs" />
     <Compile Include="Venda.cs" />
@@ -273,6 +289,12 @@
     <EmbeddedResource Include="FormPrimeiroAcesso.resx">
       <DependentUpon>FormPrimeiroAcesso.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPrimeiroAcessoUsuario.resx">
+      <DependentUpon>FormPrimeiroAcessoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRecebePagamento.resx">
+      <DependentUpon>FormRecebePagamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormRecuperaSenha.resx">
       <DependentUpon>FormRecuperaSenha.cs</DependentUpon>
     </EmbeddedResource>
@@ -294,9 +316,6 @@
     <EmbeddedResource Include="Tabelas.resx">
       <DependentUpon>Tabelas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="teste.resx">
-      <DependentUpon>teste.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -314,6 +333,5 @@
   <ItemGroup>
     <Content Include="Config.xml" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
