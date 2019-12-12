@@ -244,49 +244,8 @@ namespace AppDesktop
         }
     
 
-        public void insere_regra_acrescimo(RegrasNegocio_acrescimo regra_acrescimo)
-        {
-            var connection = new MySqlConnection(config.getConexao());
-            var command = connection.CreateCommand();
-            try
-            {
-                connection.Open();
-                command.CommandText = "insert into tb_regra_negocio_acrescimo(id_regra,acrescimo_parcela,por_parcela) values('"
-                    + regra_acrescimo.Id_regra + "','" + conversor.toDoubleDB(regra_acrescimo.Acrescimo_parcela.ToString()) + "','" + regra_acrescimo.Por_parcela +
-                     "')";
-                command.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection.State == System.Data.ConnectionState.Open) connection.Close();
-
-            }
-
-        }
-        public void insere_regra_desconto(RegrasNegocio_desconto regra_desconto)
-        {
-            var connection = new MySqlConnection(config.getConexao());
-            var command = connection.CreateCommand();
-            try
-            {
-                connection.Open();
-                command.CommandText = "insert into tb_regra_negocio_desconto(id_regra,v_produto,condicao_valor_produto,valor_produto," +
-                    "v_total,condicao_valor_total,valor_total";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection.State == System.Data.ConnectionState.Open) connection.Close();
-            }
-
-        }
+        
+       
 
         public List<RegrasNegocio> busca_regra()
         {

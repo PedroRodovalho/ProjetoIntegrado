@@ -28,15 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCliente));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton_add = new System.Windows.Forms.ToolStripButton();
+            this.tollStripButton_consultar = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_Atualizar = new System.Windows.Forms.ToolStripButton();
             this.dataGrid_cliente = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_cliente)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -46,7 +52,9 @@
             // 
             this.toolStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton_add});
+            this.toolStripButton_add,
+            this.tollStripButton_consultar,
+            this.toolStrip_Atualizar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1320, 25);
@@ -63,13 +71,36 @@
             this.toolStripButton_add.Text = "toolStripButton1";
             this.toolStripButton_add.Click += new System.EventHandler(this.toolStripButton_add_Click);
             // 
+            // tollStripButton_consultar
+            // 
+            this.tollStripButton_consultar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tollStripButton_consultar.Image = ((System.Drawing.Image)(resources.GetObject("tollStripButton_consultar.Image")));
+            this.tollStripButton_consultar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tollStripButton_consultar.Name = "tollStripButton_consultar";
+            this.tollStripButton_consultar.Size = new System.Drawing.Size(23, 22);
+            this.tollStripButton_consultar.Text = "Consultar";
+            this.tollStripButton_consultar.Click += new System.EventHandler(this.tollStripButton_consultar_Click);
+            // 
+            // toolStrip_Atualizar
+            // 
+            this.toolStrip_Atualizar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStrip_Atualizar.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_Atualizar.Image")));
+            this.toolStrip_Atualizar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_Atualizar.Name = "toolStrip_Atualizar";
+            this.toolStrip_Atualizar.Size = new System.Drawing.Size(23, 22);
+            this.toolStrip_Atualizar.Text = "toolStripButton1";
+            this.toolStrip_Atualizar.ToolTipText = "Atualizar";
+            // 
             // dataGrid_cliente
             // 
             this.dataGrid_cliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGrid_cliente.Location = new System.Drawing.Point(12, 90);
+            this.dataGrid_cliente.MultiSelect = false;
             this.dataGrid_cliente.Name = "dataGrid_cliente";
+            this.dataGrid_cliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGrid_cliente.Size = new System.Drawing.Size(1280, 444);
             this.dataGrid_cliente.TabIndex = 1;
+            this.dataGrid_cliente.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_cliente_RowEnter);
             // 
             // groupBox1
             // 
@@ -116,12 +147,34 @@
             this.textBox1.Size = new System.Drawing.Size(152, 20);
             this.textBox1.TabIndex = 0;
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 5000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1205, 50);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "dsa";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1320, 546);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGrid_cliente);
             this.Controls.Add(this.toolStrip1);
@@ -149,5 +202,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ToolStripButton toolStrip_Atualizar;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripButton tollStripButton_consultar;
+        private System.Windows.Forms.Button button1;
     }
 }

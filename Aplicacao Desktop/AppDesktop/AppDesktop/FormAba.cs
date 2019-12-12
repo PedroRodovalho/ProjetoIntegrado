@@ -40,7 +40,7 @@ namespace AppDesktop
 
         private void btn_fechar_Click(object sender, EventArgs e)
         {
-            contexto.FechaAba(aba);
+            
         }
 
         private void FormAba_Paint(object sender, PaintEventArgs e)

@@ -8,7 +8,7 @@ namespace AppDesktop
 {
     interface PrioridadeRegraDeNegocioInterface
     {
-        bool Executa(string regra, Venda venda, List<Item_Caixa> listaItens);
+        bool Executa(string regra, Venda venda, List<ItemVenda> listaItens);
 
     }
 }

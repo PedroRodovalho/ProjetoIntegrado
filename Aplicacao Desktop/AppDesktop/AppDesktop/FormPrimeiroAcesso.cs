@@ -283,9 +283,9 @@ namespace AppDesktop
         {
 
             main.Visible = true;
-            
-            
 
+
+            Properties.Settings.Default.primeiro_acesso = false;
             this.Close();
         }
 

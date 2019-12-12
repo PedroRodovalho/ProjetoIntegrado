@@ -55,8 +55,9 @@
             this.btn_finalizar = new System.Windows.Forms.Button();
             this.btn_limpar = new System.Windows.Forms.Button();
             this.txt_data = new System.Windows.Forms.MaskedTextBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.lbl_mensagem = new System.Windows.Forms.Label();
+            this.btn_calendario = new System.Windows.Forms.Button();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -211,25 +212,32 @@
             this.txt_data.Name = "txt_data";
             this.txt_data.ValidatingType = typeof(System.DateTime);
             // 
-            // button3
-            // 
-            resources.ApplyResources(this.button3, "button3");
-            this.button3.Name = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // lbl_mensagem
             // 
             this.lbl_mensagem.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             resources.ApplyResources(this.lbl_mensagem, "lbl_mensagem");
             this.lbl_mensagem.Name = "lbl_mensagem";
             // 
+            // btn_calendario
+            // 
+            resources.ApplyResources(this.btn_calendario, "btn_calendario");
+            this.btn_calendario.Name = "btn_calendario";
+            this.btn_calendario.UseVisualStyleBackColor = true;
+            this.btn_calendario.Click += new System.EventHandler(this.btn_calendario_Click);
+            // 
+            // monthCalendar1
+            // 
+            resources.ApplyResources(this.monthCalendar1, "monthCalendar1");
+            this.monthCalendar1.Name = "monthCalendar1";
+            // 
             // FormCadastra_produto
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.btn_calendario);
             this.Controls.Add(this.lbl_mensagem);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.txt_data);
             this.Controls.Add(this.btn_limpar);
             this.Controls.Add(this.btn_finalizar);
@@ -285,7 +293,8 @@
         private System.Windows.Forms.Button btn_limpar;
         private System.Windows.Forms.MaskedTextBox txt_data;
         private System.Windows.Forms.ComboBox combo_categoria;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label lbl_mensagem;
+        private System.Windows.Forms.Button btn_calendario;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }

@@ -33,8 +33,9 @@ namespace AppDesktop
                 estoque.Custo = conversor.toDouble(txt_custo.Text);
                 estoque.Preco = conversor.toDouble(txt_preco.Text);
                 estoque.Peso = conversor.toDouble(txt_peso.Text);
-                estoque.Data = conversor.toDateTimeDB(txt_data.Text);
+                estoque.Data = txt_data.Text;
                 estoque.Categoria = combo_categoria.Text;
+                
                 estoque.Fornecedor = 1;
                 estoque.Marca = txt_marca.Text;
                 estoque.Descricao = txt_descricao.Text;
@@ -65,6 +66,7 @@ namespace AppDesktop
             combo_fornecedor.Text = "";
             
         }
+            FornecedorDAO fornecedorDAO = new FornecedorDAO();
 
         private void btn_limpar_Click(object sender, EventArgs e)
         {
@@ -73,17 +75,53 @@ namespace AppDesktop
 
         private void FormCadastra_produto_FormClosed(object sender, FormClosedEventArgs e)
         {
-            formEstoque.atualizaDataGrid();
+            formEstoque.AtualizaDataGrid();
         }
 
         private void FormCadastra_produto_Load(object sender, EventArgs e)
         {
-            
+            List<Categoria> categorias = estoqueDAO.ListaCategorias();
+            List<Fornecedor> fornecedores = fornecedorDAO.Lista_fornecedores();
+            combo_categoria.Items.Add("SELECIONAR CATEGORIA");
+            combo_categoria.SelectedIndex = 0;
+            combo_fornecedor.Items.Add("SELECIONAR FORNECEDOR");
+            combo_fornecedor.SelectedIndex = 0;
+
+
+            //for(int i = 0;i<categorias.Count;i++)
+            //{
+            //    Categoria categoria = categorias[i];
+            //    combo_categoria.Items.Add(categoria.Nome);
+
+            //}
+
+            foreach (Categoria categoria in categorias)
+            {
+                combo_categoria.Items.Add(categoria.Nome);
+            }
+            foreach (Fornecedor fornecedor in fornecedores)
+            {
+                combo_fornecedor.Items.Add(fornecedor.Nome);
+            }
         }
 
         private void FormCadastra_produto_FormClosing(object sender, FormClosingEventArgs e)
         {
             
+        }
+
+        private void btn_calendario_Click(object sender, EventArgs e)
+        {
+            if (monthCalendar1.Visible)
+            {
+                string data = monthCalendar1.SelectionStart.ToShortDateString();
+                txt_data.Text = data;
+                monthCalendar1.Visible = false;
+            }
+            else
+            {
+                monthCalendar1.Visible = true;
+            }
         }
     }
 

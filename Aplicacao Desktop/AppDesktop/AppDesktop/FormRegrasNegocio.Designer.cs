@@ -31,12 +31,19 @@
             this.tab_regras_negocio = new System.Windows.Forms.TabControl();
             this.tab_Estoques = new System.Windows.Forms.TabPage();
             this.tab_Vendas = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.txt_descricao = new System.Windows.Forms.TextBox();
             this.combo_tipo_venda = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.radio_desconto = new System.Windows.Forms.RadioButton();
             this.label22 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.radio_acrescimo = new System.Windows.Forms.RadioButton();
             this.btn_criar_regra = new System.Windows.Forms.Button();
             this.group_desconto = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -79,14 +86,16 @@
             this.combo_iparcelas = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.radio_acrescimo = new System.Windows.Forms.RadioButton();
-            this.radio_desconto = new System.Windows.Forms.RadioButton();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.tab_regras_negocio.SuspendLayout();
+            this.tab_Estoques.SuspendLayout();
             this.tab_Vendas.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.group_desconto.SuspendLayout();
@@ -95,6 +104,7 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_regras_venda)).BeginInit();
             this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab_regras_negocio
@@ -110,6 +120,7 @@
             // tab_Estoques
             // 
             this.tab_Estoques.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tab_Estoques.Controls.Add(this.groupBox1);
             this.tab_Estoques.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.tab_Estoques.Location = new System.Drawing.Point(4, 22);
             this.tab_Estoques.Name = "tab_Estoques";
@@ -139,6 +150,51 @@
             this.tab_Vendas.Text = "Vendas";
             this.tab_Vendas.Click += new System.EventHandler(this.tab_Vendas_Click);
             this.tab_Vendas.Enter += new System.EventHandler(this.tab_Vendas_Enter);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(1070, 366);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 10;
+            this.button6.Text = "Copiar";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(1070, 337);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 10;
+            this.button5.Text = "Ativar/Desativar";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(1070, 308);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 10;
+            this.button4.Text = "Excluir";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(1070, 279);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "Editar";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1070, 250);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Visualizar";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // groupBox7
             // 
@@ -188,6 +244,18 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Valido para vendas";
             // 
+            // radio_desconto
+            // 
+            this.radio_desconto.AutoSize = true;
+            this.radio_desconto.Location = new System.Drawing.Point(470, 21);
+            this.radio_desconto.Name = "radio_desconto";
+            this.radio_desconto.Size = new System.Drawing.Size(71, 17);
+            this.radio_desconto.TabIndex = 6;
+            this.radio_desconto.TabStop = true;
+            this.radio_desconto.Text = "Desconto";
+            this.radio_desconto.UseVisualStyleBackColor = true;
+            this.radio_desconto.CheckedChanged += new System.EventHandler(this.radio_desconto_CheckedChanged);
+            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -205,6 +273,18 @@
             this.label4.Size = new System.Drawing.Size(68, 13);
             this.label4.TabIndex = 1;
             this.label4.Text = "Regras para:";
+            // 
+            // radio_acrescimo
+            // 
+            this.radio_acrescimo.AutoSize = true;
+            this.radio_acrescimo.Location = new System.Drawing.Point(379, 21);
+            this.radio_acrescimo.Name = "radio_acrescimo";
+            this.radio_acrescimo.Size = new System.Drawing.Size(74, 17);
+            this.radio_acrescimo.TabIndex = 6;
+            this.radio_acrescimo.TabStop = true;
+            this.radio_acrescimo.Text = "Acrescimo";
+            this.radio_acrescimo.UseVisualStyleBackColor = true;
+            this.radio_acrescimo.CheckedChanged += new System.EventHandler(this.radio_acrescimo_CheckedChanged);
             // 
             // btn_criar_regra
             // 
@@ -655,74 +735,97 @@
             this.label23.TabIndex = 1;
             this.label23.Text = "De";
             // 
-            // button2
+            // checkBox1
             // 
-            this.button2.Location = new System.Drawing.Point(1070, 250);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Visualizar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.checkBox1.Location = new System.Drawing.Point(17, 44);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(486, 17);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "Atualizar automaticamente o estoque quando determinada quantidade de um produto f" +
+    "or vendido.";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // groupBox1
             // 
-            this.button3.Location = new System.Drawing.Point(1070, 279);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Editar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.checkBox5);
+            this.groupBox1.Controls.Add(this.checkBox4);
+            this.groupBox1.Controls.Add(this.checkBox2);
+            this.groupBox1.Controls.Add(this.checkBox3);
+            this.groupBox1.Controls.Add(this.checkBox6);
+            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Location = new System.Drawing.Point(36, 24);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(612, 317);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
             // 
-            // button4
+            // checkBox2
             // 
-            this.button4.Location = new System.Drawing.Point(1070, 308);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Excluir";
-            this.button4.UseVisualStyleBackColor = true;
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.checkBox2.Location = new System.Drawing.Point(17, 90);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(486, 17);
+            this.checkBox2.TabIndex = 0;
+            this.checkBox2.Text = "Inserir automaticamente o produto em baixa de estoque na lista de futuros pedidos" +
+    " de mercadoria.";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // checkBox3
             // 
-            this.button5.Location = new System.Drawing.Point(1070, 337);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 10;
-            this.button5.Text = "Ativar/Desativar";
-            this.button5.UseVisualStyleBackColor = true;
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.checkBox3.Location = new System.Drawing.Point(17, 67);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(364, 17);
+            this.checkBox3.TabIndex = 0;
+            this.checkBox3.Text = "Definir quantidade minima de disponibilidade de um produto no estoque.\r\n";
+            this.checkBox3.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // checkBox4
             // 
-            this.button6.Location = new System.Drawing.Point(1070, 366);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 10;
-            this.button6.Text = "Copiar";
-            this.button6.UseVisualStyleBackColor = true;
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.checkBox4.Location = new System.Drawing.Point(17, 113);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(349, 17);
+            this.checkBox4.TabIndex = 0;
+            this.checkBox4.Text = "Notificar quando um produto permanecer mais de X dias no estoque.";
+            this.checkBox4.UseVisualStyleBackColor = true;
             // 
-            // radio_acrescimo
+            // checkBox5
             // 
-            this.radio_acrescimo.AutoSize = true;
-            this.radio_acrescimo.Location = new System.Drawing.Point(379, 21);
-            this.radio_acrescimo.Name = "radio_acrescimo";
-            this.radio_acrescimo.Size = new System.Drawing.Size(74, 17);
-            this.radio_acrescimo.TabIndex = 6;
-            this.radio_acrescimo.TabStop = true;
-            this.radio_acrescimo.Text = "Acrescimo";
-            this.radio_acrescimo.UseVisualStyleBackColor = true;
-            this.radio_acrescimo.CheckedChanged += new System.EventHandler(this.radio_acrescimo_CheckedChanged);
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.checkBox5.Location = new System.Drawing.Point(17, 136);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(288, 17);
+            this.checkBox5.TabIndex = 0;
+            this.checkBox5.Text = "Permitir a visualização do estoque por qualquer usuário.";
+            this.checkBox5.UseVisualStyleBackColor = true;
             // 
-            // radio_desconto
+            // button1
             // 
-            this.radio_desconto.AutoSize = true;
-            this.radio_desconto.Location = new System.Drawing.Point(470, 21);
-            this.radio_desconto.Name = "radio_desconto";
-            this.radio_desconto.Size = new System.Drawing.Size(71, 17);
-            this.radio_desconto.TabIndex = 6;
-            this.radio_desconto.TabStop = true;
-            this.radio_desconto.Text = "Desconto";
-            this.radio_desconto.UseVisualStyleBackColor = true;
-            this.radio_desconto.CheckedChanged += new System.EventHandler(this.radio_desconto_CheckedChanged);
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(519, 288);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Salvar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.checkBox6.Location = new System.Drawing.Point(17, 21);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(15, 14);
+            this.checkBox6.TabIndex = 0;
+            this.checkBox6.UseVisualStyleBackColor = true;
             // 
             // FormRegrasNegocio
             // 
@@ -736,6 +839,7 @@
             this.Text = "FormRegrasNegocio";
             this.Load += new System.EventHandler(this.FormRegrasNegocio_Load);
             this.tab_regras_negocio.ResumeLayout(false);
+            this.tab_Estoques.ResumeLayout(false);
             this.tab_Vendas.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
@@ -750,6 +854,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_regras_venda)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -814,5 +920,13 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.RadioButton radio_desconto;
         private System.Windows.Forms.RadioButton radio_acrescimo;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox checkBox6;
     }
 }

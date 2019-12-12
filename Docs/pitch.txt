@@ -1,0 +1,14 @@
+Empresa de solução tecnologicas e eficientes para gestão de venda.
+
+
+2 - O Problema
+	Empresa normalmente tem problema com gestão vendas, como controle de estoque e financeiro, vendas, fluxo de caixa, gestão de funcionario e clientes e regra de negocio.
+	
+	
+3 - Solução
+		Para resolver essa problema criamos o Omnicomm, um programa de gestão de venda e automação.
+		- Estoque
+		- Caixa
+		- Regra de negocio
+		- Financeiro
+		- Cliente

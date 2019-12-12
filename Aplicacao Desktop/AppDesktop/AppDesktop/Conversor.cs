@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.Types;
 
 namespace AppDesktop
 {
@@ -76,6 +77,26 @@ namespace AppDesktop
             byte[] imageArray = new byte[stream.Length];
             stream.Read(imageArray, 0, System.Convert.ToInt32(stream.Length));
             return imageArray;
+        }
+
+        internal string toDateTimeBR(MySqlDateTime mySqlDateTime)
+        {
+            string day = "";
+            string month = "";
+            if (ToInt32(mySqlDateTime.Day.ToString()) < 10)
+            {
+                day = "0";
+            }
+
+            if (ToInt32(mySqlDateTime.Month.ToString()) < 10)
+            {
+                month = "0";
+            }
+            day = day + mySqlDateTime.Day.ToString();
+            month = month + mySqlDateTime.Month.ToString() ;
+            string year = mySqlDateTime.Year.ToString();
+            string data = day + "/" + month + "/" + year;
+            return data;
         }
     }
 }

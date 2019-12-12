@@ -16,8 +16,10 @@ namespace AppDesktop
     {
         Boolean conectado = false;
 
-        public FormLogin()
+        FormHome contexto;
+        public FormLogin(FormHome contexto)
         {
+            this.contexto = contexto;
             InitializeComponent();
 
         }
@@ -65,10 +67,17 @@ namespace AppDesktop
                 user = userDAO.validaLogin(usuario);
                 if (user == null)
                 {
-                    MessageBox.Show("Usuario ou senha incorreto!");
+                    lbl_mensagem.Text = "Usuário ou senha incorretos.";
+                    lbl_mensagem.Visible = true;
+                }
+                else if(user.Ativo == 0){
+                    MessageBox.Show("Esta conta se encontrada inativada, por favor, entre em contato com o admnistrador do sistema!");
+                    lbl_mensagem.Text = "Usuario inativo";
+                    lbl_mensagem.Visible = true;
                 }
                 else
                 {
+                    
                     bool primeiro_login = userDAO.VerificaPrimeiroLogin(user);
                     if (primeiro_login)
                     {
@@ -77,11 +86,14 @@ namespace AppDesktop
                         DialogResult result = formPrimeiroAcessoUsuario.ShowDialog(); 
                         if(result == DialogResult.OK)
                         {
+                            
                             CriarNovaSenha();
+
                         }
                     }
                     else
-                    { 
+                    {
+                        contexto.usuario = user;
                         this.DialogResult = DialogResult.OK;
                         this.Close();
                     }
@@ -97,6 +109,7 @@ namespace AppDesktop
         }
         public void CriarNovaSenha()
         {
+            panel_login.Visible = false;
             panel_nova_senha.Visible = true;
             
 

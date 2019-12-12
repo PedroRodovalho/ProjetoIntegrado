@@ -1,0 +1,7 @@
+﻿[*.cs]
+
+# IDE0055: Corrigir a formatação
+dotnet_diagnostic.IDE0055.severity = none
+
+# CA1031: Não capturar exceptions de tipos genéricos
+dotnet_diagnostic.CA1031.severity = silent

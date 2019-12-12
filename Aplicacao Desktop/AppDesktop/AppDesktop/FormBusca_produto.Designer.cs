@@ -40,27 +40,28 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_descricao = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lbl_fornecedor = new System.Windows.Forms.Label();
             this.lbl_quantidade = new System.Windows.Forms.Label();
             this.lbl_custo = new System.Windows.Forms.Label();
+            this.lbl_data = new System.Windows.Forms.Label();
             this.lbl_marca = new System.Windows.Forms.Label();
             this.lbl_preco = new System.Windows.Forms.Label();
+            this.lbl_peso = new System.Windows.Forms.Label();
             this.lbl_categoria = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.lbl_data = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.lbl_peso = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -143,6 +144,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
@@ -198,6 +200,15 @@
             this.txt_descricao.Size = new System.Drawing.Size(379, 82);
             this.txt_descricao.TabIndex = 1;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(166, 91);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(87, 13);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Data de entrada:";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -224,6 +235,15 @@
             this.label6.Size = new System.Drawing.Size(138, 13);
             this.label6.TabIndex = 0;
             this.label6.Text = "Disponibilidade de Estoque:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(165, 66);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(34, 13);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Peso:";
             // 
             // label5
             // 
@@ -278,6 +298,15 @@
             this.lbl_custo.TabIndex = 0;
             this.lbl_custo.Text = "0,00";
             // 
+            // lbl_data
+            // 
+            this.lbl_data.AutoSize = true;
+            this.lbl_data.Location = new System.Drawing.Point(329, 91);
+            this.lbl_data.Name = "lbl_data";
+            this.lbl_data.Size = new System.Drawing.Size(27, 13);
+            this.lbl_data.TabIndex = 0;
+            this.lbl_data.Text = "N/A";
+            // 
             // lbl_marca
             // 
             this.lbl_marca.AutoSize = true;
@@ -297,6 +326,15 @@
             this.lbl_preco.Size = new System.Drawing.Size(28, 13);
             this.lbl_preco.TabIndex = 0;
             this.lbl_preco.Text = "0,00";
+            // 
+            // lbl_peso
+            // 
+            this.lbl_peso.AutoSize = true;
+            this.lbl_peso.Location = new System.Drawing.Point(329, 66);
+            this.lbl_peso.Name = "lbl_peso";
+            this.lbl_peso.Size = new System.Drawing.Size(27, 13);
+            this.lbl_peso.TabIndex = 0;
+            this.lbl_peso.Text = "N/A";
             // 
             // lbl_categoria
             // 
@@ -356,41 +394,14 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Nome";
             // 
-            // lbl_data
+            // button4
             // 
-            this.lbl_data.AutoSize = true;
-            this.lbl_data.Location = new System.Drawing.Point(329, 91);
-            this.lbl_data.Name = "lbl_data";
-            this.lbl_data.Size = new System.Drawing.Size(27, 13);
-            this.lbl_data.TabIndex = 0;
-            this.lbl_data.Text = "N/A";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(166, 91);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(87, 13);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Data de entrada:";
-            // 
-            // lbl_peso
-            // 
-            this.lbl_peso.AutoSize = true;
-            this.lbl_peso.Location = new System.Drawing.Point(329, 66);
-            this.lbl_peso.Name = "lbl_peso";
-            this.lbl_peso.Size = new System.Drawing.Size(27, 13);
-            this.lbl_peso.TabIndex = 0;
-            this.lbl_peso.Text = "N/A";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(165, 66);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(34, 13);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "Peso:";
+            this.button4.Location = new System.Drawing.Point(302, 19);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(71, 23);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Desativar";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // FormBusca_produto
             // 
@@ -405,7 +416,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormBusca_produto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Buscar Produto";
+            this.Text = "S";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -452,5 +463,6 @@
         private System.Windows.Forms.Label lbl_data;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lbl_peso;
+        private System.Windows.Forms.Button button4;
     }
 }

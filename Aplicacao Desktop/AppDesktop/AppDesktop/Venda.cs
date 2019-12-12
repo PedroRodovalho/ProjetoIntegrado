@@ -1,4 +1,6 @@
-﻿namespace AppDesktop
+﻿using System;
+
+namespace AppDesktop
 {
     public class Venda
     {

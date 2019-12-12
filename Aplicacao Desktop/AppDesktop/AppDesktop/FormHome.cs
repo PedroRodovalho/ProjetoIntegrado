@@ -1,11 +1,14 @@
-﻿using System;
+﻿using AppDesktop.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 //using WinFormAnimation;
@@ -14,6 +17,20 @@ namespace AppDesktop
 {
     public partial class FormHome : Form
     {
+        public Usuario usuario;
+        Perfil perfil;
+        public Session activeSession;
+        //VARIAVEIS DE PERFIL DE ACESSO;
+        string acesso_financeiro = "BEAT/USUARIO/SFC/" ;
+        string acesso_estoque = "BEAT/USUARIO/ESTOQUE/";
+        string acesso_vendas = "BEAT/USUARIO/VENDAS/";
+        string acesso_clientes = "BEAT/USUARIO/CLIENTES";
+        //LISTAS//
+
+
+        List<Notificacao> notificacoes_usuario = new List<Notificacao>();
+        //VARIAVEIS//
+        int qtd_notificacao = 0, qtd_advertencia = 0;
         public FormHome()
         {
             InitializeComponent();
@@ -23,6 +40,7 @@ namespace AppDesktop
         {
 
             //Boolean primeiro_acesso = true;
+            
 
             tab.Padding = new Point(12, 4);
             Boolean primeiro_acesso = Properties.Settings.Default.primeiro_acesso;
@@ -32,12 +50,17 @@ namespace AppDesktop
                 this.Visible = false;
                 FormPrimeiroAcesso formPrimeiroAcesso = new FormPrimeiroAcesso(this);
                 DialogResult result = formPrimeiroAcesso.ShowDialog();
-                Properties.Settings.Default.primeiro_acesso = false;
                 Properties.Settings.Default.Save();
 
                 if (result == DialogResult.Abort)
                 {
-                    this.Visible = true;
+                    MessageBox.Show("Para utilizar o BEAT System é necessário realizar as configurações iniciais para definir os paramêtros de conexão do banco de dados e" +
+                        " de funcionamento do sistema. O aplicativo será encerrado", "ATENÇÃO!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+                else
+                {
+                    solicitaLogin();
                 }
 
             }
@@ -56,7 +79,7 @@ namespace AppDesktop
             {
 
 
-                formLogin = new FormLogin();
+                formLogin = new FormLogin(this);
                 DialogResult session = formLogin.ShowDialog();
 
                 if (session == DialogResult.OK)
@@ -67,7 +90,7 @@ namespace AppDesktop
                     {
                         panel_session.Visible = false;
                     }
-                    inicializaSistema();
+                    InicializaSistema();
                 }
                 else
                 {
@@ -77,59 +100,26 @@ namespace AppDesktop
                     lbl_fazer_login.Visible = true;
                 }
             }
-            else
-            {
-                inicializaSistema();
-            }
-
-        }
-
-        public void inicializaSistema()
-        {
-            
-            panel_menu.Visible = true;
-            /// timer1.Enabled = true;
-            // timer1.Start();
-            /* new Animator2D(new Path2D(new Float2D(-100, 172), icon_caixa.Location.ToFloat2D(), 600))
-             .Play(icon_caixa, Animator2D.KnownProperties.Location);
-             new Animator2D(new Path2D(new Float2D(-100, 172), icon_cliente.Location.ToFloat2D(), 800))
-             .Play(icon_cliente, Animator2D.KnownProperties.Location);
-             new Animator2D(new Path2D(new Float2D(-100, 172), icon_financeiro.Location.ToFloat2D(), 1000))
-             .Play(icon_financeiro, Animator2D.KnownProperties.Location);
-             new Animator2D(new Path2D(new Float2D(-100, 172), icon_preferencias.Location.ToFloat2D(), 1200))
-             .Play(icon_preferencias, Animator2D.KnownProperties.Location);
-             */
-
-            panel_menu.Visible = true;
-            panel_home.Visible = true;
+            else InicializaSistema();
             
 
         }
-        protected void PaintTransparentBackground(Graphics graphics, Rectangle clipRect)
+        FormMensagemAguarde formMensagem = null;
+        public void InicializaSistema()
         {
-            graphics.Clear(Color.Transparent);
-            if ((this.Parent != null))
-            {
-                clipRect.Offset(this.Location);
-                PaintEventArgs e = new PaintEventArgs(graphics, clipRect);
-                GraphicsState state = graphics.Save();
-                graphics.SmoothingMode = SmoothingMode.HighSpeed;
-                try
-                {
-                    graphics.TranslateTransform((float)-this.Location.X, (float)-this.Location.Y);
-                    this.InvokePaintBackground(this.Parent, e);
-                    this.InvokePaint(this.Parent, e);
-                }
-                finally
-                {
-                    graphics.Restore(state);
-                    clipRect.Offset(-this.Location.X, -this.Location.Y);
-                }
-            }
+            formMensagem = new FormMensagemAguarde("CARREGANDO SISTEMA AGUARDE");
+            formMensagem.Show();
+            //FormataGridNotificacao();
+            backgroundWorker_InicializaSistema.RunWorkerAsync();
+
         }
-        private void btn_logar_Click(object sender, EventArgs e)
+
+        private void FormataGridNotificacao()
         {
-            solicitaLogin();
+            dataGrid_notificacoes.Columns["id"].Visible = false;
+            dataGrid_notificacoes.Columns["id_remetente"].Visible = false;
+            dataGrid_notificacoes.Columns["id_destinatario"].Visible = false;
+            
         }
 
         private void panel_fazer_login_Paint(object sender, PaintEventArgs e)
@@ -174,39 +164,12 @@ namespace AppDesktop
             solicitaLogin();
         }
 
-
-
-
-
-
-        private void icon_caixa_MouseEnter(object sender, EventArgs e)
-        {
-            lbl_nome_icone.Visible = true;
-            lbl_nome_icone.Text = "CAIXA";
-            icon_caixa.Size = new Size(icon_caixa.Size.Width + 15, icon_caixa.Size.Height + 15);
-            icon_caixa.Location = new Point(icon_caixa.Location.X - 8, icon_caixa.Location.Y - 8);
-            icon_estoque.Location = new Point(icon_estoque.Location.X + 10, icon_estoque.Location.Y);
-            icon_cliente.Location = new Point(icon_cliente.Location.X - 10, icon_cliente.Location.Y);
-            icon_financeiro.Location = new Point(icon_financeiro.Location.X - 10, icon_financeiro.Location.Y);
-        }
-
-
-        private void icon_caixa_MouseLeave(object sender, EventArgs e)
-        {
-            lbl_nome_icone.Visible = false;
-            icon_caixa.Size = new Size(icon_caixa.Size.Width - 15, icon_caixa.Size.Height - 15);
-            icon_caixa.Location = new Point(icon_caixa.Location.X + 8, icon_caixa.Location.Y + 8);
-            icon_estoque.Location = new Point(icon_estoque.Location.X - 10, icon_estoque.Location.Y);
-            icon_cliente.Location = new Point(icon_cliente.Location.X + 10, icon_cliente.Location.Y);
-            icon_financeiro.Location = new Point(icon_financeiro.Location.X + 10, icon_financeiro.Location.Y);
-        }
-
         private void panel_session_Paint(object sender, PaintEventArgs e)
         {
             using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle,
-                                                              Color.Gray,
-                                                              Color.Black,
-                                                              90F))
+                                                              Color.OrangeRed,
+                                                              Color.DarkGoldenrod,
+                                                              100F))
             {
                 e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
@@ -214,10 +177,11 @@ namespace AppDesktop
 
 
         FormCaixa formCaixa = null;
-        FormFinanceiro formFinanceiro = null;
+        FormLogin_Financeiro formFinanceiro_Login = null;
         FormCliente formCliente = null;
         FormEstoque formEstoque = null;
         FormRegrasNegocio formRegrasNegocio = null;
+        FormVenda formVenda = null;
 
 
 
@@ -226,110 +190,29 @@ namespace AppDesktop
         TabPage tab_financeiro = new TabPage();
         TabPage tab_estoque = new TabPage();
         TabPage tab_regra_negocio = new TabPage();
-
-        string[,] abas = {
-            {"disponivel", "22", "120","0"}, //22; 124
-            {"disponivel", "232", "124","0"}, //232; 124
-            {"disponivel", "442", "124","0"},
-            {"disponivel", "652", "124","0"},
-            {"disponivel", "862", "124","0"},
-            {"disponivel", "1072", "124","0"}};
-
-
-
-        public void MapeaiaAba(string nome)
-        {
-            int pos = 0;
-            for (int i = 0; i < abas.Length; i++)
-            {
-                if (abas[i, 0].Equals("disponivel"))
-                {
-                    abas[i, 0] = nome;
-
-                    AbreAba(nome, i, abas[i, 1], abas[i, 2]);
-                    pos = i;
-                    break;
-                }
-            }
-            for (int i = 0; i < abas.Length; i++)
-            {
-
-            }
-
-
-        }
+        TabPage tab_vendas = new TabPage();
 
         Conversor conversor = new Conversor();
 
-        FormAba formAbaCaixa, formAbaFinanceiro, formAbaEstoque, formAbaCliente;
-        public void AbreAba(string nome, int posicao, string X, string Y)
-        {
-            Point point = new Point(conversor.ToInt32(X), conversor.ToInt32(Y));
-            if (nome.Equals("CAIXA"))
-            {
-                formAbaCaixa = new FormAba(this, nome, point, posicao);
-                formAbaCaixa.TopLevel = false;
-                formAbaCaixa.Visible = true;
-                this.Controls.Add(formAbaCaixa);
-                formCaixa = new FormCaixa();
-                formCaixa.TopLevel = false;
-                formCaixa.Visible = true;
-                panel_home.Controls.Add(formCaixa);
-
-                //abas[posicao, 3] = Application.OpenForms.OfType<FormAba>().;
-                MessageBox.Show(abas[posicao, 0] + " " + abas[posicao, 3]);
-            }
-
-
-        }
-        public void FechaAba(string nome)
-        {
-            int posicao = 0;
-            for (int i = 0; i < abas.Length; i++)
-            {
-                if (abas[i, 0].Equals(nome))
-                {
-                    abas[i, 0] = "disponivel";
-                    //posicao = i;
-                    int elemento = conversor.ToInt32(abas[i, 3]);
-                    MessageBox.Show(abas[i, 0] + " " + abas[i, 3]);
-
-
-                    break;
-                }
-            }
-
-            if (nome.Equals("CAIXA"))
-            {
-                formAbaCaixa.Close();
-                formCaixa.Close();
-            }
-        }
+        
+      
+   
 
         private void icon_caixa_Click(object sender, EventArgs e)
         {
-
-            //MapeaiaAba("CAIXA");
-
-
             if (!tab.TabPages.Contains(tab_caixa))
             {
-                tab_caixa.Size = new Size(tab_caixa.Size.Width, 1400);
-                tab_caixa.Text = "Caixa";
+
 
                 tab.TabPages.Add(tab_caixa);
+                tab_caixa.Text = "Caixa";
                 formCaixa = new FormCaixa();
                 formCaixa.TopLevel = false;
                 formCaixa.Visible = true;
                 tab_caixa.Controls.Add(formCaixa);
-                // this.Controls.Add(formCaixa);
+                
                 tab.SelectedTab = tab_caixa;
             }
-            else
-            {
-                tab.SelectedTab = tab_caixa;
-            }
-
         }
 
         private void icon_cliente_Click(object sender, EventArgs e)
@@ -337,9 +220,6 @@ namespace AppDesktop
 
             if (!tab.TabPages.Contains(tab_cliente))
             {
-
-
-
 
 
                 tab.TabPages.Add(tab_cliente);
@@ -355,7 +235,7 @@ namespace AppDesktop
 
         private void icon_financeiro_Click(object sender, EventArgs e)
         {
-            if (!tab.TabPages.Contains(tab_financeiro))
+            /*if (!tab.TabPages.Contains(tab_financeiro))
             {
                 tab.TabPages.Add(tab_financeiro);
                 tab_financeiro.Text = "Financeiro";
@@ -370,7 +250,11 @@ namespace AppDesktop
             else
             {
                 tab.SelectedTab = tab_financeiro;
-            }
+            }*/
+
+            formFinanceiro_Login = new FormLogin_Financeiro();
+            formFinanceiro_Login.Show();
+            this.Visible = false;
 
         }
 
@@ -397,7 +281,7 @@ namespace AppDesktop
                 tab.TabPages.Add(tab_estoque);
                 tab_estoque.Text = "Estoque";
 
-                formEstoque = new FormEstoque();
+                formEstoque = new FormEstoque(this);
                 formEstoque.TopLevel = false;
                 formEstoque.Visible = true;
                 tab_estoque.Controls.Add(formEstoque);
@@ -412,7 +296,13 @@ namespace AppDesktop
 
         private void panel_menu_Paint(object sender, PaintEventArgs e)
         {
-
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle,
+                                                             Color.DarkSlateGray,
+                                                             Color.White,
+                                                             90F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
         }
 
         private void btn_regra_Click(object sender, EventArgs e)
@@ -464,10 +354,95 @@ namespace AppDesktop
             lbl_nome_icone.Visible = true;
         }
 
-        private void elementHost1_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
+
+        private void icon_preferencias_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void btn_vendas_Click(object sender, EventArgs e)
+        {
+
+            if (!tab.TabPages.Contains(tab_vendas))
+            {
+                formMensagem = AbreMensagemAguarde("CARREGANDO VENDAS - Conectando com o banco!");
+                
+
+                
+                formMensagem.Show();
+                tab_vendas.Size = new Size(tab_vendas.Size.Width, 1400);
+                tab_vendas.Text = "Vendas";
+
+                tab.TabPages.Add(tab_vendas);
+                
+                backgroundWorker_AbreVendas.RunWorkerAsync();
+                //formVenda = new FormVenda();
+                //formVenda.TopLevel = false;
+                //formVenda.Visible = true;
+                //tab_vendas.Controls.Add(formVenda);
+                // this.Controls.Add(formCaixa);
+                tab.SelectedTab = tab_vendas;
+            }
+            else
+            {
+                tab.SelectedTab = tab_vendas;
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            GraphicsPath PastaGrafica = new GraphicsPath();
+            PastaGrafica.AddRectangle(new System.Drawing.Rectangle(1, 1, panel1.Size.Width, panel1.Height));
+
+            //Arredondar canto superior esquerdo        
+            PastaGrafica.AddRectangle(new System.Drawing.Rectangle(1, 1, 10, 10));
+            PastaGrafica.AddPie(1, 1, 20, 20, 180, 90);
+
+            //Arredondar canto superior direito
+            PastaGrafica.AddRectangle(new System.Drawing.Rectangle(panel1.Width - 12, 1, 12, 13));
+            PastaGrafica.AddPie(panel1.Width - 24, 1, 24, 26, 270, 90);
+
+            //Arredondar canto inferior esquerdo
+            PastaGrafica.AddRectangle(new System.Drawing.Rectangle(1, panel1.Height - 10, 10, 10));
+            PastaGrafica.AddPie(1, panel1.Height - 20, 20, 20, 90, 90);
+
+            //Arredondar canto inferior direito
+            PastaGrafica.AddRectangle(new System.Drawing.Rectangle(panel1.Width - 12, panel1.Height - 13, 13, 13));
+            PastaGrafica.AddPie(panel1.Width - 24, panel1.Height - 26, 24, 26, 0, 90);
+
+            PastaGrafica.SetMarkers();
+            panel1.Region = new Region(PastaGrafica);
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle,
+                                                            Color.Orange,
+                                                            Color.Black,
+                                                            90F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
+
+        }
+        Config config = new Config();
+
+       
+
+        private void ConfiguraItens()
+        {
+            //Controle do caixa;
+            
+            if (!activeSession.RequestFullPermissionCaixa())
+            {
+                if (!activeSession.RequestInsertCaixa()) icon_caixa.Visible = false;
+                if (!activeSession.RequestSelectCaixa()) btn_vendas.Visible = false;
+            }
+            if (!activeSession.RequestFullPermissionEstoque())
+            {
+                if (!activeSession.RequestSelectEstoque()) icon_estoque.Visible = false;
+               
+            }
+            if (!activeSession.RequestFullPermissionCliente()) icon_cliente.Visible = false;
+        }
+
+        
 
         private void icon_estoque_MouseLeave(object sender, EventArgs e)
         {
@@ -483,6 +458,179 @@ namespace AppDesktop
         private void icon_preferencias_MouseLeave(object sender, EventArgs e)
         {
             lbl_nome_icone.Visible = false;
+        }
+
+        private void panel_sessao_Paint(object sender, PaintEventArgs e)
+        {
+           
+        }
+
+        private void link_sair_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            
+            Application.Restart();
+        }
+
+        private void icon_caixa_MouseEnter(object sender, EventArgs e)
+        {
+            lbl_nome_icone.Text = "CAIXA";
+            lbl_nome_icone.Visible = true;
+        }
+
+        private void icon_caixa_MouseLeave_1(object sender, EventArgs e)
+        {
+            lbl_nome_icone.Visible = false;
+        }
+
+        public FormMensagemAguarde AbreMensagemAguarde(string mensagem)
+        {
+            FormMensagemAguarde formMensagem = new FormMensagemAguarde(mensagem);
+            
+           
+            //formMensagem.Show();
+            return formMensagem;
+        }
+
+        //EXECUÇÕES EM SEGUNDO PLANO//
+        private void backgroundWorker_InicializaSistema_DoWork(object sender, DoWorkEventArgs e)
+        {
+            backgroundWorker_InicializaSistema.ReportProgress(1, "Conectando com o banco de dados!");
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+           
+            backgroundWorker_InicializaSistema.ReportProgress(5, "Buscando perfil de usuário!");
+            
+            perfil = usuarioDAO.BuscaPerfil(usuario);
+            backgroundWorker_InicializaSistema.ReportProgress(10, "Verificando permissões!");
+            
+            ControleUsuarios controleUsuarios = new ControleUsuarios(usuario);
+            backgroundWorker_InicializaSistema.ReportProgress(15, "Verificando permissões - CAIXA!");
+            
+            PermissaoCaixa permissaoCaixa = controleUsuarios.PedePermissaoCaixa();
+            backgroundWorker_InicializaSistema.ReportProgress(25, "Verificando permissões - CLIENTE");
+            
+
+
+            PermissaoCliente permissaoCliente = controleUsuarios.PedePermissaoCliente();
+            backgroundWorker_InicializaSistema.ReportProgress(35, "Verificando permissões - ESTOQUE");
+            
+            PermissaoEstoque permissaoEstoque = controleUsuarios.PedePermissaoEstoque();
+            
+            backgroundWorker_InicializaSistema.ReportProgress(45, "Criando sessão!");
+            activeSession = new Session(permissaoCaixa, permissaoCliente, permissaoEstoque);
+            backgroundWorker_InicializaSistema.ReportProgress(65, "Carregando painel de notificações!");
+            notificacoes_usuario = usuarioDAO.CarregaNotificacao(usuario.Id);
+            for(int i = 0; i < notificacoes_usuario.Count; i++)
+            {
+                if (notificacoes_usuario[i].Tipo.Equals("Advertência"))
+                {
+                    qtd_advertencia++;
+                }
+                else if(notificacoes_usuario[i].Tipo.Equals("Notificação")) 
+                {
+                    qtd_notificacao++;
+                }
+            }
+            backgroundWorker_InicializaSistema.ReportProgress(75, "Finalizando configuração!");
+            
+            ConfiguraItens();
+            backgroundWorker_InicializaSistema.ReportProgress(100, "Finalizado");
+          
+
+        }
+        private void backgroundWorker_InicializaSistema_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+            formMensagem.Close();
+            formMensagem = null;
+            panel_menu.Visible = true;
+            
+            panel_menu.Visible = true;
+            panel_home.Visible = true;
+            lbl_nome_usuario.Text = perfil.Nome;
+            lbl_data_cadastro_usuario.Text = perfil.Data_cadastro;
+            dataGrid_notificacoes.DataSource = notificacoes_usuario;
+            FormataGridNotificacao();
+            
+        }
+        private void backgroundWorker_AbreVendas_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+            backgroundWorker_AbreVendas.ReportProgress(99);
+            formVenda = new FormVenda();
+            backgroundWorker_AbreVendas.ReportProgress(100);
+
+        }
+
+        private void backgroundWorker_AbreVendas_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            formMensagem.Close();
+            formMensagem = null;
+            formVenda.TopLevel = false;
+            tab_vendas.Controls.Add(formVenda);
+            formVenda.Visible = true;
+        }
+
+        private void backgroundWorker_AbreVendas_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+            formMensagem.progressBar1.Value = e.ProgressPercentage;
+            formMensagem.AtualizaMensagemTopo("CARREGANDO VENDAS - Criando listas");
+            
+        }
+
+        private void backgroundWorker_InicializaSistema_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            formMensagem.progressBar1.Value = e.ProgressPercentage;
+            formMensagem.AtualizaMensagemBot(e.UserState.ToString());
+        }
+
+        private void FormHome_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Visible = false;
+                this.ShowInTaskbar = false;
+                this.WindowState = FormWindowState.Minimized;
+                notifyIcon1.Visible = true;
+            }
+        }
+
+        FormGerenciarUsuario formGerenciarUsuario = null;
+
+        private void FormHome_MouseMove(object sender, MouseEventArgs e)
+        {
+            ResetaTimerBloqueio();
+        }
+
+        private void timer_bloqueio_Tick(object sender, EventArgs e)
+        {
+           // MessageBox.Show("BLOQUEADO");
+        }
+
+        private void FormHome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ResetaTimerBloqueio();
+        }
+
+        private void ResetaTimerBloqueio()
+        {
+            timer_bloqueio.Stop();
+            timer_bloqueio.Start();
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Visible = true;
+            
+            this.WindowState = FormWindowState.Maximized;
+            this.ShowInTaskbar = true;
+            notifyIcon1.Visible = false;
+        }
+
+        private void link_gerenciar_usuario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            formGerenciarUsuario = new FormGerenciarUsuario();
+            formGerenciarUsuario.Show();
         }
     }
 

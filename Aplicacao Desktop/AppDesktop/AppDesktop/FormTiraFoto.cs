@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge.Video;
 using AForge.Video.DirectShow;
+using AppDesktop.DAO;
 
 namespace AppDesktop
 {
@@ -18,6 +19,9 @@ namespace AppDesktop
         private FilterInfoCollection videoDevices;
         private VideoCaptureDevice videoSource = null;
         private FormCadastra_cliente fCliente = null;
+
+        private string nome;
+
         public FormTiraFoto(FormCadastra_cliente fCliente)
         {
             InitializeComponent();
@@ -48,8 +52,8 @@ namespace AppDesktop
                 comboBox1.Items.Add("Nenhum dispositivo encontrado!");
             }
 
-        
-            
+
+
             if (DeviceExist)
             {
                 videoSource = new VideoCaptureDevice(videoDevices[comboBox1.SelectedIndex].MonikerString);
@@ -70,7 +74,7 @@ namespace AppDesktop
                     }
                 videoSource.VideoResolution = videoSource.VideoCapabilities[2];
                 //videoSource.DesiredFrameSize = new Size(160, 120);
-               // videoSource.DesiredFrameRate = 10;
+                // videoSource.DesiredFrameRate = 10;
                 videoSource.Start();
 
             }
@@ -99,8 +103,8 @@ namespace AppDesktop
                     {
                         videoSource.SignalToStop();
                         videoSource = null;
-
-
+                        
+                        
                         /*
                         // salva a imagem;
                         saveFileDialog1.Filter = "JPEG (*.jpg;*.jpeg;*jpeg;*.jfif)|*.jpg;*.jpeg;*jpeg;*.jfif";
@@ -109,14 +113,18 @@ namespace AppDesktop
                         {
                             pictureBox1.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
                         }*/
+
                     }
+
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            fCliente.pictureBox2.Image = pictureBox1.Image;
-            
+           
+           
+            fCliente.pictureBox_foto_cliente.Image = pictureBox1.Image;
+
         }
 
         private void btn_def_resolution_Click(object sender, EventArgs e)

@@ -55,15 +55,17 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_foto_cliente = new System.Windows.Forms.PictureBox();
             this.lbl_pessoa = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_data_criacao = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_foto_cliente)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_tirar_foto
@@ -94,6 +96,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbl_data_criacao);
             this.groupBox1.Controls.Add(this.txt_data_nascimento);
             this.groupBox1.Controls.Add(this.txt_telefone);
             this.groupBox1.Controls.Add(this.txt_cpf);
@@ -104,10 +107,11 @@
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.pictureBox2);
+            this.groupBox1.Controls.Add(this.pictureBox_foto_cliente);
             this.groupBox1.Controls.Add(this.btn_tirar_foto);
             this.groupBox1.Controls.Add(this.lbl_pessoa);
             this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txt_nome);
@@ -337,15 +341,15 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "Nome";
             // 
-            // pictureBox2
+            // pictureBox_foto_cliente
             // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(692, 19);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(176, 126);
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
+            this.pictureBox_foto_cliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox_foto_cliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox_foto_cliente.Location = new System.Drawing.Point(692, 19);
+            this.pictureBox_foto_cliente.Name = "pictureBox_foto_cliente";
+            this.pictureBox_foto_cliente.Size = new System.Drawing.Size(176, 126);
+            this.pictureBox_foto_cliente.TabIndex = 7;
+            this.pictureBox_foto_cliente.TabStop = false;
             // 
             // lbl_pessoa
             // 
@@ -382,6 +386,24 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Telefone";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(257, 104);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(104, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Data de Nascimento";
+            // 
+            // lbl_data_criacao
+            // 
+            this.lbl_data_criacao.AutoSize = true;
+            this.lbl_data_criacao.Location = new System.Drawing.Point(367, 104);
+            this.lbl_data_criacao.Name = "lbl_data_criacao";
+            this.lbl_data_criacao.Size = new System.Drawing.Size(41, 13);
+            this.lbl_data_criacao.TabIndex = 12;
+            this.lbl_data_criacao.Text = "label12";
+            // 
             // FormCadastra_cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,13 +413,14 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FormCadastra_cliente";
             this.Text = "FormCadastra_cliente";
+            this.Load += new System.EventHandler(this.FormCadastra_cliente_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_foto_cliente)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -435,6 +458,8 @@
         private System.Windows.Forms.MaskedTextBox txt_cnpj;
         private System.Windows.Forms.MaskedTextBox txt_data_nascimento;
         private System.Windows.Forms.MaskedTextBox txt_telefone;
-        public System.Windows.Forms.PictureBox pictureBox2;
+        public System.Windows.Forms.PictureBox pictureBox_foto_cliente;
+        private System.Windows.Forms.Label lbl_data_criacao;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -43,7 +44,7 @@ namespace AppDesktop
                      primary key(id)));
 
                   */
-                
+
                 command.Parameters.AddWithValue("@data", venda.Data);
                 command.Parameters.AddWithValue("@valor_total", conversor.toDoubleDB(venda.Valor_total.ToString()));
                 command.Parameters.AddWithValue("@valor_final", conversor.toDoubleDB(venda.Valor_final.ToString()));
@@ -75,13 +76,56 @@ namespace AppDesktop
             return null;
         }
 
+        internal List<ItemVenda> ListaItensVenda()
+        {
+            conn = Conecta();
+
+            MySqlCommand command = conn.CreateCommand();
+
+            try
+            {
+                command.CommandText = "SELECT p.produto, iv.* from tb_estoque p ,tb_item_venda iv where p.id = iv.id_produto";
+                var result = command.ExecuteReader();
+                List<ItemVenda> itens = new List<ItemVenda>();
+                while (result.Read())
+                {
+                    ItemVenda iv = new ItemVenda();
+
+                    iv.Id = result.GetInt32("id");
+                    iv.Id_venda = result.GetInt32("id_venda");
+                    iv.Id_produto = result.GetInt32("id_produto");
+                    iv.Item = result.GetString("produto");
+                    iv.Id_promocao = result.GetInt32("id_promocao");
+                    iv.Preco = result.GetDouble("preco");
+                    iv.Quantidade = result.GetInt32("quantidade");
+
+                    itens.Add(iv);
+
+                    
+                }
+                return itens;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERRO A " + ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) Desconecta();
+            }
+            
+            return null;
+
+        }
+
         public void atualizaVFVenda(Venda venda)
         {
 
             conn = Conecta();
-            
+
             MySqlCommand command = conn.CreateCommand();
-            
+
 
 
             try
@@ -90,7 +134,7 @@ namespace AppDesktop
                 command.ExecuteNonQuery();
 
 
-                
+
             }
             catch (MySqlException ex)
             {
@@ -98,7 +142,7 @@ namespace AppDesktop
 
             }
 
-         
+
         }
 
         public int GetLastIdVenda()
@@ -125,46 +169,92 @@ namespace AppDesktop
 
         }
 
-        //public void InsereItensVenda(List<Item_Caixa> itens)
-        //{
-        //    conn = Conecta();
-        //    MySqlCommand command = conn.CreateCommand();
+        internal List<Venda> ListarVendasByData(string v)
+        {
+            conn = Conecta();
+            MySqlCommand command = conn.CreateCommand();
+            
+            List<Venda> vendas = new List<Venda>();
+            try
+            {
+                command.CommandText = "SELECT * from tb_venda where data_venda='" +
+                    conversor.toDateTimeDB(v) + "'";
+                var result = command.ExecuteReader();
+                while (result.Read())
+                {
+                    Venda venda = new Venda();
+                    venda.Id = result.GetInt32("id");
+                    venda.Data = conversor.toDateTimeBR(result.GetMySqlDateTime("data_venda"));
+                    venda.Valor_final = result.GetDouble("valor_final");
+                    venda.Valor_total = result.GetDouble("valor_total");
+                    venda.Quantidade_itens = result.GetInt32("quantidade_itens");
+                    venda.Regra_aplicada = result.GetInt32("regra_aplicada");
 
-        //    try
-        //    {
-        //        command.CommandText = "insert into tb_itens_venda(id_venda, valor,forma_pagamento,quantidade_parcelas)" +
-        //            " values(@id_venda,@valor,@forma_pagamento,@quantidade_parcelas)";
+                    vendas.Add(venda);
+                }
+                return vendas;
+            }
+            catch
+            {
 
-        //        command.Parameters.AddWithValue("@id_venda", pagamento.Id_venda);
-        //        command.Parameters.AddWithValue("@valor", conversor.toDoubleDB(pagamento.Valor.ToString()));
-        //        command.Parameters.AddWithValue("@forma_pagamento", pagamento.Forma_pagamento);
-        //        command.Parameters.AddWithValue("@quantidade_parcelas", pagamento.Quantidade_parcelas);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+            }
+            return vendas;
+        }
 
-        //        command.ExecuteNonQuery();
+        public void InsereItensVenda(List<ItemVenda> itens)
+        {
+            conn = Conecta();
+            MySqlCommand command = conn.CreateCommand();
+
+            try
+            {
+                //         private int id;
+                //private int id_venda;
+
+                //private string produto;
+                //private double preco;
+                //private int quantidade;
+                //private int id_promocao;
+                
+                
+                foreach (ItemVenda item in itens)
+                {
+                    if (conn.State == ConnectionState.Closed) conn.Open();
+                    command.CommandText = "insert into tb_item_venda" +
+                                " values(null,'" + item.Id_venda+"','"+ item.Id_produto +"','"+ conversor.toDoubleDB(item.Preco.ToString()) +"','"+ item.Quantidade +"','"+ item.Id_promocao +"')";
+                    MessageBox.Show(" B"+item.Id_venda);
 
 
+                    command.ExecuteNonQuery();
+                conn.Close();
+                }
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Não foi possivel registrar lancamento, desfazendo alterações" + ex.Message, "Erro");
-        //        try
-        //        {
-        //            transaction.Rollback();
-        //        }
-        //        catch (MySqlException mEx)
-        //        {
-        //            MessageBox.Show("Erro ao realizar Rollback " + mEx.Message);
 
-        //        }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Não foi possivel registrar lancamento, desfazendo alterações" + ex.Message, "Erro");
+                try
+                {
+                    //transaction.Rollback();
+                }
+                catch (MySqlException mEx)
+                {
+                    MessageBox.Show("Erro ao realizar Rollback " + mEx.Message);
 
-        //    }
-        //    finally
-        //    {
-        //        if (conn.State == ConnectionState.Open) Desconecta();
-        //    }
-        //}
-    
+                }
+
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) Desconecta();
+            }
+        }
+
 
         public void InserePagamento(Pagamento pagamento)
         {
@@ -189,7 +279,7 @@ namespace AppDesktop
             catch (Exception ex)
             {
                 MessageBox.Show("Não foi possivel registrar lancamento, desfazendo alterações" + ex.Message, "Erro");
-            
+
 
             }
             finally
@@ -206,6 +296,8 @@ namespace AppDesktop
                 Pagamento pagamento = pagamentos[i];
                 try
                 {
+                    if (conn.State == ConnectionState.Closed) conn.Open();
+                        
                     command.CommandText = "insert into tb_pagamento(id_venda, valor,forma_pagamento,quantidade_parcelas)" +
                         " values(@id_venda,@valor,@forma_pagamento,@quantidade_parcelas)";
 
@@ -216,13 +308,13 @@ namespace AppDesktop
 
                     command.ExecuteNonQuery();
 
-
+                    conn.Close();
 
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Não foi possivel registrar lancamento, desfazendo alterações" + ex.Message, "Erro");
-                    
+
 
                 }
                 finally
@@ -246,22 +338,95 @@ namespace AppDesktop
                 var result = command.ExecuteReader();
                 while (result.Read())
                 {
+                    Venda venda = new Venda();
+                    venda.Id = result.GetInt32("id");
+                    venda.Data = conversor.toDateTimeBR(result.GetMySqlDateTime("data_venda"));
+                    venda.Valor_final = result.GetDouble("valor_final");
+                    venda.Valor_total = result.GetDouble("valor_total");
+                    venda.Quantidade_itens = result.GetInt32("quantidade_itens");
+                    venda.Regra_aplicada = result.GetInt32("regra_aplicada");
 
-
+                    vendas.Add(venda);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("a"+ex.Message);
             }
             finally
             {
-                if (conn.State == ConnectionState.Open) Desconecta();
+                if (conn.State == ConnectionState.Open) conn.Close();
             }
 
             return vendas;
 
         }
+
+        public List<Venda> listarVendas(string date_start, string date_end)
+        {
+
+
+            conn = Conecta();
+            MySqlCommand command = conn.CreateCommand();
+            List<Venda> listVenda = null;
+            try
+            {
+                listVenda = new List<Venda>();
+                
+                command.CommandText = "SELECT * FROM tb_venda WHERE data_venda BETWEEN ('" + date_start + "') AND ('" + date_end + "')";
+                var result = command.ExecuteReader();
+                while (result.Read())
+                {
+                    Venda venda = new Venda();
+                    venda.Id = result.GetInt32("id");
+                    venda.Data = conversor.toDateTimeBR(result.GetMySqlDateTime("data_venda"));
+                    venda.Valor_final = result.GetDouble("valor_final");
+                    venda.Valor_total = result.GetDouble("valor_total");
+                    venda.Quantidade_itens = result.GetInt32("quantidade_itens");
+                    venda.Regra_aplicada = result.GetInt32("regra_aplicada");
+
+                    listVenda.Add(venda);
+                }
+                return listVenda;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro na listagem de vendas: " + ex.Message);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+            }
+            return null;
+        }
+
+        internal double SomaVendaFinalByData(string data_venda)
+        {
+            conn = Conecta();
+            MySqlCommand command = conn.CreateCommand();
+            double sum = 0;
+            try
+            {
+                command.CommandText = "SELECT sum(valor_final) as soma from tb_venda where data_venda='" +
+                    conversor.toDateTimeDB(data_venda)+"'";
+                var result = command.ExecuteReader();
+                if (result.Read())
+                {
+                    sum = result.GetDouble("soma");
+                }
+                return sum;
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+            }
+            return sum;
+        }
+
         private MySqlConnection Conecta()
         {
             string connString = conexao.getConexao();
@@ -303,7 +468,7 @@ namespace AppDesktop
 
         }
 
-        public void InsereHistoricoCliente(int id_venda,int id_cliente)
+        public void InsereHistoricoCliente(int id_venda, int id_cliente)
         {
             conn = Conecta();
             MySqlCommand command = conn.CreateCommand();

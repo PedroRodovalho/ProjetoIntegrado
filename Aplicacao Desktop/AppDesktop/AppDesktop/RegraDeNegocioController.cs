@@ -14,9 +14,9 @@ namespace AppDesktop
         RegrasNegocioDAO regrasDAO = new RegrasNegocioDAO();
         Venda venda, venda_aplicada;
         Pagamento pagamento;
-        List<Item_Caixa> itens;
+        List<ItemVenda> itens;
 
-        public RegraDeNegocioController(Venda venda, List<Item_Caixa> itens, Pagamento pagamento)
+        public RegraDeNegocioController(Venda venda, List<ItemVenda> itens, Pagamento pagamento)
         {
 
             this.venda = venda;

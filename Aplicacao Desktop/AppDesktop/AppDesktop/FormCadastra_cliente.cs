@@ -65,11 +65,13 @@ namespace AppDesktop
                 cliente.Cpf = txt_cnpj.Text;
             }
 
-            cliente.Data_nascimento = txt_data_nascimento.Text;
-            cliente.Foto = conversor.imageToByte(pictureBox2.Image);
+            cliente.Data_nascimento = conversor.toDateTimeDB(txt_data_nascimento.Text);
+            cliente.Data_cadastro = conversor.toDateTimeDB(lbl_data_criacao.Text);
+            cliente.Ativo = 1;
 
 
             int id = clienteDAO.insere_cliente(cliente);
+
             Endereco endereco = new Endereco();
             endereco.Id_cliente = id;
             endereco.Rua = txt_rua.Text;
@@ -79,8 +81,19 @@ namespace AppDesktop
             endereco.Cidade = txt_cidade.Text;
             endereco.Uf = combo_uf.Text;
 
+
             clienteDAO.cadastra_endereco(endereco);
 
+            FotoCliente foto = new FotoCliente();
+            string caminho = "C:/xampp/htdocs/BEAT/fotoscliente/";
+            string nome_foto = id.ToString() + " - cliente.jpeg ";
+            string caminho_foto = caminho + nome_foto;
+            pictureBox_foto_cliente.Image.Save(caminho_foto, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+            foto.Id_cliente = id;
+            foto.Caminho_foto = caminho_foto;
+            foto.Nome_foto = nome_foto;
+            clienteDAO.InsereFotoCliente(foto); ;
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -108,6 +121,11 @@ namespace AppDesktop
         {
             FormTiraFoto formTiraFoto = new FormTiraFoto(this);
             formTiraFoto.ShowDialog();
+        }
+
+        private void FormCadastra_cliente_Load(object sender, EventArgs e)
+        {
+            lbl_data_criacao.Text = DateTime.Now.ToShortDateString();
         }
     }
 }

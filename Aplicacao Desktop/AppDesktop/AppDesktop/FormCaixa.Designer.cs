@@ -70,8 +70,10 @@
             this.panel_quantidade = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.txt_quantidade = new System.Windows.Forms.TextBox();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btn_ok_quantidade = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_itens)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -79,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel_quantidade.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGrid_itens
@@ -88,7 +91,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGrid_itens.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGrid_itens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid_itens.Location = new System.Drawing.Point(450, 128);
+            this.dataGrid_itens.Location = new System.Drawing.Point(447, 128);
             this.dataGrid_itens.Name = "dataGrid_itens";
             this.dataGrid_itens.Size = new System.Drawing.Size(861, 373);
             this.dataGrid_itens.TabIndex = 1;
@@ -317,19 +320,16 @@
             // 
             // txt_produto
             // 
-            this.txt_produto.Location = new System.Drawing.Point(310, 102);
+            this.txt_produto.Location = new System.Drawing.Point(62, 53);
             this.txt_produto.Name = "txt_produto";
             this.txt_produto.Size = new System.Drawing.Size(336, 20);
             this.txt_produto.TabIndex = 4;
             // 
             // txt_codigo
             // 
-            this.txt_codigo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_codigo.Location = new System.Drawing.Point(105, 102);
+            this.txt_codigo.Location = new System.Drawing.Point(62, 27);
             this.txt_codigo.Name = "txt_codigo";
-            this.txt_codigo.Size = new System.Drawing.Size(115, 20);
+            this.txt_codigo.Size = new System.Drawing.Size(155, 20);
             this.txt_codigo.TabIndex = 4;
             this.txt_codigo.TextChanged += new System.EventHandler(this.txt_codigo_TextChanged);
             this.txt_codigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_codigo_KeyDown);
@@ -337,7 +337,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(59, 105);
+            this.label2.Location = new System.Drawing.Point(16, 30);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 3;
@@ -345,7 +345,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(652, 102);
+            this.button1.Location = new System.Drawing.Point(1204, 86);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(26, 20);
             this.button1.TabIndex = 5;
@@ -420,7 +420,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(265, 106);
+            this.label9.Location = new System.Drawing.Point(17, 57);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(44, 13);
             this.label9.TabIndex = 3;
@@ -429,7 +429,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lbl_relogio);
-            this.groupBox2.Location = new System.Drawing.Point(77, 2);
+            this.groupBox2.Location = new System.Drawing.Point(42, 24);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(506, 94);
             this.groupBox2.TabIndex = 8;
@@ -456,7 +456,7 @@
             // 
             this.panel_quantidade.Controls.Add(this.label16);
             this.panel_quantidade.Controls.Add(this.txt_quantidade);
-            this.panel_quantidade.Controls.Add(this.button7);
+            this.panel_quantidade.Controls.Add(this.btn_ok_quantidade);
             this.panel_quantidade.Location = new System.Drawing.Point(414, 156);
             this.panel_quantidade.Name = "panel_quantidade";
             this.panel_quantidade.Size = new System.Drawing.Size(282, 100);
@@ -483,23 +483,49 @@
             this.txt_quantidade.TextChanged += new System.EventHandler(this.txt_quantidade_TextChanged);
             this.txt_quantidade.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_quantidade_KeyDown);
             // 
-            // button7
+            // btn_ok_quantidade
             // 
-            this.button7.Location = new System.Drawing.Point(169, 41);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(62, 20);
-            this.button7.TabIndex = 5;
-            this.button7.Text = "OK";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btn_ok_quantidade.Location = new System.Drawing.Point(169, 41);
+            this.btn_ok_quantidade.Name = "btn_ok_quantidade";
+            this.btn_ok_quantidade.Size = new System.Drawing.Size(62, 20);
+            this.btn_ok_quantidade.TabIndex = 5;
+            this.btn_ok_quantidade.Text = "OK";
+            this.btn_ok_quantidade.UseVisualStyleBackColor = true;
+            this.btn_ok_quantidade.Click += new System.EventHandler(this.btn_ok_quantidade_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(222, 102);
+            this.button2.Location = new System.Drawing.Point(222, 27);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(26, 20);
             this.button2.TabIndex = 5;
             this.button2.Text = "button1";
             this.button2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.button5);
+            this.groupBox3.Controls.Add(this.txt_produto);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.txt_codigo);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Location = new System.Drawing.Point(554, 37);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(523, 81);
+            this.groupBox3.TabIndex = 10;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Adicionar Item";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(426, 48);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // FormCaixa
             // 
@@ -508,20 +534,16 @@
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1320, 585);
             this.Controls.Add(this.panel_quantidade);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnFinalizar);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.lbl_mensagens);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.txt_codigo);
-            this.Controls.Add(this.txt_produto);
             this.Controls.Add(this.lbl_vendedor);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGrid_itens);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -541,6 +563,8 @@
             this.groupBox2.PerformLayout();
             this.panel_quantidade.ResumeLayout(false);
             this.panel_quantidade.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -585,10 +609,12 @@
         private System.Windows.Forms.Panel panel_quantidade;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txt_quantidade;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btn_ok_quantidade;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbl_desconto_liquido;
         public System.Windows.Forms.DataGridView dataGrid_itens;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button button5;
     }
 }

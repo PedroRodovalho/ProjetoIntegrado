@@ -43,16 +43,24 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_confirmar_senha = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel_login = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lbl_mensagem = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.panel_nova_senha.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel_login.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.linkLabel1.Location = new System.Drawing.Point(151, 120);
+            this.linkLabel1.Location = new System.Drawing.Point(98, 62);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(108, 13);
             this.linkLabel1.TabIndex = 0;
@@ -62,9 +70,9 @@
             // 
             // btn_entrar
             // 
-            this.btn_entrar.Location = new System.Drawing.Point(142, 151);
+            this.btn_entrar.Location = new System.Drawing.Point(37, 135);
             this.btn_entrar.Name = "btn_entrar";
-            this.btn_entrar.Size = new System.Drawing.Size(75, 28);
+            this.btn_entrar.Size = new System.Drawing.Size(246, 28);
             this.btn_entrar.TabIndex = 5;
             this.btn_entrar.Text = "Entrar";
             this.btn_entrar.UseVisualStyleBackColor = true;
@@ -74,7 +82,7 @@
             // 
             this.lbl_usuario.AutoSize = true;
             this.lbl_usuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbl_usuario.Location = new System.Drawing.Point(64, 74);
+            this.lbl_usuario.Location = new System.Drawing.Point(14, 21);
             this.lbl_usuario.Name = "lbl_usuario";
             this.lbl_usuario.Size = new System.Drawing.Size(43, 13);
             this.lbl_usuario.TabIndex = 2;
@@ -83,7 +91,7 @@
             // txt_usuario
             // 
             this.txt_usuario.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txt_usuario.Location = new System.Drawing.Point(116, 71);
+            this.txt_usuario.Location = new System.Drawing.Point(63, 18);
             this.txt_usuario.Name = "txt_usuario";
             this.txt_usuario.Size = new System.Drawing.Size(143, 20);
             this.txt_usuario.TabIndex = 3;
@@ -92,7 +100,7 @@
             // txt_senha
             // 
             this.txt_senha.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txt_senha.Location = new System.Drawing.Point(116, 97);
+            this.txt_senha.Location = new System.Drawing.Point(63, 39);
             this.txt_senha.Name = "txt_senha";
             this.txt_senha.Size = new System.Drawing.Size(143, 20);
             this.txt_senha.TabIndex = 4;
@@ -102,7 +110,7 @@
             // 
             this.lbl_senha.AutoSize = true;
             this.lbl_senha.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbl_senha.Location = new System.Drawing.Point(69, 100);
+            this.lbl_senha.Location = new System.Drawing.Point(19, 43);
             this.lbl_senha.Name = "lbl_senha";
             this.lbl_senha.Size = new System.Drawing.Size(38, 13);
             this.lbl_senha.TabIndex = 2;
@@ -131,7 +139,7 @@
             // 
             this.panel_nova_senha.BackColor = System.Drawing.SystemColors.Control;
             this.panel_nova_senha.Controls.Add(this.groupBox1);
-            this.panel_nova_senha.Location = new System.Drawing.Point(12, 12);
+            this.panel_nova_senha.Location = new System.Drawing.Point(22, 24);
             this.panel_nova_senha.Name = "panel_nova_senha";
             this.panel_nova_senha.Size = new System.Drawing.Size(330, 201);
             this.panel_nova_senha.TabIndex = 7;
@@ -195,6 +203,61 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Confirmar senha";
             // 
+            // panel_login
+            // 
+            this.panel_login.Controls.Add(this.checkBox1);
+            this.panel_login.Controls.Add(this.groupBox3);
+            this.panel_login.Controls.Add(this.groupBox2);
+            this.panel_login.Controls.Add(this.btn_entrar);
+            this.panel_login.Location = new System.Drawing.Point(22, 12);
+            this.panel_login.Name = "panel_login";
+            this.panel_login.Size = new System.Drawing.Size(329, 256);
+            this.panel_login.TabIndex = 8;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.linkLabel1);
+            this.groupBox2.Controls.Add(this.lbl_usuario);
+            this.groupBox2.Controls.Add(this.txt_usuario);
+            this.groupBox2.Controls.Add(this.txt_senha);
+            this.groupBox2.Controls.Add(this.lbl_senha);
+            this.groupBox2.Location = new System.Drawing.Point(37, 17);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(246, 89);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Login";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(54, 112);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(100, 17);
+            this.checkBox1.TabIndex = 5;
+            this.checkBox1.Text = "Lembrar de mim";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lbl_mensagem);
+            this.groupBox3.Location = new System.Drawing.Point(37, 169);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(246, 71);
+            this.groupBox3.TabIndex = 7;
+            this.groupBox3.TabStop = false;
+            // 
+            // lbl_mensagem
+            // 
+            this.lbl_mensagem.AutoSize = true;
+            this.lbl_mensagem.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_mensagem.Location = new System.Drawing.Point(19, 30);
+            this.lbl_mensagem.Name = "lbl_mensagem";
+            this.lbl_mensagem.Size = new System.Drawing.Size(10, 13);
+            this.lbl_mensagem.TabIndex = 2;
+            this.lbl_mensagem.Text = ".";
+            this.lbl_mensagem.Visible = false;
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,12 +265,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(374, 304);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.txt_senha);
-            this.Controls.Add(this.txt_usuario);
-            this.Controls.Add(this.lbl_senha);
-            this.Controls.Add(this.lbl_usuario);
-            this.Controls.Add(this.btn_entrar);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.panel_login);
             this.Controls.Add(this.panel_nova_senha);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormLogin";
@@ -219,6 +277,12 @@
             this.panel_nova_senha.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel_login.ResumeLayout(false);
+            this.panel_login.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,5 +305,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel_login;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label lbl_mensagem;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

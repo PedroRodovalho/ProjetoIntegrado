@@ -74,13 +74,7 @@ namespace AppDesktop
             }
             else
             {
-                RegrasNegocio_acrescimo regrasNegocio_Acrescimo = new RegrasNegocio_acrescimo();
-                regrasNegocio_Acrescimo.Id_regra = id;
-                regrasNegocio_Acrescimo.Acrescimo_parcela = conversor.toDouble(txt_acrescimo.Text);
-                regrasNegocio_Acrescimo.Por_parcela = false;
-                if (check_por_parcela.Checked) regrasNegocio_Acrescimo.Por_parcela = true;
-
-                regrasDAO.insere_regra_acrescimo(regrasNegocio_Acrescimo);
+               
             }
 
         }
