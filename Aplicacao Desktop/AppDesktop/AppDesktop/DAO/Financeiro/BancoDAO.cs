@@ -87,12 +87,12 @@ namespace AppDesktop
         {
             conn = Conecta();
             MySqlCommand command = conn.CreateCommand();
-           
+            Banco banco = new Banco();
             try
             {
-                command.CommandText = "select * from tb_banco_financeiro where id_banco="+id_banco;
+                command.CommandText = "select * from tb_banco_financeiro where id="+id_banco;
                 var result = command.ExecuteReader();
-                Banco banco = new Banco();
+                
                 while (result.Read())
                 {
                     
@@ -111,7 +111,7 @@ namespace AppDesktop
             {
                 if (conn.State == ConnectionState.Open) conn.Close();
             }
-            return null;
+            return banco;
         }
     }
     

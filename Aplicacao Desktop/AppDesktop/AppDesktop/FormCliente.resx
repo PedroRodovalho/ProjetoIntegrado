@@ -142,27 +142,27 @@
   <data name="toolStrip_Atualizar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASMSURBVHhe7ZpbaFRHHMZjpCpqLLVeQK0XSBVSyUvYJJsL
-        +1DRKApKm4cWBRHU+uSD9UURUVRQWkKQXigFtfjiDVEQRPRBQWyFtBZEEN8MrTdQqHeLl99//TYcJ7PJ
-        Jh5x9ux+8JFw5j8z3/efOTNz9pyKMsoo472goaFhOtzY1NQ0S5dKCxg/CV/Ch/AbXS4dYPoPJSDLxsbG
-        w3V1dR+qOPlwE2BMp9PX4GyFJBu+BBjr6+vvk4TFCksGbGpjaiHTfKtNdYx2YfSJaz5HYp/DdapenMDg
-        GEyswtCZVCr1v2uyEFK/g6aGvG6xSNDa2voJ4jttKruGBkOSsLe9vX2omg8XiK1C7C6MP3ZNxMBOdRMm
-        EDgXdkcEx0oSe1VdBYdKxO1A5AtXdMzcoP7CASv7SMwf84iNlfSxRV2Gg0wmM5pz/Fmf4LiIcdsK16rL
-        cFBTUzMM86d9ovsjhu7AvzkLXOhnl3hEXLu6DAsI2+MR7CWx3bCDhM3nLPCxmsiCcu9JkOT8S3yDwsIC
-        Zuxg00u0h+ebm5sXUaXydc3eIMaXgPNwkkLCAoPyKeLs0dUV3UOm9T8k6UtV6RPE9ySAOraLfMfC+oGK
-        wwMiT+UE+0j5MabvWIX3CxJ6VHVvMFvm63KYwNzCqFmXlO8kbEBn9paWlo+ou5QdZZwuhQuEdkUNR4n5
-        bQpLJjD4uc+4kbJfFZZcYPJAHvNd1dXVwxWWTGC0Ks/T3VMWrs8Ullxg9AvHeJaM/vcKSTYw+4PH/AP2
-        6/BX7jiA4V6rPwn4UcWJRyWGH3kSkFJ5sGDdmoHObXATnKDLAwOnuske890qDhYcsMaTgNsRzVcHtVtR
-        MRU1r8b2qjhYoHOlqxu2qrhwMAMybkMkYIWKgwUa97u6YVrFhaOtrW24TZ9IIzfdZ/oAMcR+T4hozhIf
-        01Q+MNj9RAMbaGALB5+puhws0JqOGjei/WlRvFeIA4z+L24CeOz+S8XJBiM9AcO+bftnhSQbjH6na14J
-        CPPH1TjBWlWL2WeueXuQg2MUlkxkMpkRjP4l17x4SGHJBVN8n8d4liRmjsKSCczv9BkX/1RYuNDKvZyR
-        KvjXZMFeynY4ht+g3kuEC0QugLdMLGaO6HK/sMMZCTuRM+oje/9phYcHe7doowd7Xqlj6IKK+4Idc78m
-        /mauXh4+5Mg+U3XCAlvSFIz/7oruKwF2jKV8CXEX3Xo+ErtaVcMCxpugd/TcBDCFJ3JtEfG7+dvr4SYf
-        id+jJsICwr5i9PN+FkeZvSq/iNnL/H/XLS+E1D1jt5e6DAeY/xa+009oMH/OPtpQl+EA49t9guMkfRy3
-        z3XUZThAnH0K7xUdE19gfgdd5f0G4b0CgVccwbER49f5O1ddhQlE7nKFvy1ZIB+r3Sp1EzTsuPqTa2Iw
-        1C5hn99OUdvFA5Iw2IXwmR1pqb8K48X9TI+RNZjI+8U4ZXZGsJPeQbgZLih60y4YyXkk4p4Zdsn10vjh
-        0h5S7LRXsgkw1NbWjsL0byWbgBy4JZZxn/+nBIT7/P4uQQJmcEusL4a3TmWUkUhUVLwCaEHjpggXszMA
-        AAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASPSURBVHhe7ZpbaFRHHMZjpFpqY6m1Cl6qQqqQSl6S3WRz
+        YR8UG0Wh0uahoiCFavvkQ+uLIqKooCghiBdE8IIvXkpREET0oQXRCqkVRBDfDLa2hRas2mrx8vuv34bj
+        ZDbZxCPOnt0PPhLO/Gfm+/4zZ2bOnlNVQQUVvBY0NTVNh2tbWlpm6VJ5AeNn4FN4H36ly+UDTP+kBOTY
+        3Nx8oqGh4R0VJx9uAoyZTOYmnK2QZMOXAGMqlfqHJHyisGTApjamFjLNN9pUx2hPOp3+zzWfJ7GP4Teq
+        XprA4FhMrMDQ+cbGxv9dk8WQ+l00NeJ5iyWC9vb2qYjvtqnsGhoOScLBzs7OkWo+XCC2BrHbMP6vayIG
+        dqubMIHAebA3IjhWktgb6io4VCNuCyKfuKJj5hr1Fw5Y2d/C/EmP2FhJHxvUZTjIZrNvc47/wSc4LmLc
+        tsJV6jIc1NXVjcL8OZ/owYihP+FVzgIXB9klHhDXqS7DAsIOeAR7SWwv7CJh8zH8nprIgXLvSZDk/Ep8
+        k8LCAmbsYNNPtIcXWltbF1Gl+nnN/iDGl4ALcJJCwgKD8iHi7NHVFd1HRvk2SfpMVQYE8X0JoI7tIttZ
+        WN9QcXhA5Nm8YB8pP8n0HafwQUFCv1fd35gt83U5TGBuYdSsS8q3EjakM3tbW9u71F3KjjJel8IFQnui
+        hqPE/CaFJRMYnOMzbqRsv8KSC0weLWC+p7a2drTCkgmM1hR4unvIwvWRwpILjH7qGM+R0d+hkGQDs7s8
+        5u+xX4e/cscBDPdb/UnAbhUnHtUYfuBJQErlwSKdTs9A5ya4Dk7Q5aGBU91kj/leFQcLDljvk4A/Ippv
+        DGu3omIqal6NHVRxsEDnl65u2K7i4sEMyLoNkYAvVBws0HjE1Q0zKi4eHR0do236RBq54z7TB4gR9ntC
+        RHOO+Jim8qHB7icaWEMDGzj4fKDLwQKtmahxI9oflsR7hTjA6O9zE8Bj9xUVJxuM9AQM+7btvQpJNhj9
+        bte8EhDmj6txgrWqHrOPXPP2IGcvaRWWTGSz2TcZ/V9c8+JxhSUXTPFDHuM5kpi5CksmML/VZ1z8WWHh
+        Qiv3ckaq6F+TBXsp2+UYfoF6LxEuELkA/m5iMfOdLg8KO5yRsNN5oz6y959TeHiwd4s2erDvlTqGLqp4
+        INgxdwnxd/L1CvA+q/9M1QkLbElTMH7JFT1QAuwYS/li4i679XwkdqWqhgWMt0Dv6LkJYApP5Noi4nfy
+        t9/DTSESf0BNhAWEfc7oF/wsjilrr8ovY/Ya///llhdD6p6320tdhgPMfwtf6Sc0mP/RPtpQl+EA45t9
+        guMkfZyyz3XUZThAnH0K7xUdE59gfgtdFfwG4bUCgdcdwbER47f4O09dhQlEbnOFvyzt6U7t1qiboGHH
+        1T2uieFQu0S3nSPUdumAJAx3IXxkR1rqryj5Z3qMfM0oFvxiXGcEO+kdg+vhgpI37YKR/JhE/G2GXXK9
+        PH64ZBbMtNNe2SbAUF9fPwbTh8s2AXlwSyxjRtxVAsJ9fn+VYKGbwS2xuhTeOlVQQSJRVfUMNvbjfKZh
+        IosAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

@@ -407,6 +407,7 @@
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Vendedor:";
+            this.label3.Visible = false;
             // 
             // lbl_vendedor
             // 
@@ -416,6 +417,7 @@
             this.lbl_vendedor.Size = new System.Drawing.Size(53, 13);
             this.lbl_vendedor.TabIndex = 3;
             this.lbl_vendedor.Text = "Vendedor";
+            this.lbl_vendedor.Visible = false;
             // 
             // label9
             // 

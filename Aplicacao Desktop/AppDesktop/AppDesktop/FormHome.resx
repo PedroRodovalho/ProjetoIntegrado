@@ -682,6 +682,114 @@
   <data name="panel_menu.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
+  <data name="&gt;&gt;pictureBox2.Name" xml:space="preserve">
+    <value>pictureBox2</value>
+  </data>
+  <data name="&gt;&gt;pictureBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox2.Parent" xml:space="preserve">
+    <value>panel_menu</value>
+  </data>
+  <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
+    <value>pictureBox1</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
+    <value>panel_menu</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panel_sessao.Name" xml:space="preserve">
+    <value>panel_sessao</value>
+  </data>
+  <data name="&gt;&gt;panel_sessao.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel_sessao.Parent" xml:space="preserve">
+    <value>panel_menu</value>
+  </data>
+  <data name="&gt;&gt;panel_sessao.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btn_vendas.Name" xml:space="preserve">
+    <value>btn_vendas</value>
+  </data>
+  <data name="&gt;&gt;btn_vendas.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_vendas.Parent" xml:space="preserve">
+    <value>panel_menu</value>
+  </data>
+  <data name="&gt;&gt;btn_vendas.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;lbl_nome_icone.Name" xml:space="preserve">
+    <value>lbl_nome_icone</value>
+  </data>
+  <data name="&gt;&gt;lbl_nome_icone.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_nome_icone.Parent" xml:space="preserve">
+    <value>panel_menu</value>
+  </data>
+  <data name="&gt;&gt;lbl_nome_icone.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>panel_menu</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;btn_regra.Name" xml:space="preserve">
+    <value>btn_regra</value>
+  </data>
+  <data name="&gt;&gt;btn_regra.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_regra.Parent" xml:space="preserve">
+    <value>panel_menu</value>
+  </data>
+  <data name="&gt;&gt;btn_regra.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="panel_menu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-6, -1</value>
+  </data>
+  <data name="panel_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1360, 119</value>
+  </data>
+  <data name="panel_menu.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="panel_menu.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;panel_menu.Name" xml:space="preserve">
+    <value>panel_menu</value>
+  </data>
+  <data name="&gt;&gt;panel_menu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel_menu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel_menu.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -804,6 +912,57 @@
   <data name="&gt;&gt;panel_sessao.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="lbl_nome_usuario.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 5</value>
+  </data>
+  <data name="lbl_nome_usuario.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 23</value>
+  </data>
+  <data name="lbl_nome_usuario.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="lbl_nome_usuario.Text" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="&gt;&gt;lbl_nome_usuario.Name" xml:space="preserve">
+    <value>lbl_nome_usuario</value>
+  </data>
+  <data name="&gt;&gt;lbl_nome_usuario.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_nome_usuario.Parent" xml:space="preserve">
+    <value>panel_sessao</value>
+  </data>
+  <data name="&gt;&gt;lbl_nome_usuario.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="link_sair.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="link_sair.Location" type="System.Drawing.Point, System.Drawing">
+    <value>184, 5</value>
+  </data>
+  <data name="link_sair.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 13</value>
+  </data>
+  <data name="link_sair.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="link_sair.Text" xml:space="preserve">
+    <value>SAIR</value>
+  </data>
+  <data name="&gt;&gt;link_sair.Name" xml:space="preserve">
+    <value>link_sair</value>
+  </data>
+  <data name="&gt;&gt;link_sair.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;link_sair.Parent" xml:space="preserve">
+    <value>panel_sessao</value>
+  </data>
+  <data name="&gt;&gt;link_sair.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="btn_vendas.Location" type="System.Drawing.Point, System.Drawing">
     <value>898, 12</value>
   </data>
@@ -897,105 +1056,6 @@
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="btn_regra.Location" type="System.Drawing.Point, System.Drawing">
-    <value>898, 52</value>
-  </data>
-  <data name="btn_regra.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 42</value>
-  </data>
-  <data name="btn_regra.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="btn_regra.Text" xml:space="preserve">
-    <value>Regras de negocio</value>
-  </data>
-  <data name="&gt;&gt;btn_regra.Name" xml:space="preserve">
-    <value>btn_regra</value>
-  </data>
-  <data name="&gt;&gt;btn_regra.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_regra.Parent" xml:space="preserve">
-    <value>panel_menu</value>
-  </data>
-  <data name="&gt;&gt;btn_regra.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="panel_menu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-6, -1</value>
-  </data>
-  <data name="panel_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1360, 119</value>
-  </data>
-  <data name="panel_menu.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="panel_menu.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;panel_menu.Name" xml:space="preserve">
-    <value>panel_menu</value>
-  </data>
-  <data name="&gt;&gt;panel_menu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel_menu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panel_menu.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lbl_nome_usuario.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 5</value>
-  </data>
-  <data name="lbl_nome_usuario.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 23</value>
-  </data>
-  <data name="lbl_nome_usuario.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="lbl_nome_usuario.Text" xml:space="preserve">
-    <value>Nome</value>
-  </data>
-  <data name="&gt;&gt;lbl_nome_usuario.Name" xml:space="preserve">
-    <value>lbl_nome_usuario</value>
-  </data>
-  <data name="&gt;&gt;lbl_nome_usuario.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_nome_usuario.Parent" xml:space="preserve">
-    <value>panel_sessao</value>
-  </data>
-  <data name="&gt;&gt;lbl_nome_usuario.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="link_sair.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="link_sair.Location" type="System.Drawing.Point, System.Drawing">
-    <value>184, 5</value>
-  </data>
-  <data name="link_sair.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 13</value>
-  </data>
-  <data name="link_sair.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="link_sair.Text" xml:space="preserve">
-    <value>SAIR</value>
-  </data>
-  <data name="&gt;&gt;link_sair.Name" xml:space="preserve">
-    <value>link_sair</value>
-  </data>
-  <data name="&gt;&gt;link_sair.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;link_sair.Parent" xml:space="preserve">
-    <value>panel_sessao</value>
-  </data>
-  <data name="&gt;&gt;link_sair.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="icon_estoque.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -1063,6 +1123,30 @@
   </data>
   <data name="&gt;&gt;icon_estoque.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="btn_regra.Location" type="System.Drawing.Point, System.Drawing">
+    <value>898, 52</value>
+  </data>
+  <data name="btn_regra.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 42</value>
+  </data>
+  <data name="btn_regra.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btn_regra.Text" xml:space="preserve">
+    <value>Regras de negocio</value>
+  </data>
+  <data name="&gt;&gt;btn_regra.Name" xml:space="preserve">
+    <value>btn_regra</value>
+  </data>
+  <data name="&gt;&gt;btn_regra.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_regra.Parent" xml:space="preserve">
+    <value>panel_menu</value>
+  </data>
+  <data name="&gt;&gt;btn_regra.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="panel_home.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -1342,6 +1426,9 @@
   </data>
   <data name="panel4.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="panel4.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;panel4.Name" xml:space="preserve">
     <value>panel4</value>
@@ -1730,6 +1817,9 @@
   <data name="panel3.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="panel3.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;panel3.Name" xml:space="preserve">
     <value>panel3</value>
   </data>
@@ -1743,13 +1833,16 @@
     <value>1</value>
   </data>
   <data name="dataGrid_notificacoes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 20</value>
+    <value>66, 20</value>
   </data>
   <data name="dataGrid_notificacoes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1235, 161</value>
+    <value>1172, 161</value>
   </data>
   <data name="dataGrid_notificacoes.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="dataGrid_notificacoes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;dataGrid_notificacoes.Name" xml:space="preserve">
     <value>dataGrid_notificacoes</value>
@@ -1894,6 +1987,9 @@
   </data>
   <data name="panel_administrativo.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
+  </data>
+  <data name="panel_administrativo.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;panel_administrativo.Name" xml:space="preserve">
     <value>panel_administrativo</value>
@@ -2087,6 +2183,18 @@
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="StatusConexao.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 17</value>
+  </data>
+  <data name="StatusConexao.Text" xml:space="preserve">
+    <value>CONECTADO</value>
+  </data>
+  <data name="toolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 17</value>
+  </data>
+  <data name="toolStripStatusLabel1.Text" xml:space="preserve">
+    <value>Sistema pronto</value>
+  </data>
   <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 707</value>
   </data>
@@ -2110,18 +2218,6 @@
   </data>
   <data name="&gt;&gt;statusStrip1.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="StatusConexao.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 17</value>
-  </data>
-  <data name="StatusConexao.Text" xml:space="preserve">
-    <value>CONECTADO</value>
-  </data>
-  <data name="toolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 17</value>
-  </data>
-  <data name="toolStripStatusLabel1.Text" xml:space="preserve">
-    <value>toolStripStatusLabel1</value>
   </data>
   <metadata name="backgroundWorker_InicializaSistema.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>133, 17</value>

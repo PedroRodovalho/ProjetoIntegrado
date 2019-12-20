@@ -226,6 +226,7 @@ namespace AppDesktop
             {
                 masked_data_pagamento.Text = lancamento.Data_lancamento;
             }
+
             combo_banco.Text = banco.Nome + " - " + banco.Cod;
             combo_forma_pagamento.SelectedItem = conta.Forma_pagamento;
             txt_favorecido.Text = favorecido.Nome;
